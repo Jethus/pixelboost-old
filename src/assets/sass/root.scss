@@ -8,10 +8,10 @@
 @media only screen and (min-width: 0em) {
     // Website colors
     :root {
-        --primary: #ffba19;
-        --primaryLight: #ffd675;
-        --secondary: #001f3f;
-        --secondaryLight: #001f3f;
+        --primary: #f1057c;
+        --primaryLight: #d1057c;
+        --secondary: #191964;
+        --secondaryLight: #291964;
         --headerColor: #1a1a1a;
         --bodyTextColor: #4e4b66;
         --bodyTextColorWhite: #fafbfc;
@@ -67,7 +67,7 @@
         padding: 0 calc(30 / 16 * 1rem);
 
         // Transition Properties
-        color: #000;
+        color: #fff;
         background-color: var(--primary);
         display: inline-block;
         position: relative;
