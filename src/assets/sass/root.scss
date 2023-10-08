@@ -6,9 +6,9 @@
 
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
-    // Website colors
+    // Website colors f1057c
     :root {
-        --primary: #f1057c;
+        --primary: #191964;
         --primaryLight: #d1057c;
         --secondary: #191964;
         --secondaryLight: #291964;
@@ -67,7 +67,7 @@
         padding: 0 calc(30 / 16 * 1rem);
 
         // Transition Properties
-        color: #fff;
+        color: #000;
         background-color: var(--primary);
         display: inline-block;
         position: relative;
