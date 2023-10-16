@@ -18,7 +18,7 @@
     }
 
     #cs-contact {
-        font-family: "Roboto", "Arial", sans-serif;
+        font-family: "Open Sans", "Arial", sans-serif;
         padding: var(--sectionPadding);
 
         .cs-container {
@@ -293,6 +293,9 @@
 @media only screen and (min-width: 0em) {
     body.dark-mode {
         #cs-contact {
+            .cs-topper {
+                color: var(--primaryLight)
+            }
             .cs-text,
             .cs-title {
                 color: var(--bodyTextColorWhite);

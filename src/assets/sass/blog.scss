@@ -39,7 +39,6 @@
         display: inline-block;
         position: relative;
         z-index: 1;
-        z-index: 1;
         transition: color 0.3s;
 
         &:before {
@@ -54,7 +53,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1;
             z-index: -1;
             transition: opacity 0.3s;
         }
@@ -335,6 +333,7 @@
         }
 
         .blog-h1 {
+            font-family: var(--interTight);
             font-size: clamp(20px, 5vw, 32px);
             font-weight: 700;
             line-height: 1.4em;
@@ -350,6 +349,7 @@
         }
 
         .blog-link {
+            font-family: var(--interTight);
             font-size: calc(16 / 16 * 1rem);
             font-weight: 700;
             /* 46px - 56px */
@@ -367,7 +367,6 @@
             display: inline-block;
             position: relative;
             z-index: 1;
-            z-index: 1;
             transition: color 0.3s;
 
             &:before {
@@ -382,7 +381,6 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                z-index: -1;
                 z-index: -1;
                 transition: opacity 0.3s;
             }
@@ -435,6 +433,7 @@
             .blog-h1,
             .blog-author,
             .blog-date {
+                font-family: var(--interTight);
                 color: #f7f7f7;
             }
 
@@ -445,6 +444,7 @@
                 h4,
                 h5,
                 h6 {
+                    font-family: var(--interTight);
                     color: #f7f7f7;
                 }
                 p,
@@ -488,6 +488,7 @@
         }
 
         .blog-header {
+            font-family: var(--interTight);
             font-size: calc(20 / 16 * 1em);
             font-weight: bold;
             text-align: center;
@@ -548,6 +549,7 @@
         }
 
         .feature-h3 {
+            font-family: var(--interTight);
             font-size: calc(15 / 16 * 1rem);
             font-weight: 700;
             line-height: 1.5em;
@@ -738,7 +740,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0em) {
     #cs-footer {
-        font-family: "Roboto", "Arial", sans-serif;
+        font-family: "Open Sans", "Arial", sans-serif;
         /* 60px - 100px top and bottom */
         padding: clamp(3.75em, 7.82vw, 6.25em) calc(16 / 16 * 1em);
         background-color: #1a1a1a;

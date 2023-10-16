@@ -6,7 +6,6 @@
 
 /* CodeStitch Root and Helpers */
 @media only screen and (min-width: 0em) {
-    // Website colors f1057c
     :root {
         --primary: #FF7A00;
         --primaryLight: #ff9027;
@@ -24,6 +23,9 @@
 
         /* 60px - 100px top and bottom */
         --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+
+        // Headings font
+        --interTight: "Inter Tight", "Arial", sans-serif;
     }
 
     // Text styles
@@ -38,6 +40,7 @@
     }
 
     .cs-title {
+        font-family: var(--interTight);
         font-size: var(--headerFontSize);
         font-weight: 900;
         line-height: 1.2em;
@@ -56,6 +59,7 @@
 
     // Button - can be replaced using CodeStitch's "Button" Stitches
     .cs-button-solid {
+        font-family: var(--interTight);
         font-size: calc(16 / 16 * 1rem);
         font-weight: bold;
         line-height: calc(50 / 16 * 1em);
@@ -102,46 +106,67 @@
 
 /* Fonts and general styles */
 @media only screen and (min-width: 0em) {
-    // Grab your fonts to locally host from https://google-webfonts-helper.herokuapp.com/fonts
+    // Grab your fonts to locally host from https://gwfh.mranftl.com 
 
-    /* roboto-regular - latin */
-    @font-face {
-        font-style: normal;
-        font-family: "Roboto";
-        font-weight: 400;
-        font-display: swap;
-        src: local(""),
-            url("/assets/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */
-                url("/assets/fonts/roboto-v29-latin-regular.woff")
-                format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-    /* roboto-700 - latin */
-    @font-face {
-        font-style: normal;
-        font-family: "Roboto";
-        font-weight: 700;
-        font-display: swap;
-        src: local(""),
-            url("/assets/fonts/roboto-v29-latin-700.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */
-                url("/assets/fonts/roboto-v29-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-    /* roboto-900 - latin */
-    @font-face {
-        font-style: normal;
-        font-family: "Roboto";
-        font-weight: 900;
-        font-display: swap;
-        src: local(""),
-            url("/assets/fonts/roboto-v29-latin-900.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */
-                url("/assets/fonts/roboto-v29-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
+/* inter-tight-regular - latin */
+@font-face {
+    font-display: swap; 
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+        url('/assets/fonts/inter-tight-v7-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/inter-tight-v7-latin-regular.woff') format('woff') /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */;
+  }
+  
+  /* inter-tight-700 - latin */
+  @font-face {
+    font-display: swap;
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 700;
+    src: local(""),
+        url('/assets/fonts/inter-tight-v7-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/inter-tight-v7-latin-700.woff') format('woff') /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */; 
+  }
+  
+  /* inter-tight-900 - latin */
+  @font-face {
+    font-display: swap;
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 900;
+    src: local(""),
+        url('/assets/fonts/inter-tight-v7-latin-900.woff2') format('woff2'),  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/inter-tight-v7-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */;
+  }
+  
+
+  /* open-sans-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+        url('/assets/fonts/open-sans-v36-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/open-sans-v36-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  
+  /* open-sans-700 - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), 
+        url('/assets/fonts/open-sans-v36-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/open-sans-v36-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
 
     body,
     html {
-        font-family: "Roboto", Arial, sans-serif;
+        font-family: "Open Sans", Arial, sans-serif;
         font-size: 100%;
         margin: 0;
         padding: 0;
@@ -317,7 +342,7 @@
 
     #cs-navigation {
         /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-        font-family: "Roboto", "Arial", sans-serif;
+        font-family: "Open Sans", "Arial", sans-serif;
         width: 100%;
         /* prevents padding from affecting height and width */
         box-sizing: border-box;
@@ -832,7 +857,7 @@
 @media only screen and (min-width: 64rem) {
     #cs-navigation {
         /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-        font-family: "Roboto", "Arial", sans-serif;
+        font-family: "Open Sans", "Arial", sans-serif;
         width: 100%;
         /* prevents padding from affecting height and width */
         box-sizing: border-box;
@@ -1004,6 +1029,7 @@
         }
 
         h1 {
+            font-family: var(--interTight);
             font-size: 64/30rem;
             text-align: center;
             width: 96%;
@@ -1096,6 +1122,7 @@
         }
 
         .title {
+            font-family: var(--interTight);
             font-size: min(9vw, 3rem);
             font-weight: 900;
             line-height: 58/48;
@@ -1275,6 +1302,7 @@
                         }
                     }
                     h2 {
+                        font-family: var(--interTight);
                         font-size: calc(18 / 16 * 1rem);
                         font-weight: bold;
                         line-height: 21/18em;

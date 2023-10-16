@@ -7,7 +7,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0em) {
     #hero {
-        font-family: "Roboto", "Arial", sans-serif;
+        font-family: "Open Sans", "Arial", sans-serif;
         /* Centers button */
         text-align: center;
         /* changes on tablet */
@@ -91,7 +91,7 @@
         .cs-flex-group {
             width: 80vw;
             /* 464px - 562px */
-            max-width: clamp(29em, 60vw, 35.125em);
+            max-width: clamp(29em, 60vw, 36em);
             margin: auto;
             /* 60px - 220px */
             margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
@@ -130,6 +130,7 @@
         }
 
         .cs-button-transparent {
+            font-family: var(--interTight);
             font-size: calc(16 / 16 * 1rem);
             font-weight: 700;
             /* 46px - 56px */
@@ -291,6 +292,7 @@
                 }
             }
             h2 {
+                font-family: var(--interTight);
                 font-size: calc(32 / 16 * 1em);
                 font-weight: 700;
                 line-height: calc(27/20em * 1em);
