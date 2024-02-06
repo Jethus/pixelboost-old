@@ -1,0 +1,313 @@
+/*-- -------------------------- -->
+<---        Core Styles         -->
+<--- -------------------------- -*/
+// Base/root style sheet
+@use 'vars.scss';
+
+h1 {
+    font-size: vars.$h1-font-size;
+}
+
+h2 {
+    font-size: vars.$h2-font-size;
+}
+
+h3 {
+    font-size: vars.$h3-font-size;
+}
+
+h4 {
+    font-size: vars.$h4-font-size;
+}
+
+h5 {
+    font-size: vars.$h5-font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @include vars.header-style;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:not([class*='btn']) {
+    @include vars.link-style(vars.$brand-secondary);
+}
+
+
+
+// Text styles
+.topper {
+    font-size: vars.$topper-font-size;
+    font-weight: vars.$bold-weight;
+    line-height: vars.$line-height-small;
+    text-transform: uppercase;
+    letter-spacing: vars.$letter-spacing-wide;
+    color: vars.$brand-secondary;
+    display: block;
+}
+
+.flex-group-col {
+    @include vars.flex-group-col;
+    flex: 1;
+}
+
+.flex-group-row {
+    @include vars.flex-group-row;
+}
+
+.btn-solid {
+    @include vars.btn-solid;
+}
+
+.btn-line {
+    @include vars.btn-line;
+}
+
+.btn-yellow {
+    @include vars.btn-yellow;
+}
+
+/* Fonts and general styles */
+@include vars.mobile {
+
+    // /* inter-tight-regular - latin */
+    // @font-face {
+    //     font-display: swap;
+    //     font-family: 'Inter Tight';
+    //     font-style: normal;
+    //     font-weight: 400;
+    //     src: local(""),
+    //         url('/assets/fonts/inter-tight-v7-latin-regular.woff2') format('woff2'),
+    //         /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    //         url('/assets/fonts/inter-tight-v7-latin-regular.woff') format('woff')
+    //         /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    //     ;
+    // }
+
+    /* inter-tight-700 - latin */
+    @font-face {
+        font-display: swap;
+        font-family: 'Inter Tight';
+        font-style: normal;
+        font-weight: 700;
+        src: local(""),
+            url('/assets/fonts/inter-tight-v7-latin-700.woff2') format('woff2'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/inter-tight-v7-latin-700.woff') format('woff')
+            /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        ;
+    }
+
+    /* inter-tight-900 - latin */
+    @font-face {
+        font-display: swap;
+        font-family: 'Inter Tight';
+        font-style: normal;
+        font-weight: 900;
+        src: local(""),
+            url('/assets/fonts/inter-tight-v7-latin-900.woff2') format('woff2'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/inter-tight-v7-latin-900.woff') format('woff');
+        /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        ;
+    }
+
+
+    /* open-sans-regular - latin */
+    @font-face {
+        font-display: swap;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local(""),
+            url('/assets/fonts/open-sans-v36-latin-regular.woff2') format('woff2'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/open-sans-v36-latin-regular.woff') format('woff');
+        /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* open-sans-700 - latin */
+    @font-face {
+        font-display: swap;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: local(""),
+            url('/assets/fonts/open-sans-v36-latin-700.woff2') format('woff2'),
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url('/assets/fonts/open-sans-v36-latin-700.woff') format('woff');
+        /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    body,
+    html {
+        @include vars.body-style;
+        margin: 0;
+        padding: 0;
+        color: vars.$dark;
+    }
+
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+        transition: vars.$transition-default;
+    }
+
+    #header,
+    section {
+        border: 1px solid vars.$dark;
+        padding: vars.$spacing-large vars.$spacing-medium;
+    }
+
+    .container {
+        max-width: vars.$content-width;
+        width: 92%;
+        margin: auto;
+        position: relative;
+        @include vars.flex-group-row;
+    }
+
+    // Hidden Screen reader skip nav btn
+    .skip {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -999;
+    }
+
+    picture {
+        flex: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            /* makes image act like a background image */
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            border-radius: vars.$border-radius-medium;
+        }
+    }
+}
+
+@include vars.mobile {
+    #cta {
+        background-color: vars.$acc-mint;
+
+
+        .flex-group-col {
+            align-items: flex-start;
+
+            .title {
+                font-size: vars.$extra-spicy-font-size;
+            }
+        }
+
+    }
+
+    #footer {
+        background-color: vars.$dark;
+        color: vars.$light;
+
+        .flex-group-col {
+            a {
+                @include vars.link-style(vars.$light);
+            }
+
+            .container {
+                padding: vars.$spacing-large;
+                justify-content: space-between;
+
+                .left-section {
+                    flex: 1.5;
+
+                    .logo {
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+
+                    }
+                }
+
+                .right-section {
+                    display: flex;
+                    flex: 2;
+                    gap: vars.$spacing-large;
+                    justify-content: flex-end;
+                }
+            }
+
+            .credit {
+                width: 100%;
+                border-top: 1px solid vars.$light;
+                @include vars.flex-group-row;
+                justify-content: center;
+                gap: vars.$spacing-small;
+                padding: vars.$spacing-small;
+            }
+        }
+    }
+}
+
+/* Scale full website with the viewport width */
+@media only screen and (min-width: 2000px) {
+
+    body,
+    html {
+        font-size: 0.85vw;
+    }
+}
+
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {}
+
+/*-- -------------------------- -->
+<---     Navigation Dropdown    -->
+<--- -------------------------- -*/
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {}
+
+/*-- -------------------------- -->
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {}
+
+/*-- -------------------------- -->
+<---   Interior Page Header     -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {}
+
+/*-- -------------------------- -->
+<---    Final Call To Action    -->
+<--- -------------------------- -*/

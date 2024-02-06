@@ -1,0 +1,52 @@
+/*-- -------------------------- -->
+<---       Landing Page         -->
+<--- -------------------------- -*/
+// Landing styles
+@use 'vars.scss';
+
+@include vars.mobile {
+
+    #portfolio {
+        background-color: vars.$acc-gray;
+    }
+
+    #pricing {
+        background-color: vars.$acc-pink;
+
+        .container {
+            flex-direction: column;
+
+            .flex-group-col {
+                max-width: clamp(36rem, 30vw, 40rem);
+                align-self: flex-start;
+                align-items: flex-start;
+
+                .title {
+                    font-size: vars.$spicy-font-size;
+                }
+
+            }
+
+            .grid-group {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: vars.$spacing-medium;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgba(vars.$light, .5);
+                    gap: vars.$spacing-small;
+                    padding: vars.$spacing-semi-medium vars.$spacing-medium;
+                    border-radius: vars.$border-radius-medium;
+                    @include vars.border-style(vars.$dark);
+
+                    .flex-group-row {
+                        justify-content: flex-start;
+                        gap: vars.$spacing-medium;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,76 +1,144 @@
 ---
-title: 'About'
-description: 'Meta description for the page'
-preloadImg: '/assets/images/cabinets2.jpg'
-permalink: 'about/'
+title: "About"
+description: "Meta description for the page"
+preloadImg: "/assets/images/cabinets2.jpg"
+permalink: "about/"
 eleventyNavigation:
-    key: About Us
-    order: 200
+  key: About Us
+  order: 200
 ---
 
-{% extends "layouts/base.html" %}
+{% extends "layouts/base.html" %} {% block head %} {% endblock %} {% block body
+%}
+<!-- ============================================ -->
+<!--                    Landing                   -->
+<!-- ============================================ -->
 
-{% block head %}
-    <link rel="stylesheet" href="/assets/css/about.css">
-{% endblock %}
+<section id="about">
+  <div class="container">
+    <picture>
+      <source
+        media="(max-width: 600px)"
+        srcset="/assets/images/cabinets2-m.jpg"
+      />
+      <source
+        media="(min-width: 601px)"
+        srcset="/assets/images/cabinets2.jpg"
+      />
+      <img
+        aria-hidden="true"
+        decoding="async"
+        src="/assets/images/cabinets2.jpg"
+        alt="kitchen cabinets"
+        loading="eager"
+        width="2500"
+        height="1667"
+      />
+    </picture>
+    <div class="flex-group">
+      <p class="topper">About Pixelboost</p>
+      <h1 class="title">Reimagining Web Design for Small Businesses</h1>
+      <p>
+        Hey, my name is Josh D, and I started pixelboost with a clear mission:
+        to change the game for small businesses seeking high-quality web design.
+      </p>
+      <p>
+        I’m not only committed to making services affordable, but also to
+        building lasting partnerships where quality is assured. You deserve a
+        website that’s swift, seamless, and a true extension of your brand,
+        without the strain on your resources.
+      </p>
+      <p>
+        Let’s navigate the web design journey together, with transparent pricing
+        and a commitment to excellence that puts your business first.
+      </p>
+    </div>
+  </div>
+</section>
 
-{% block body %}
-    <!-- ============================================ -->
-    <!--                    LANDING                   -->
-    <!-- ============================================ -->
+<!-- ============================================ -->
+<!--                Why Choose Us                 -->
+<!-- ============================================ -->
 
-    <section id="int-hero">
-        <h1 id="home-h">About Us</h1>
-        <picture>
-            <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-            <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-            <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="kitchen cabinets" loading="eager" width="2500" height="1667">
-        </picture>
-
-    </section>
-
-    <!-- ============================================ -->
-    <!--                 Side By Side                 -->
-    <!-- ============================================ -->
-
-    <section id="sbs">
-        <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-left">
-                <picture class="cs-picture cs-picture1">
-                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-                    <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-                    <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="cabinets" loading="lazy" width="400" height="563">
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <source media="(max-width: 600px)" srcset="/assets/images/construction-m.jpg">
-                    <source media="(min-width: 601px)" srcset="/assets/images/construction.jpg">
-                    <img aria-hidden="true" decoding="async" src="/assets/images/construction.jpg" alt="house" loading="lazy" width="400" height="563">
-                </picture>
-            </div>
-            <!-- Right Content Section-->
-            <div class="cs-right">
-                <span class="cs-topper">About Us</span>
-                <h2 class="cs-title">About Company Title</h2>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <div class="cs-flex-group">
-                    <p class="cs-flex-p">
-                        In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
-                    </p>
-                    <span class="cs-name">Justin Time</span>
-                    <span class="cs-job">CEO-Founder</span>
-                    <img class="cs-quote-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg" alt="gavel" width="136" height="77">
-                </div>
-                <a href="/projects" class="cs-button-solid">Our Projects</a>
-            </div>
+<section id="why-choose-us">
+  <div class="container">
+    <div class="flex-group">
+      <p class="topper">Why choose us?</p>
+      <h2 class="title">What makes us unique</h2>
+      <div class="flex-group">
+        <div class="card">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="./assets/svgs/content.svg"
+            alt=""
+            width="80"
+            height="80"
+          />
+          <h3>Content tailored for your brand</h3>
+          <p>
+            Crafting bespoke narratives that celebrate your brand's
+            individuality. Your business's story is distinct—let's tell it in a
+            way that captivates and connects.
+          </p>
         </div>
-    </section>
+        <div class="card">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="./assets/svgs/personalized.svg"
+            alt=""
+            width="80"
+            height="80"
+          />
+          <h3>Personalized support, directly from the source</h3>
+          <p>
+            Experience the warmth of human connection in customer service. Have
+            a question or need a hand? I'm here, ready to assist—not an
+            automated response, but the person who knows your project inside
+            out.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="./assets/svgs/designs.svg"
+            alt=""
+            width="80"
+            height="80"
+          />
+          <h3>Design which echo your vision</h3>
+          <p>
+            Your vision is our blueprint. We bring flexibility to design,
+            ensuring every element is a reflection of your brand's personality
+            and ambition. Customization without constraints, for a digital space
+            that's unequivocally yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    {% include 'components/cta.html' %}
+<!-- ============================================ -->
+<!--                 What else?                   -->
+<!-- ============================================ -->
 
-{% endblock %}
+<section id="what-else">
+  <div class="container">
+    <div class="flex-group">
+      <p class="topper">What else do you do?</p>
+      <h2 class="title">Our capabilities</h2>
+      <div class="flex-group">
+        <button>Web Development</button>
+        <button>Web Design</button>
+        <button>Search Engine Optimization</button>
+        <button>Branding</button>
+        <button>Print Design</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/cta.html" %} {% endblock %}

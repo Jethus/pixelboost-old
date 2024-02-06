@@ -1,5 +1,5 @@
 {
-  "name": "pixelboost",
+  "name": "Pixelboost",
   "email": "josh@pixelboost.ca",
   "phoneForTel": "905-781-2464",
   "phoneFormatted": "(905) 781-2464",
@@ -11,5 +11,7 @@
     "postalCode": "L1N",
     "mapLink": ""
   },
-  "domain": "pixelboost.ca"
+  "domain": "pixelboost.ca",
+  "tag": "Expert Web Design & Development",
+  "description": "Discover Pixel Boost, a Whitby-based web development and design agency specializing in creating high-performance websites for small businesses. Elevate your online presence with our affordable, effective solutions tailored to your unique needs."
 }

@@ -1,0 +1,134 @@
+---
+title: "Services"
+description: "meta description"
+preloadImg: "webdesign/image"
+permalink: "services/"
+---
+
+{% extends "layouts/base.html" %} {% block head %}
+<link rel="stylesheet" href="" />
+{% endblock %} {% block body %}
+
+<!-- ============================================ -->
+<!--                    Landing                   -->
+<!-- ============================================ -->
+
+<section id="services">
+  <div class="container">
+    <div class="flex-group">
+      <p class="topper">Our Services</p>
+      <h1 class="title">Find the perfect solution for your business</h1>
+      <p>
+        Whether you're an established brand or are just starting out, we'd love
+        to hear from you and learn about your business.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--                   Services                   -->
+<!-- ============================================ -->
+
+<section id="web-design">
+  <div class="container">
+    <div class="flex-group">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/landing-m.webp"
+        />
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/landing.jpg"
+        />
+        <img
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/images/landing.jpg"
+          alt="new home"
+          width="2500"
+          height="1667"
+          loading="eager"
+        />
+      </picture>
+      <p class="topper">Responsive</p>
+      <h2 class="title">Web Design</h2>
+      <p>
+        Crafting pixel-perfect websites tailored to your business needs.
+        Experience fast, responsive designs that captivate and convert.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="web-dev">
+  <div class="container">
+    <div class="flex-group">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/landing-m.webp"
+        />
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/landing.jpg"
+        />
+        <img
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/images/landing.jpg"
+          alt="new home"
+          width="2500"
+          height="1667"
+          loading="eager"
+        />
+      </picture>
+      <p class="topper">Custom</p>
+      <h2 class="title">Web Development</h2>
+      <p>
+        Unleash the full potential of your brand with our professional web
+        development services. Tailored to small businesses, we build stunning,
+        high-performance websites that are customized for optimal user
+        experience and designed to elevate your online presence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="branding">
+  <div class="container">
+    <div class="flex-group">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/landing-m.webp"
+        />
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/landing.jpg"
+        />
+        <img
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/images/landing.jpg"
+          alt="new home"
+          width="2500"
+          height="1667"
+          loading="eager"
+        />
+      </picture>
+      <p class="topper">Professional</p>
+      <h2 class="title">Branding</h2>
+      <p>
+        Creating a memorable brand identity with our expert branding services.
+        We specialize in making impactful, visually compelling brand strategies
+        that resonate with your target audience, differentiate you from the
+        competition, and foster brand loyalty.
+      </p>
+      <button>Learn more</button>
+    </div>
+  </div>
+</section>
+
+{% include "components/cta.html" %} {% endblock %}

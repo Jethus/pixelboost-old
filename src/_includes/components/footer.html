@@ -3,69 +3,61 @@
 <!-- ============================================ -->
 
 <footer id="footer">
+  <div class="flex-group-col">
     <div class="container">
-        <div class="left-section">
-            <a class="logo" href="/"><img loading="lazy" decoding="async" src="/assets/svgs/logo-white-RGB.svg" alt="logo" width="264" height="78"></a>
-        </div>
-        <div class="right-section">
-            <div class="lists">
-                <ul>
-                    <li>
-                        <h2>Information</h2>
-                    </li>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/about">About Us</a>
-                    </li>
-                    <li>
-                        <a href="/projects">Projects</a>
-                    </li>
-                    <li>
-                        <a href="/reviews">Reviews</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h2>Services</h2>
-                    </li>
-                    <li>Service1</li>
-                    <li>Service2</li>
-                    <li>Service3</li>
-                    <li>Service4</li>
-                    <li>Service5</li>
-                </ul>
-                <ul>
-                    <li>
-                        <h2>Contact</h2>
-                    </li>
-                    <li>
-                        <a href="/contact">
-                            Toronto
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:{{client.phoneForTel}}">
-                            T:
-                            {{client.phoneFormatted}}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:{{client.email}}">Click to Email</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+      <div class="left-section">
+        <a href="/" class="logo" aria-label="back to home">
+          <img
+            src="/assets/svgs/logo-rgb.svg"
+            alt="logo"
+            width="300"
+            height="41"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+      </div>
+      <div class="right-section">
+        <ul>
+          <li>
+            <h5>Send us a message</h5>
+          </li>
+          <li>
+            <a href="tel:{{client.phoneForTel}}"
+              >T: {{client.phoneFormatted}}</a
+            >
+          </li>
+          <li><a href="mailto:{{client.email}}}">E: {{client.email}}</a></li>
+        </ul>
+        <ul>
+          <li>
+            <h5>Agency</h5>
+          </li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/portfolio">Our Work</a></li>
+          <li><a href="/process">Our Process</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/insights">Insights</a></li>
+        </ul>
+        <ul>
+          <li>
+            <h5>Services</h5>
+          </li>
+          <li><a href="/web-development">Web Development</a></li>
+          <li><a href="/web-design">Web Design</a></li>
+          <li><a href="/branding">Branding</a></li>
+          <li><a href="/print">Print Design</a></li>
+          <li><a href="/seo">SEO</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="credit">
-        <span>Designed and Hand Coded by</span>
-        <a href="/" target="_blank" rel="noopener">pixelboost</a>
-        <span class="copyright">
-            Copyright 2023 - Present</span>
+      <p>
+        Copyright ©2024
+        <a href="/" target="_blank" rel="noopener">Pixelboost</a>. All rights
+        reserved
+      </p>
     </div>
+  </div>
 </footer>

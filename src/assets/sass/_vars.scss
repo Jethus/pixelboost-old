@@ -1,0 +1,210 @@
+/*-- -------------------------- -->
+<---       SCSS Variables       -->
+<--- -------------------------- -*/
+// SCSS variables/mixins/functions
+$brand-primary: #F26722;
+$brand-secondary: #051F3B;
+$acc-yellow: #FEC010;
+$acc-lightblue: #B9E5FB;
+$acc-gray: #E6E6E6;
+$acc-cream: #FFF4E4;
+$acc-pink: #FBB9B9;
+$acc-mint: #8EFAB4;
+$acc-purple: #E2BDFF;
+$dark: #000;
+$light: #fff;
+
+/* 13px - 16px */
+$topper-font-size: clamp(0.8125rem, 1.6vw, 1rem);
+$h1-font-size: clamp(2.5rem, 5vw, 3.5rem); // 40-56px
+$h2-font-size: clamp(2rem, 4vw, 3rem); // 32-48px
+$h3-font-size: clamp(1.5rem, 3vw, 2rem); // 24-32px
+$h4-font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-28px
+$h5-font-size: clamp(1rem, 2vw, 1rem); // 16-24px
+$body-font-size: 1rem;
+$spicy-font-size: clamp(3rem, 6vw, 4rem);
+$extra-spicy-font-size: clamp(5rem, 10vw, 10rem);
+
+/* 60px - 100px top and bottom */
+$container-padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+
+// Headings font
+$header-font: "Inter Tight", "Arial", sans-serif;
+// Body font
+$body-font: "Open Sans", "Arial", sans-serif;
+
+// Font adjustments
+$line-height-small: 1.2;
+$line-height-normal: 1.6;
+$letter-spacing-wide: 0.05em;
+
+// Font weights
+$regular-weight: 400;
+$bold-weight: 700;
+$black-weight: 900;
+
+// Breakpoints
+$mobile: 0em;
+$tablet: 48em;
+$sm-desktop: 64em;
+
+// Content width
+$content-width: 80em;
+
+// Spacing
+$spacing-small: 0.5rem;
+$spacing-semi-medium: 0.75rem;
+$spacing-medium: 1rem;
+$spacing-semi-large: 1.5rem;
+$spacing-large: 2rem;
+
+// Border radius
+$border-radius-small: .25rem;
+$border-radius-medium: .5rem;
+$border-radius-large: .75rem;
+
+// Transition
+$transition-default: all 0.12s ease-in-out;
+
+
+// Mixins for responsive design
+@mixin mobile {
+    @media only screen and (min-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin sm-desktop {
+    @media only screen and (min-width: $sm-desktop) {
+        @content;
+    }
+}
+
+@mixin header-style {
+    font-family: $header-font;
+    line-height: $line-height-small;
+    font-weight: $black-weight;
+}
+
+@mixin body-style {
+    font-family: $body-font;
+    line-height: $line-height-normal;
+}
+
+@mixin border-style($colour) {
+    border: 2px solid $colour;
+}
+
+@mixin focus-style($colour) {
+    outline: 3px solid $colour;
+    outline-offset: 3px;
+}
+
+@mixin link-style($colour) {
+    color: $colour;
+
+    &:hover {
+        color: $brand-primary;
+    }
+}
+
+// Flexbox
+@mixin flex-group-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-large;
+}
+
+@mixin flex-group-col {
+    @include flex-group-row;
+    gap: $spacing-medium;
+    flex-direction: column;
+}
+
+// btn styles
+
+@mixin drop-shadow {
+    box-shadow: .25rem .25rem 0 0 $dark;
+}
+
+@mixin btn-press-effect($colour) {
+    transform: scale(.95);
+    background-color: darken($colour, 5%);
+}
+
+@mixin btn-base {
+    @include header-style;
+    font-weight: $bold-weight;
+    padding: $spacing-small $spacing-medium;
+    border-radius: $border-radius-medium;
+    transition: $transition-default;
+
+    &:hover {
+        @include drop-shadow;
+        cursor: pointer;
+    }
+}
+
+@mixin btn-solid {
+    @include btn-base;
+    color: $light;
+    background-color: $dark;
+    @include border-style($dark);
+
+    &:active {
+        @include btn-press-effect($dark);
+    }
+
+    &:hover {
+        @include border-style($light);
+    }
+
+    &:focus {
+        @include focus-style($dark);
+    }
+}
+
+@mixin btn-line {
+    @include btn-base;
+    color: $dark;
+    background-color: transparent;
+    @include border-style($dark);
+
+    &:active {
+        @include btn-press-effect(transparent);
+    }
+
+    &:hover {
+        @include border-style($dark);
+    }
+
+    &:focus {
+        @include focus-style($dark);
+    }
+}
+
+@mixin btn-yellow {
+    @include btn-base;
+    color: $dark;
+    background-color: $acc-yellow;
+    @include border-style($dark);
+
+    &:active {
+        @include btn-press-effect($acc-yellow);
+    }
+
+    &:hover {
+        @include border-style($dark);
+    }
+
+    &:focus {
+        @include focus-style($dark);
+    }
+}

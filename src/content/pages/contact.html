@@ -1,95 +1,103 @@
 ---
-title: 'Contact'
-description: 'Meta description for the page'
-preloadImg: '/assets/images/cabinets2.jpg'
-permalink: 'contact/'
+title: "Contact"
+description: "Meta description for the page"
+preloadImg: "/assets/images/cabinets2.jpg"
+permalink: "contact/"
 ---
 
-{% extends "layouts/base.html" %}
+{% extends "layouts/base.html" %} {% block head %}
+<link rel="stylesheet" href="" />
+{% endblock %} {% block body %}
 
-{% block head %}
-    <link rel="stylesheet" href="/assets/css/contact.css">
-{% endblock %}
+<!-- ============================================ -->
+<!--                    LANDING                   -->
+<!-- ============================================ -->
 
-{% block body %}
+<section id="contact">
+  <div class="container">
+    <div class="flex-group">
+      <p class="topper">Contact Us</p>
+      <h1 class="title">Let us work together</h1>
+      <p>
+        Whether you're an established brand or are just starting out, we'd love
+        to hear from you and learn about your business.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- ============================================ -->
-    <!--                    LANDING                   -->
-    <!-- ============================================ -->
+<!-- ============================================ -->
+<!--                Get in Touch                  -->
+<!-- ============================================ -->
 
-    <section id="int-hero">
-        <h1 id="home-h">Contact Us</h1>
-        <picture>
-            <source media="(max-width: 600px)" srcset="/assets/images/cabinets2-m.jpg">
-            <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg">
-            <img aria-hidden="true" decoding="async" src="/assets/images/cabinets2.jpg" alt="kitchen cabinets" loading="eager" width="2500" height="1667">
-        </picture>
-    </section>
-
-    <!-- ============================================ -->
-    <!--                Contact Form                  -->
-    <!-- ============================================ -->
-
-    <section id="cs-contact">
-        <div class="cs-container">
-            <form id="cs-form" name="Contact Form" method="post" data-netlify="true">
-                <div class="cs-content">
-                    <span class="cs-topper">Contact</span>
-                    <h2 class="cs-title">Get in Touch</h2>
-                    <p class="cs-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus elementum ullamcorper ipsum porttitor aliquam. Id magna urna ultrices odio pulvinar. Sed ut.
-                    </p>
-                </div>
-                <label>
-                    Name
-                    <input required type="text" id="name" name="name" placeholder="Name">
-                </label>
-                <label>
-                    Email
-                    <input required type="text" id="email" name="email" placeholder="Email">
-                </label>
-                <label>
-                    Phone
-                    <input required type="text" id="phone" name="phone" placeholder="Phone">
-                </label>
-                <label>
-                    How Did You Find Us
-                    <input type="text" id="find" name="find-us" placeholder="How did you find us?">
-                </label>
-                <label class="cs-label-message">
-                    Message
-                    <textarea required name="Message" id="message" placeholder="Write message..."></textarea>
-                </label>
-                <button class="cs-button-solid" type="submit">Submit Message</button>
-            </form>
-            <div class="cs-right-section">
-                <!--Email-->
-                <span class="cs-header">Email</span>
-                <a class="cs-link" href="mailto:{{client.email}}">{{client.email}}</a>
-                <!--Phone-->
-                <span class="cs-header">Phone</span>
-                <a class="cs-link" href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>
-                <!--Address-->
-                <span class="cs-header">Address</span>
-                <a class="cs-link" href="{{client.address.mapLink}}">
-                    {{client.address.lineOne}},
-                    <br />
-                    {{client.address.lineTwo}},
-                    <br />
-                    <span class="cs-block">
-                        {{client.address.city}}
-                        {{client.address.state}}
-                        {{client.address.zip}}
-                    </span>
-                </a>
-
-                <!-- Background Image-->
-                <picture class="cs-bg-picture">
-                    <source media="(min-width: 601px)" srcset="/assets/images/skyscraper.jpg">
-                    <img aria-hidden="true" decoding="async" src="/assets/images/skyscraper.jpg" alt="building" loading="lazy" width="2500" height="1667">
-                </picture>
-
-            </div>
-        </div>
-    </section>
+<section id="get-in-touch">
+  <div class="container">
+    <form
+      id="contact-form"
+      name="Contact Form"
+      method="post"
+      data-netlify="true"
+    >
+      <p class="topper">Tell us about your project</p>
+      <h2 class="title">Get in Touch</h2>
+      <label>
+        Full Name
+        <input
+          required
+          type="text"
+          id="name"
+          name="name"
+          placeholder="John Doe"
+        />
+      </label>
+      <label>
+        Company Name
+        <input
+          type="text"
+          id="company-name"
+          name="company-name"
+          placeholder="Microsoft"
+        />
+      </label>
+      <label>
+        Email
+        <input
+          required
+          type="text"
+          id="email"
+          name="email"
+          placeholder="jdoe@gmail.com"
+        />
+      </label>
+      <label>
+        How Did You Find Us
+        <input
+          type="text"
+          id="find"
+          name="find-us"
+          placeholder="How did you find us?"
+        />
+      </label>
+      <label class="project-description">
+        Project Description
+        <textarea
+          required
+          name="description"
+          id="description"
+          placeholder="Tell us about your project..."
+        ></textarea>
+      </label>
+      <button class="button-solid" type="submit">Send your inquiry</button>
+    </form>
+    <p>or, if you prefer to contact me directly:</p>
+    <p>
+      <b>email: </b>
+      <a href="mailto:{{client.email}}">{{client.email}}</a>
+    </p>
+    <p>
+      <b>phone: </b>
+      <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>
+    </p>
+  </div>
+</section>
 {% endblock %}
