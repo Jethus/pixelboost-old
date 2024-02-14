@@ -4,12 +4,103 @@
 // Landing styles
 @use 'vars.scss';
 
+@keyframes bounceArrow {
+
+    0%,
+    100% {
+        transform: translateX(0) scale(1);
+    }
+
+    50% {
+        transform: translateX(8px) scale(1.1);
+    }
+}
+
 @include vars.mobile {
 
     #portfolio {
-        background-color: vars.$acc-gray;
-    }
+        background-color: vars.$acc-cream;
 
+        .grid-group {
+            grid-template-columns: 1fr;
+
+            .flex-group-col {
+                justify-content: flex-start;
+            }
+
+            .colour-block {
+                width: 100%;
+                height: 120px;
+                background-color: vars.$acc-purple;
+                @include vars.border-style(vars.$dark);
+                border-radius: vars.$border-radius-medium;
+            }
+
+            a {
+                position: relative;
+                display: block;
+
+                img {
+                    @include vars.border-style(vars.$dark);
+                    object-fit: cover;
+                }
+
+                .details-hover {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(vars.$dark, .65);
+                    color: vars.$light;
+                    opacity: 0;
+                    border-radius: vars.$border-radius-medium;
+                    justify-content: center;
+                    gap: vars.$spacing-small;
+                    transition: vars.$transition-default;
+
+
+                    .topper {
+                        color: vars.$light;
+                    }
+
+                    .title {
+                        margin-bottom: vars.$spacing-medium;
+                    }
+
+                    .cta {
+                        display: inline-block;
+                        font-size: vars.$h3-font-size;
+                        font-family: vars.$header-font;
+                        color: vars.$brand-primary;
+
+                        span {
+                            display: inline-block;
+                            margin-left: vars.$spacing-small;
+                            animation: bounceArrow 2s ease infinite;
+
+                        }
+                    }
+
+                    &:hover,
+                    &:focus {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include vars.tablet {
+    #portfolio {
+        .grid-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@include vars.mobile {
     #pricing {
         background-color: vars.$acc-pink;
 
@@ -28,9 +119,7 @@
             }
 
             .grid-group {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: vars.$spacing-medium;
+                grid-template-columns: 1fr;
 
                 .card {
                     display: flex;
@@ -43,7 +132,41 @@
 
                     .flex-group-row {
                         justify-content: flex-start;
+                        flex-direction: row;
                         gap: vars.$spacing-medium;
+
+                        img {
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include vars.tablet {
+    #pricing {
+        .container {
+
+            .grid-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@include vars.sm-desktop {
+    #pricing {
+        .container {
+            .grid-group {
+                .card {
+                    .flex-group-row {
+                        img {
+                            width: 48px;
+                            height: 48px;
+                        }
                     }
                 }
             }

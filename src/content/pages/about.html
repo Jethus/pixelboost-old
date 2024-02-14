@@ -1,7 +1,7 @@
 ---
-title: "About"
+title: "About Us"
 description: "Meta description for the page"
-preloadImg: "/assets/images/cabinets2.jpg"
+preloadImg: ""
 permalink: "about/"
 eleventyNavigation:
   key: About Us
@@ -10,6 +10,8 @@ eleventyNavigation:
 
 {% extends "layouts/base.html" %} {% block head %} {% endblock %} {% block body
 %}
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/critical.css" />
 <!-- ============================================ -->
 <!--                    Landing                   -->
 <!-- ============================================ -->
@@ -17,18 +19,12 @@ eleventyNavigation:
 <section id="about">
   <div class="container">
     <picture>
-      <source
-        media="(max-width: 600px)"
-        srcset="/assets/images/cabinets2-m.jpg"
-      />
-      <source
-        media="(min-width: 601px)"
-        srcset="/assets/images/cabinets2.jpg"
-      />
+      <source media="(max-width: 600px)" srcset="" />
+      <source media="(min-width: 601px)" srcset="" />
       <img
         aria-hidden="true"
         decoding="async"
-        src="/assets/images/cabinets2.jpg"
+        src=""
         alt="kitchen cabinets"
         loading="eager"
         width="2500"
@@ -70,7 +66,7 @@ eleventyNavigation:
           <img
             loading="lazy"
             decoding="async"
-            src="./assets/svgs/content.svg"
+            src=""
             alt=""
             width="80"
             height="80"
@@ -86,7 +82,7 @@ eleventyNavigation:
           <img
             loading="lazy"
             decoding="async"
-            src="./assets/svgs/personalized.svg"
+            src=""
             alt=""
             width="80"
             height="80"
@@ -103,7 +99,7 @@ eleventyNavigation:
           <img
             loading="lazy"
             decoding="async"
-            src="./assets/svgs/designs.svg"
+            src=""
             alt=""
             width="80"
             height="80"

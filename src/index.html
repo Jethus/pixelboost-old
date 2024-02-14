@@ -3,7 +3,7 @@ title: "Pixelboost | Expert Web Design & Development | Whitby, ON"
 description: "At Pixel Boost, we specialize in crafting bespoke, high-performance websites for small businesses in
 Whitby. Our web development and design solutions are tailored to elevate your digital footprint affordably and
 effectively."
-preloadImg: "/assets/images/landing.jpg"
+preloadImg: "/assets/images/hero.webp"
 permalink: "/"
 eleventyNavigation:
 key: Home
@@ -49,18 +49,12 @@ order: 100
         <a href="/contact" class="btn-solid">Contact Us</a>
       </div>
       <picture>
-        <source
-          media="(max-width: 600px)"
-          srcset="/assets/images/landing-m.webp"
-        />
-        <source
-          media="(min-width: 601px)"
-          srcset="/assets/images/landing.jpg"
-        />
+        <source media="(max-width: 600px)" srcset="/assets/images/hero.webp" />
+        <source media="(min-width: 601px)" srcset="/assets/images/hero.webp" />
         <img
           aria-hidden="true"
           decoding="async"
-          src="/assets/images/landing.jpg"
+          src="/assets/images/hero.webp"
           alt="new home"
           width="2500"
           height="1667"
@@ -157,76 +151,98 @@ order: 100
   <div class="container">
     <div class="flex-group-col">
       <p class="topper">Our Work</p>
-      <h2 class="title">See how we've helped our clients</h2>
-      <div class="flex-group-row">
-        <div class="card">
-          <picture>
-            <source media="(max-width: 600px)" srcset="" />
-            <source media="(min-width: 601px)" srcset="" />
-            <img
-              aria-hidden="true"
-              decoding="async"
-              src=""
-              alt=""
-              loading="lazy"
-              width="300"
-              height="100"
-            />
-          </picture>
-          <div class="flex-group-col">
-            <p class="sub-topper">Toronto</p>
-            <h3 class="sub-title">Whoever</h3>
-            <p>
-              Discover how we helped this law firm amplify their brand through
-              an impactful site redesign.
-            </p>
-          </div>
+      <h2 class="title">See the clients we've helped out</h2>
+      <div class="grid-group">
+        <div class="flex-group-col">
+          <a href="https://help.oct.ca/hc/en-us" target="_blank">
+            <div class="details-hover flex-group-col">
+              <p class="topper">Education | Regulator | Government</p>
+              <h3 class="title">Ontario College of Teachers</h3>
+              <p class="cta">Explore<span>-></span></p>
+            </div>
+            <picture>
+              <source media="(max-width: 600px)" srcset="" />
+              <source media="(min-width: 601px)" srcset="" />
+              <img
+                aria-hidden="true"
+                decoding="async"
+                src="assets/images/portfolio/oct-website.png"
+                alt=""
+                loading="lazy"
+                width="100%"
+                height="100%"
+              />
+            </picture>
+          </a>
+          <a href="https://www.csafarmdurhamkawartha.com/" target="_blank">
+            <div class="details-hover flex-group-col">
+              <p class="topper">Farm | CSA | Food</p>
+              <h3 class="title">CSA Lunar Rhythm Garden</h3>
+              <p class="cta">Explore<span>-></span></p>
+            </div>
+            <picture>
+              <source media="(max-width: 600px)" srcset="" />
+              <source media="(min-width: 601px)" srcset="" />
+              <img
+                aria-hidden="true"
+                decoding="async"
+                src="assets/images/portfolio/csa-website.png"
+                alt=""
+                loading="lazy"
+                width="100%"
+                height="100%"
+              />
+            </picture>
+          </a>
+
+          <div class="colour-block"></div>
+          <a href="">
+            <picture>
+              <source media="(max-width: 600px)" srcset="" />
+              <source media="(min-width: 601px)" srcset="" />
+              <img
+                aria-hidden="true"
+                decoding="async"
+                src="assets/images/portfolio/csa-website.png"
+                alt=""
+                loading="lazy"
+                width="100%"
+                height="100%"
+              />
+            </picture>
+          </a>
         </div>
-        <div class="card">
-          <picture>
-            <source media="(max-width: 600px)" srcset="" />
-            <source media="(min-width: 601px)" srcset="" />
-            <img
-              aria-hidden="true"
-              decoding="async"
-              src=""
-              alt=""
-              loading="lazy"
-              width="300"
-              height="100"
-            />
-          </picture>
-          <div class="flex-group-col">
-            <p class="sub-topper">Toronto</p>
-            <h3 class="sub-title">Whoever</h3>
-            <p>
-              Discover how we helped this law firm amplify their brand through
-              an impactful site redesign.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <picture>
-            <source media="(max-width: 600px)" srcset="" />
-            <source media="(min-width: 601px)" srcset="" />
-            <img
-              aria-hidden="true"
-              decoding="async"
-              src=""
-              alt=""
-              loading="lazy"
-              width="300"
-              height="100"
-            />
-          </picture>
-          <div class="flex-group-col">
-            <p class="sub-topper">Toronto</p>
-            <h3 class="sub-title">Whoever</h3>
-            <p>
-              Discover how we helped this law firm amplify their brand through
-              an impactful site redesign.
-            </p>
-          </div>
+        <div class="flex-group-col">
+          <a href="">
+            <picture>
+              <source media="(max-width: 600px)" srcset="" />
+              <source media="(min-width: 601px)" srcset="" />
+              <img
+                aria-hidden="true"
+                decoding="async"
+                src="assets/images/portfolio/csa-website.png"
+                alt=""
+                loading="lazy"
+                width="100%"
+                height="100%"
+              />
+            </picture>
+          </a>
+          <a href="">
+            <picture>
+              <source media="(max-width: 600px)" srcset="" />
+              <source media="(min-width: 601px)" srcset="" />
+              <img
+                aria-hidden="true"
+                decoding="async"
+                src="assets/images/portfolio/oct-website.png"
+                alt=""
+                loading="lazy"
+                width="100%"
+                height="100%"
+              />
+            </picture>
+          </a>
         </div>
       </div>
     </div>
@@ -260,7 +276,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>Hosting Included</h4>
+          <h3>Hosting Included</h3>
         </div>
         <p>Hosting fees are built right into the monthly payment.</p>
       </div>
@@ -274,7 +290,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>Unlimited Edits</h4>
+          <h3>Unlimited Edits</h3>
         </div>
         <p>Change anything you want at anytime and it will be done that day.</p>
       </div>
@@ -288,7 +304,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>24/7 Support</h4>
+          <h3>24/7 Support</h3>
         </div>
         <p>Call direct anytime, day or night. No AI or automtated responses.</p>
       </div>
@@ -302,7 +318,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>Web Design & Development</h4>
+          <h3>Web Design & Development</h3>
         </div>
         <p>Includes over 40 hours of design, development, and testing.</p>
       </div>
@@ -316,7 +332,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>Boost your search ranking</h4>
+          <h3>Boost your search ranking</h3>
         </div>
         <p>
           We can achieve a perfect 100 on Google Page Speed scores and boost
@@ -333,7 +349,7 @@ order: 100
             aria-hidden="true"
             decoding="async"
           />
-          <h4>Google Analytics</h4>
+          <h3>Google Analytics</h3>
         </div>
         <p>
           We install Analytics for free to monitor traffic and where it comes

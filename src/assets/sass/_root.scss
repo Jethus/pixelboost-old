@@ -4,6 +4,7 @@
 // Base/root style sheet
 @use 'vars.scss';
 
+// Text styles
 h1 {
     font-size: vars.$h1-font-size;
 }
@@ -38,11 +39,9 @@ a {
 
 a:not([class*='btn']) {
     @include vars.link-style(vars.$brand-secondary);
+    transition: vars.$transition-default;
 }
 
-
-
-// Text styles
 .topper {
     font-size: vars.$topper-font-size;
     font-weight: vars.$bold-weight;
@@ -60,6 +59,10 @@ a:not([class*='btn']) {
 
 .flex-group-row {
     @include vars.flex-group-row;
+}
+
+.grid-group {
+    @include vars.grid-group;
 }
 
 .btn-solid {
@@ -154,13 +157,19 @@ a:not([class*='btn']) {
         color: vars.$dark;
     }
 
+    body:has(#menu-toggle:checked) {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+    }
+
     *,
     *:before,
     *:after {
         margin: 0;
         box-sizing: border-box;
         padding: 0;
-        transition: vars.$transition-default;
     }
 
     #header,
@@ -173,7 +182,6 @@ a:not([class*='btn']) {
         max-width: vars.$content-width;
         width: 92%;
         margin: auto;
-        position: relative;
         @include vars.flex-group-row;
     }
 
@@ -202,6 +210,11 @@ a:not([class*='btn']) {
 }
 
 @include vars.mobile {
+
+    .flex-group-row {
+        flex-direction: column;
+    }
+
     #cta {
         background-color: vars.$acc-mint;
 
@@ -226,10 +239,12 @@ a:not([class*='btn']) {
             }
 
             .container {
+                flex-direction: column;
                 padding: vars.$spacing-large;
                 justify-content: space-between;
 
                 .left-section {
+                    width: 20rem;
                     flex: 1.5;
 
                     .logo {
@@ -243,10 +258,31 @@ a:not([class*='btn']) {
                 }
 
                 .right-section {
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: 1.5fr 1fr;
                     flex: 2;
                     gap: vars.$spacing-large;
                     justify-content: flex-end;
+
+                    h5 {
+                        margin-bottom: vars.$spacing-small;
+                    }
+
+                    :nth-child(1) {
+                        grid-row: 2;
+
+                    }
+
+                    :nth-child(2) {
+                        grid-column: 2;
+
+                    }
+
+                    :nth-child(3) {
+                        grid-column: 1;
+                        grid-row: 1;
+
+                    }
                 }
             }
 
@@ -262,52 +298,32 @@ a:not([class*='btn']) {
     }
 }
 
-/* Scale full website with the viewport width */
-@media only screen and (min-width: 2000px) {
+@include vars.tablet {
 
-    body,
-    html {
-        font-size: 0.85vw;
+    .flex-group-row {
+        flex-direction: row;
+    }
+
+    #footer {
+
+        .flex-group-col {
+
+            .container {
+
+                .right-section {
+                    display: flex;
+                }
+            }
+        }
     }
 }
 
-/*-- -------------------------- -->
-<---     Mobile Navigation      -->
-<--- -------------------------- -*/
-
-/* Mobile - 1023px */
-@media only screen and (max-width: 63.9375rem) {}
-
-/*-- -------------------------- -->
-<---     Navigation Dropdown    -->
-<--- -------------------------- -*/
-
-/* Mobile - 1023px */
-@media only screen and (max-width: 63.9375rem) {}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {}
-
-/*-- -------------------------- -->
-<---     Desktop Navigation     -->
-<--- -------------------------- -*/
-
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {}
-
-/*-- -------------------------- -->
-<---   Interior Page Header     -->
-<--- -------------------------- -*/
-
-/* Mobile */
-@media only screen and (min-width: 0em) {}
-
-/* Tablet */
-@media only screen and (min-width: 48em) {}
-
-/* Small Desktop */
-@media only screen and (min-width: 64em) {}
-
-/*-- -------------------------- -->
-<---    Final Call To Action    -->
-<--- -------------------------- -*/
+@include vars.sm-desktop {
+    #footer {
+        .flex-group-col {
+            .container {
+                flex-direction: row;
+            }
+        }
+    }
+}

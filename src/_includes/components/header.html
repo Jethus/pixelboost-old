@@ -16,13 +16,17 @@
       />
     </a>
     <!--Navigation List-->
-    <nav class="nav" role="navigation">
-      <!--Mobile Nav Toggle-->
-      <button class="fries-btn" aria-label="mobile menu toggle">
-        <span class="fries fry1" aria-hidden="true"></span>
-        <span class="fries fry2" aria-hidden="true"></span>
-        <span class="fries fry3" aria-hidden="true"></span>
-      </button>
+    <nav class="nav-bar" role="navigation">
+      <input type="checkbox" id="menu-toggle" hidden />
+      <label
+        for="menu-toggle"
+        class="fries-btn"
+        aria-label="mobile menu toggle"
+      >
+        <span class="fries" aria-hidden="true"></span>
+        <span class="fries" aria-hidden="true"></span>
+        <span class="fries" aria-hidden="true"></span>
+      </label>
       <ul id="nav-menu" aria-expanded="false">
         {% set navPages = collections.all | eleventyNavigation %} {# Loop
         through all pages with a eleventyNavigation in the frontmatter #} {% for
@@ -61,12 +65,10 @@
 
           {# Dropdowns have another ul/li set up within the parent li. Render in
           the same way as a normal link #} {% if hasChild %}
-          <ul class="cs-drop-ul">
+          <ul>
             {% for child in entry.children %}
-            <li class="cs-drop-li">
-              <a href="{{ child.url }}" class="cs-li-link cs-drop-link"
-                >{{ child.key }}</a
-              >
+            <li class="nav-item">
+              <a href="{{ child.url }}">{{ child.key }}</a>
             </li>
             {% endfor %}
           </ul>
@@ -74,7 +76,11 @@
         </li>
         {% endfor %}
       </ul>
+      <a href="/contact" id="nav-contact" class="btn-solid">Contact Us</a>
+      <!--Mobile Nav Toggle-->
+      <!-- Hidden checkbox to control menu state -->
+
+      <div class="mobile-nav-overlay"></div>
     </nav>
-    <a href="/contact" class="btn-solid">Contact Us</a>
   </div>
 </header>

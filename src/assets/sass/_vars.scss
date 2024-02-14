@@ -6,7 +6,6 @@ $brand-primary: #F26722;
 $brand-secondary: #051F3B;
 $acc-yellow: #FEC010;
 $acc-lightblue: #B9E5FB;
-$acc-gray: #E6E6E6;
 $acc-cream: #FFF4E4;
 $acc-pink: #FBB9B9;
 $acc-mint: #8EFAB4;
@@ -19,11 +18,12 @@ $topper-font-size: clamp(0.8125rem, 1.6vw, 1rem);
 $h1-font-size: clamp(2.5rem, 5vw, 3.5rem); // 40-56px
 $h2-font-size: clamp(2rem, 4vw, 3rem); // 32-48px
 $h3-font-size: clamp(1.5rem, 3vw, 2rem); // 24-32px
-$h4-font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-28px
-$h5-font-size: clamp(1rem, 2vw, 1rem); // 16-24px
+$h4-font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-24px
+$h5-font-size: clamp(1rem, 2vw, 1.25rem); // 16-20px
 $body-font-size: 1rem;
-$spicy-font-size: clamp(3rem, 6vw, 4rem);
-$extra-spicy-font-size: clamp(5rem, 10vw, 10rem);
+$btn-nav-font-size: 1.25rem;
+$spicy-font-size: clamp(2.5rem, 6vw, 4rem); // 48-64px
+$extra-spicy-font-size: clamp(4rem, 10vw, 8rem); // 60-108px
 
 /* 60px - 100px top and bottom */
 $container-padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
@@ -52,6 +52,7 @@ $sm-desktop: 64em;
 $content-width: 80em;
 
 // Spacing
+$spacing-very-small: .25rem;
 $spacing-small: 0.5rem;
 $spacing-semi-medium: 0.75rem;
 $spacing-medium: 1rem;
@@ -115,6 +116,12 @@ $transition-default: all 0.12s ease-in-out;
 }
 
 // Flexbox
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @mixin flex-group-row {
     display: flex;
     justify-content: space-between;
@@ -128,8 +135,13 @@ $transition-default: all 0.12s ease-in-out;
     flex-direction: column;
 }
 
-// btn styles
+// Grid
+@mixin grid-group {
+    display: grid;
+    gap: $spacing-medium;
+}
 
+// btn styles
 @mixin drop-shadow {
     box-shadow: .25rem .25rem 0 0 $dark;
 }
@@ -141,6 +153,7 @@ $transition-default: all 0.12s ease-in-out;
 
 @mixin btn-base {
     @include header-style;
+    font-size: $btn-nav-font-size;
     font-weight: $bold-weight;
     padding: $spacing-small $spacing-medium;
     border-radius: $border-radius-medium;
