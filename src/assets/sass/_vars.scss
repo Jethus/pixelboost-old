@@ -2,14 +2,14 @@
 <---       SCSS Variables       -->
 <--- -------------------------- -*/
 // SCSS variables/mixins/functions
-$brand-primary: #F26722;
-$brand-secondary: #051F3B;
-$acc-yellow: #FEC010;
-$acc-lightblue: #B9E5FB;
-$acc-cream: #FFF4E4;
-$acc-pink: #FBB9B9;
-$acc-mint: #8EFAB4;
-$acc-purple: #E2BDFF;
+$brand-primary: #f26722;
+$brand-secondary: #051f3b;
+$acc-yellow: #fec010;
+$acc-lightblue: #b9e5fb;
+$acc-cream: #fff4e4;
+$acc-pink: #fbb9b9;
+$acc-mint: #8efab4;
+$acc-purple: #e2bdff;
 $dark: #000;
 $light: #fff;
 
@@ -52,7 +52,7 @@ $sm-desktop: 64em;
 $content-width: 80em;
 
 // Spacing
-$spacing-very-small: .25rem;
+$spacing-very-small: 0.25rem;
 $spacing-small: 0.5rem;
 $spacing-semi-medium: 0.75rem;
 $spacing-medium: 1rem;
@@ -60,13 +60,41 @@ $spacing-semi-large: 1.5rem;
 $spacing-large: 2rem;
 
 // Border radius
-$border-radius-small: .25rem;
-$border-radius-medium: .5rem;
-$border-radius-large: .75rem;
+$border-radius-small: 0.25rem;
+$border-radius-medium: 0.5rem;
+$border-radius-large: 0.75rem;
+
+// Border values
+$border-dark: 2px solid $dark;
 
 // Transition
 $transition-default: all 0.12s ease-in-out;
 
+// Mixins for container responsive design
+// Define a map of breakpoints
+$breakpoints: (
+    zero: 0rem,
+    small: 32rem,
+    medium: 48rem,
+    large: 64rem,
+    max: 76rem,
+    //max-content width minus padding (1216px)
+);
+
+// Mixin for container query
+@mixin container-query($size) {
+    $query: map-get($breakpoints, $size);
+
+    @if $query {
+        @container (min-width: #{$query}) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "No valid breakpoint found for '#{$size}'";
+    }
+}
 
 // Mixins for responsive design
 @mixin mobile {
@@ -143,11 +171,11 @@ $transition-default: all 0.12s ease-in-out;
 
 // btn styles
 @mixin drop-shadow {
-    box-shadow: .25rem .25rem 0 0 $dark;
+    box-shadow: 0.25rem 0.25rem 0 0 $dark;
 }
 
 @mixin btn-press-effect($colour) {
-    transform: scale(.95);
+    transform: scale(0.95);
     background-color: darken($colour, 5%);
 }
 

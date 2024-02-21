@@ -2,168 +2,135 @@
 <---       Landing Page         -->
 <--- -------------------------- -*/
 // Landing styles
-@use 'vars.scss';
+@use "vars.scss";
 
-@keyframes bounceArrow {
+#portfolio {
+    background-color: vars.$acc-cream;
 
-    0%,
-    100% {
-        transform: translateX(0) scale(1);
-    }
+    .item {
+        background-color: vars.$acc-lightblue;
+        border-radius: vars.$border-radius-medium;
+        @include vars.border-style(vars.$dark);
+        align-items: stretch;
+        gap: 0;
+        overflow: hidden;
 
-    50% {
-        transform: translateX(8px) scale(1.1);
+        @include vars.container-query(zero) {
+            max-height: 32rem;
+            flex-direction: column;
+
+            &:has(picture~.text) {
+                flex-direction: column-reverse;
+            }
+
+            .text {
+                border-bottom: vars.$border-dark;
+            }
+        }
+
+
+        @include vars.container-query(medium) {
+            max-height: 20rem;
+            flex-direction: row;
+
+            &:has(picture~.text) {
+                flex-direction: row;
+            }
+
+            .text {
+                padding: 2rem;
+                border-bottom: none;
+            }
+
+            .text~picture {
+                border-left: vars.$border-dark;
+            }
+
+            picture~.text {
+                border-left: vars.$border-dark;
+            }
+        }
+
+        @include vars.container-query(large) {
+            max-height: 24rem;
+        }
+
+
+        picture {
+            flex: 1;
+            overflow: hidden;
+
+            img {
+                display: block;
+                max-width: 100%;
+                border-radius: 0;
+                transform-origin: top;
+                // small bug with transforming from top and scaling, leaves an ultra tiny crack
+                transform: scale(1.25) translateY(-2px);
+            }
+        }
+
+        .text {
+            @include vars.flex-group-col;
+            flex: 1;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem;
+            gap: .5rem;
+
+            .topper {
+                font-size: .875rem;
+                color: #545454;
+            }
+        }
+
+
     }
 }
 
-@include vars.mobile {
+#pricing {
+    background-color: vars.$acc-pink;
 
-    #portfolio {
-        background-color: vars.$acc-cream;
+    .container {
+        flex-direction: column;
+
+        .flex-group-col {
+            max-width: clamp(36rem, 30vw, 40rem);
+            align-self: flex-start;
+            align-items: flex-start;
+
+            .title {
+                font-size: vars.$spicy-font-size;
+            }
+        }
 
         .grid-group {
             grid-template-columns: 1fr;
 
-            .flex-group-col {
-                justify-content: flex-start;
-            }
-
-            .colour-block {
-                width: 100%;
-                height: 120px;
-                background-color: vars.$acc-purple;
-                @include vars.border-style(vars.$dark);
-                border-radius: vars.$border-radius-medium;
-            }
-
-            a {
-                position: relative;
-                display: block;
-
-                img {
-                    @include vars.border-style(vars.$dark);
-                    object-fit: cover;
-                }
-
-                .details-hover {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(vars.$dark, .65);
-                    color: vars.$light;
-                    opacity: 0;
-                    border-radius: vars.$border-radius-medium;
-                    justify-content: center;
-                    gap: vars.$spacing-small;
-                    transition: vars.$transition-default;
-
-
-                    .topper {
-                        color: vars.$light;
-                    }
-
-                    .title {
-                        margin-bottom: vars.$spacing-medium;
-                    }
-
-                    .cta {
-                        display: inline-block;
-                        font-size: vars.$h3-font-size;
-                        font-family: vars.$header-font;
-                        color: vars.$brand-primary;
-
-                        span {
-                            display: inline-block;
-                            margin-left: vars.$spacing-small;
-                            animation: bounceArrow 2s ease infinite;
-
-                        }
-                    }
-
-                    &:hover,
-                    &:focus {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@include vars.tablet {
-    #portfolio {
-        .grid-group {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-}
-
-@include vars.mobile {
-    #pricing {
-        background-color: vars.$acc-pink;
-
-        .container {
-            flex-direction: column;
-
-            .flex-group-col {
-                max-width: clamp(36rem, 30vw, 40rem);
-                align-self: flex-start;
-                align-items: flex-start;
-
-                .title {
-                    font-size: vars.$spicy-font-size;
-                }
-
-            }
-
-            .grid-group {
-                grid-template-columns: 1fr;
-
-                .card {
-                    display: flex;
-                    flex-direction: column;
-                    background-color: rgba(vars.$light, .5);
-                    gap: vars.$spacing-small;
-                    padding: vars.$spacing-semi-medium vars.$spacing-medium;
-                    border-radius: vars.$border-radius-medium;
-                    @include vars.border-style(vars.$dark);
-
-                    .flex-group-row {
-                        justify-content: flex-start;
-                        flex-direction: row;
-                        gap: vars.$spacing-medium;
-
-                        img {
-                            width: 32px;
-                            height: 32px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@include vars.tablet {
-    #pricing {
-        .container {
-
-            .grid-group {
+            @include vars.container-query(small) {
                 grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    }
-}
 
-@include vars.sm-desktop {
-    #pricing {
-        .container {
-            .grid-group {
-                .card {
-                    .flex-group-row {
-                        img {
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(vars.$light, 0.5);
+                gap: vars.$spacing-small;
+                padding: vars.$spacing-semi-medium vars.$spacing-medium;
+                border-radius: vars.$border-radius-medium;
+                @include vars.border-style(vars.$dark);
+
+                .flex-group-row {
+                    justify-content: flex-start;
+                    flex-direction: row;
+                    gap: vars.$spacing-medium;
+
+                    img {
+                        width: 32px;
+                        height: 32px;
+
+                        @include vars.container-query(large) {
                             width: 48px;
                             height: 48px;
                         }

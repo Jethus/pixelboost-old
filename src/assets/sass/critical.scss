@@ -22,6 +22,10 @@
 // Mobile
 @include vars.mobile {
     #header {
+        .container {
+            container-type: normal;
+        }
+
         background-color: vars.$light;
         width: 100%;
         display: flex;
