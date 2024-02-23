@@ -66,7 +66,7 @@
                 border-radius: 0;
                 transform-origin: top;
                 // small bug with transforming from top and scaling, leaves an ultra tiny crack
-                transform: scale(1.25) translateY(-2px);
+                transform: scale(1.25);
             }
         }
 
