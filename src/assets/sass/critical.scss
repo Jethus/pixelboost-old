@@ -176,29 +176,22 @@
     }
 }
 
-@include vars.sm-desktop {
-    #header {
-        .nav {
-            .fries-btn {
-                display: none;
-            }
-        }
-
-        #nav-menu,
-        #nav-contact {
-            display: flex;
-        }
-    }
-}
-
 /*-- -------------------------- -->
 <---           Hero             -->
 <--- -------------------------- -*/
 
 // Mobile
-@include vars.mobile {
-    #hero {
-        background-color: vars.$acc-yellow;
+#hero {
+    background-color: vars.$acc-yellow;
+
+    .container {
+        .flex-group-row {
+            flex-direction: column;
+
+            @include vars.container-query(small) {
+                flex-direction: row;
+            }
+        }
     }
 }
 
