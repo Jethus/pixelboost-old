@@ -73,7 +73,7 @@ $transition-default: all 0.12s ease-in-out;
 // Mixins for container responsive design
 // Define a map of breakpoints
 $breakpoints: (
-    zero: 0rem,
+    vsmall: 16rem,
     small: 32rem,
     medium: 48rem,
     large: 64rem,
@@ -89,10 +89,6 @@ $breakpoints: (
         @container (min-width: #{$query}) {
             @content;
         }
-    }
-
-    @else {
-        @warn "No valid breakpoint found for '#{$size}'";
     }
 }
 
@@ -207,7 +203,7 @@ $breakpoints: (
         @include border-style($light);
     }
 
-    &:focus {
+    &:focus-visible {
         @include focus-style($dark);
     }
 }
@@ -226,7 +222,7 @@ $breakpoints: (
         @include border-style($dark);
     }
 
-    &:focus {
+    &:focus-visible {
         @include focus-style($dark);
     }
 }
@@ -245,7 +241,7 @@ $breakpoints: (
         @include border-style($dark);
     }
 
-    &:focus {
+    &:focus-visible {
         @include focus-style($dark);
     }
 }

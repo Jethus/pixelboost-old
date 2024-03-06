@@ -14,24 +14,23 @@
         align-items: stretch;
         gap: 0;
         overflow: hidden;
+        flex-direction: column;
 
-        @include vars.container-query(zero) {
-            max-height: 32rem;
-            flex-direction: column;
-
-            &:has(picture~.text) {
-                flex-direction: column-reverse;
-            }
-
-            .text {
-                border-bottom: vars.$border-dark;
-            }
+        &:has(picture~.text) {
+            flex-direction: column-reverse;
         }
 
+        .text {
+            border-bottom: vars.$border-dark;
+        }
+
+        @include vars.container-query(small) {
+            max-height: 36rem;
+        }
 
         @include vars.container-query(medium) {
-            max-height: 20rem;
             flex-direction: row;
+            max-height: 24rem;
 
             &:has(picture~.text) {
                 flex-direction: row;
@@ -51,22 +50,14 @@
             }
         }
 
-        @include vars.container-query(large) {
-            max-height: 24rem;
-        }
-
 
         picture {
-            flex: 1;
+            flex: 1.75;
             overflow: hidden;
+            align-self: flex-start;
 
             img {
-                display: block;
-                max-width: 100%;
                 border-radius: 0;
-                transform-origin: top;
-                // small bug with transforming from top and scaling, leaves an ultra tiny crack
-                transform: scale(1.25);
             }
         }
 
@@ -83,8 +74,6 @@
                 color: #545454;
             }
         }
-
-
     }
 }
 
