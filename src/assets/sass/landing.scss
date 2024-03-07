@@ -106,7 +106,7 @@
                 flex-direction: column;
                 background-color: rgba(vars.$light, 0.5);
                 gap: vars.$spacing-small;
-                padding: vars.$spacing-semi-medium vars.$spacing-medium;
+                padding: vars.$spacing-semi-small vars.$spacing-medium;
                 border-radius: vars.$border-radius-medium;
                 @include vars.border-style(vars.$dark);
 

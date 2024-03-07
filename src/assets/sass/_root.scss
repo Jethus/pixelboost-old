@@ -154,6 +154,7 @@ html {
     margin: 0;
     padding: 0;
     color: vars.$dark;
+    overflow-x: hidden;
 }
 
 body:has(#menu-toggle:checked) {

@@ -15,6 +15,18 @@
 
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /*-- -------------------------- -->
 <---          Header            -->
 <--- -------------------------- -*/
@@ -22,18 +34,19 @@
 #header {
     position: relative;
     z-index: 2;
+    // ^ so the mobile menu stacks correctly
     container-type: inline-size;
-
-    .container {
-        container-type: normal;
-    }
-
     background-color: vars.$light;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: vars.$spacing-medium vars.$spacing-small;
+    padding: vars.$spacing-medium vars.$spacing-semi-medium;
+
+    .container {
+        width: 100%;
+        container-type: normal;
+    }
 
     .logo {
         width: 12rem;
@@ -96,65 +109,73 @@
             }
         }
 
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100vw;
-            height: 100vh;
-            backdrop-filter: blur(vars.$spacing-very-small);
-            z-index: 1;
-        }
-
         #nav-menu {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
             position: fixed;
             top: 0;
             right: 0;
-            width: 75%;
+            width: calc(45vw + 4rem);
             height: 100vh;
-            background-color: rgba(0, 0, 0, .75);
+            background-color: rgba(0, 0, 0, .8);
+            backdrop-filter: blur(vars.$spacing-small);
             list-style: none;
             font-size: vars.$btn-nav-font-size;
             font-weight: vars.$bold-weight;
             text-align: right;
-            padding: 100px 2rem 2rem;
+            padding: 90px 2rem 2rem;
             transform: translateX(100%);
+            transition: transform .3s ease;
             pointer-events: none;
-            transition: transform .3s ease-in-out;
             z-index: 2;
 
             li {
                 opacity: 0;
 
+                a {
+                    display: block;
+                    width: 100%;
+                }
+
                 a:not(:hover) {
                     color: vars.$light;
+                }
+            }
 
+            @for $i from 1 through 3 {
+                [id$="-dropdown-toggle"]:checked~[id$="-dropdown"]>li:nth-child(#{$i}) {
+                    transition-delay: 0 + ($i * .1s);
+                    transform: translateY(0);
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+
+            @for $i from 3 through 1 {
+                [id$="-dropdown"]>li:nth-child(#{$i}) {
+                    transition: transform (.4s - ($i *.1s)) ease, opacity (.3s - ($i *.1s)) ease;
+                    pointer-events: none;
+                    transform: translateY(calc(-1.5em * $i));
                 }
             }
         }
 
         #menu-toggle:checked~#nav-menu {
             transform: translateX(0);
-            pointer-events: all;
+            pointer-events: auto;
 
             @for $i from 1 through 4 {
-                li:nth-child(#{$i}) {
+                &>li:nth-child(#{$i}) {
                     animation: slideFadeIn 0.3s forwards;
                     animation-delay: 0.3s + ($i * .1s);
                 }
             }
         }
 
-        #menu-toggle:checked~.mobile-nav-overlay {
-            display: block;
-        }
-
         #menu-toggle:checked~.fries-btn {
             .fries {
                 background-color: vars.$light;
-
             }
 
             :nth-child(1) {
@@ -188,10 +209,13 @@
             #nav-menu {
                 @include vars.flex-center;
                 height: auto;
+                flex-direction: row;
                 gap: vars.$spacing-large;
                 flex: 1;
                 position: relative;
                 background-color: transparent;
+                backdrop-filter: none;
+                transition: none;
                 transform: none;
                 padding: 0;
                 pointer-events: auto;
@@ -268,7 +292,7 @@
                     flex-shrink: 0;
                 }
 
-                @include vars.container-query(none) {
+                @include vars.container-query(vsmall) {
                     .img-wrap {
                         width: 80px;
                         height: 80px;
