@@ -221,12 +221,17 @@
                 pointer-events: auto;
                 color: vars.$dark;
 
-                li {
+                &>li {
                     opacity: 1;
 
                     a:not(:hover) {
                         color: vars.$dark;
                     }
+                }
+
+                [id$="-dropdown"],
+                .dropdown-toggle {
+                    position: absolute;
                 }
             }
         }
