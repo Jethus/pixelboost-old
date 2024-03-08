@@ -74,175 +74,173 @@ $transition-default: all 0.12s ease-in-out;
 // Mixins for container responsive design
 // Define a map of breakpoints
 $breakpoints: (
-    vsmall: 16rem,
-    small: 32rem,
-    medium: 48rem,
-    large: 64rem,
-    max: 76rem,
-    //max-content width minus padding (1216px)
+  x-small: 16rem,
+  small: 32rem,
+  medium: 48rem,
+  large: 64rem,
+  max: 76rem,
+  //max-content width minus padding (1216px)
 );
 
 // Mixin for container query
 @mixin container-query($size) {
-    $query: map-get($breakpoints, $size);
+  $query: map-get($breakpoints, $size);
 
-    @if $query {
-        @container (min-width: #{$query}) {
-            @content;
-        }
-    }
+  @container (min-width: #{$query}) {
+    @content;
+  }
 }
 
 // Mixins for responsive design
 @mixin mobile {
-    @media only screen and (min-width: $mobile) {
-        @content;
-    }
+  @media only screen and (min-width: $mobile) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media only screen and (min-width: $tablet) {
-        @content;
-    }
+  @media only screen and (min-width: $tablet) {
+    @content;
+  }
 }
 
 @mixin sm-desktop {
-    @media only screen and (min-width: $sm-desktop) {
-        @content;
-    }
+  @media only screen and (min-width: $sm-desktop) {
+    @content;
+  }
 }
 
 @mixin header-style {
-    font-family: $header-font;
-    line-height: $line-height-small;
-    font-weight: $black-weight;
+  font-family: $header-font;
+  line-height: $line-height-small;
+  font-weight: $black-weight;
 }
 
 @mixin body-style {
-    font-family: $body-font;
-    line-height: $line-height-normal;
+  font-family: $body-font;
+  line-height: $line-height-normal;
 }
 
 @mixin border-style($colour) {
-    border: 2px solid $colour;
+  border: 2px solid $colour;
 }
 
 @mixin focus-style($colour) {
-    outline: 3px solid $colour;
-    outline-offset: 3px;
+  outline: 3px solid $colour;
+  outline-offset: 3px;
 }
 
 @mixin link-style($colour) {
-    color: $colour;
+  color: $colour;
 
-    &:hover {
-        color: $brand-primary;
-    }
+  &:hover {
+    color: $brand-primary;
+  }
 }
 
 // Flexbox
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-group-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: $spacing-large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-large;
 }
 
 @mixin flex-group-col {
-    @include flex-group-row;
-    gap: $spacing-medium;
-    flex-direction: column;
+  @include flex-group-row;
+  gap: $spacing-medium;
+  flex-direction: column;
 }
 
 // Grid
 @mixin grid-group {
-    display: grid;
-    gap: $spacing-medium;
+  display: grid;
+  gap: $spacing-medium;
 }
 
 // btn styles
 @mixin drop-shadow {
-    box-shadow: 0.25rem 0.25rem 0 0 $dark;
+  box-shadow: 0.25rem 0.25rem 0 0 $dark;
 }
 
 @mixin btn-press-effect($colour) {
-    transform: scale(0.95);
-    background-color: darken($colour, 5%);
+  transform: scale(0.95);
+  background-color: darken($colour, 5%);
 }
 
 @mixin btn-base {
-    @include header-style;
-    font-size: $btn-nav-font-size;
-    font-weight: $bold-weight;
-    padding: $spacing-small $spacing-medium;
-    border-radius: $border-radius-medium;
-    transition: $transition-default;
+  @include header-style;
+  font-size: $btn-nav-font-size;
+  font-weight: $bold-weight;
+  padding: $spacing-small $spacing-medium;
+  border-radius: $border-radius-medium;
+  transition: $transition-default;
 
-    &:hover {
-        @include drop-shadow;
-        cursor: pointer;
-    }
+  &:hover {
+    @include drop-shadow;
+    cursor: pointer;
+  }
 }
 
 @mixin btn-solid {
-    @include btn-base;
-    color: $light;
-    background-color: $dark;
-    @include border-style($dark);
+  @include btn-base;
+  color: $light;
+  background-color: $dark;
+  @include border-style($dark);
 
-    &:active {
-        @include btn-press-effect($dark);
-    }
+  &:active {
+    @include btn-press-effect($dark);
+  }
 
-    &:hover {
-        @include border-style($light);
-    }
+  &:hover {
+    @include border-style($light);
+  }
 
-    &:focus-visible {
-        @include focus-style($dark);
-    }
+  &:focus-visible {
+    @include focus-style($dark);
+  }
 }
 
 @mixin btn-line {
-    @include btn-base;
-    color: $dark;
-    background-color: transparent;
+  @include btn-base;
+  color: $dark;
+  background-color: transparent;
+  @include border-style($dark);
+
+  &:active {
+    @include btn-press-effect(transparent);
+  }
+
+  &:hover {
     @include border-style($dark);
+  }
 
-    &:active {
-        @include btn-press-effect(transparent);
-    }
-
-    &:hover {
-        @include border-style($dark);
-    }
-
-    &:focus-visible {
-        @include focus-style($dark);
-    }
+  &:focus-visible {
+    @include focus-style($dark);
+  }
 }
 
 @mixin btn-yellow {
-    @include btn-base;
-    color: $dark;
-    background-color: $acc-yellow;
+  @include btn-base;
+  color: $dark;
+  background-color: $acc-yellow;
+  @include border-style($dark);
+
+  &:active {
+    @include btn-press-effect($acc-yellow);
+  }
+
+  &:hover {
     @include border-style($dark);
+  }
 
-    &:active {
-        @include btn-press-effect($acc-yellow);
-    }
-
-    &:hover {
-        @include border-style($dark);
-    }
-
-    &:focus-visible {
-        @include focus-style($dark);
-    }
+  &:focus-visible {
+    @include focus-style($dark);
+  }
 }

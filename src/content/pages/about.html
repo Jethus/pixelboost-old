@@ -9,9 +9,8 @@ eleventyNavigation:
 ---
 
 {% extends "layouts/base.html" %} {% block head %} {% endblock %} {% block body
-%}
-<link rel="stylesheet" href="/assets/css/main.css" />
-<link rel="stylesheet" href="/assets/css/critical.css" />
+%} {% include "utilities/loadStyles.html" %}
+
 <!-- ============================================ -->
 <!--                    Landing                   -->
 <!-- ============================================ -->
