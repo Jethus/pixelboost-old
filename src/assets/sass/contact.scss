@@ -1,8 +1,9 @@
 /*-- -------------------------- -->
 <---       Contact Page         -->
 <--- -------------------------- -*/
+@use "vars" as vars;
+
 // Contact styles
-@use "main.scss";
 
 #contact {
   background-color: vars.$brand-primary;

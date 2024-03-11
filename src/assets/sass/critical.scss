@@ -1,5 +1,5 @@
 // Styles for above the fold
-@use "main.scss";
+@use "vars" as vars;
 
 @keyframes slideFadeIn {
   from {
@@ -34,6 +34,7 @@
   z-index: 2;
   // ^ so the mobile menu stacks correctly
   container-type: inline-size;
+  border: 1px solid vars.$dark;
   background-color: vars.$light;
   width: 100%;
   display: flex;

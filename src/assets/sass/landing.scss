@@ -2,7 +2,7 @@
 <---       Landing Page         -->
 <--- -------------------------- -*/
 // Landing styles
-@use "main.scss";
+@use "vars" as vars;
 
 #portfolio {
   background-color: vars.$acc-cream;

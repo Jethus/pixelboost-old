@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}" />
 
     <!--Social Media Display-->
-    <meta property="og:title" content="{{ client.title }}" />
+    <meta property="og:title" content="{{ client.name }}" />
     <meta property="og:description" content="{{ client.description }}" />
     <meta property="og:type" content="website" />
     <meta
@@ -59,27 +59,12 @@
     {% endif %}
 
     <!-- Sitewide Stylesheets and Scripts -->
-    <!-- Preload the critical CSS -->
-    <link
-      rel="preload"
-      href="/assets/css/critical.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="/assets/css/critical.css"
-    /></noscript>
-
-    <!-- Load the main CSS -->
-    <link
-      rel="stylesheet"
-      href="/assets/css/main.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript><link rel="stylesheet" href="/assets/css/main.css" /></noscript>
+    <link rel="stylesheet" href="/assets/css/critical.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <!-- Scripts -->
+
+    {#
     <script
       src="https://js.sentry-cdn.com/0b0fd6f6402b056e6554685c6974b837.min.js"
       crossorigin="anonymous"
@@ -87,7 +72,9 @@
     <script>
       myUndefinedFunction();
     </script>
+    #}
     <script defer src="/assets/js/nav.js"></script>
+
     {% block head %}{% endblock %}
 
     <!--For home page, use service keywords for the title, including location for SEO.

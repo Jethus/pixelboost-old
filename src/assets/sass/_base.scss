@@ -2,7 +2,7 @@
 <---        Core Styles         -->
 <--- -------------------------- -*/
 // Base/root style sheet
-@use "vars.scss";
+@use "vars" as vars;
 
 // Text styles
 h1 {
@@ -169,7 +169,6 @@ body:has(#menu-toggle:checked) {
   padding: 0;
 }
 
-#header,
 section {
   border: 1px solid vars.$dark;
   padding: vars.$spacing-large vars.$spacing-medium;
