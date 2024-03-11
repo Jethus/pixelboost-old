@@ -59,15 +59,36 @@
     {% endif %}
 
     <!-- Sitewide Stylesheets and Scripts -->
-    {#
-    <link rel="stylesheet" href="/assets/css/root.css" />
-    #} {#
-    <link rel="stylesheet" href="/assets/css/dark.css" />
-    #}
+    <!-- Preload the critical CSS -->
+    <link
+      rel="preload"
+      href="/assets/css/critical.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/assets/css/critical.css"
+    /></noscript>
+
+    <!-- Load the main CSS -->
+    <link
+      rel="stylesheet"
+      href="/assets/css/main.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/assets/css/main.css" /></noscript>
+
+    <!-- Scripts -->
+    <script
+      src="https://js.sentry-cdn.com/0b0fd6f6402b056e6554685c6974b837.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      myUndefinedFunction();
+    </script>
     <script defer src="/assets/js/nav.js"></script>
-    {#
-    <script defer src="/assets/js/dark.js"></script>
-    #} {% block head %}{% endblock %}
+    {% block head %}{% endblock %}
 
     <!--For home page, use service keywords for the title, including location for SEO.
         Other pages should just include the page name.

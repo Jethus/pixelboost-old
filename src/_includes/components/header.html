@@ -15,11 +15,11 @@
           height="41"
           aria-hidden="true"
           decoding="async"
-        />
+/>
       </a>
       <!--Mobile Nav Toggle-->
       <!-- Hidden checkbox to control menu state -->
-      <input type="checkbox" id="menu-toggle" hidden />
+      <input type="checkbox" id="menu-toggle" hidden/>
       <label
         for="menu-toggle"
         class="fries-btn"
@@ -30,57 +30,56 @@
         <span class="fries" aria-hidden="true"></span>
       </label>
       <ul id="nav-menu" aria-expanded="false">
-        {% set navPages = collections.all | eleventyNavigation %} {# Loop
-        through all pages with a eleventyNavigation in the frontmatter #} {% for
-        entry in navPages %} {# Define a hasChild variable to make it easier to
-        test what links are dropdowns#} {% set hasChild = entry.children.length
-        %} {# If this page is a dropdown, give it the appropriate classes, icons
+        {% set navPages = collections.all | eleventyNavigation %}
+        {# Loop
+        through all pages with a eleventyNavigation in the frontmatter #}
+        {% for entry in navPages %}
+          {# Define a hasChild variable to make it easier to
+        test what links are dropdowns#}
+          {% set hasChild = entry.children.length %}
+          {# If this page is a dropdown, give it the appropriate classes, icons
         and accessibility attributes#}
-        <li
-          class="nav-item {% if hasChild %} nav-dropdown {% endif %}"
-          {%
-          if
-          hasChild
-          %}
-          tabindex="0"
-          {%
-          endif
-          %}
-        >
-          {# Similarly, if the link is active, apply the necessary classes #}
-          <a href="{{ entry.url }}" class="nav-item {{ entry.key }}">
-            {{ entry.key }}
-          </a>
+          <li class="nav-item {% if hasChild %} nav-dropdown {% endif %}"
           {% if hasChild %}
-          <input type="checkbox" id="{{ entry.key }}-dropdown-toggle" hidden />
-          <label
+          tabindex="0"
+          {% endif %}
+        >
+            {# Similarly, if the link is active, apply the necessary classes #}
+            <a href="{{ entry.url }}" class="nav-item {{ entry.key }}">
+              {{ entry.key }}
+            </a>
+            {% if hasChild %}
+              <input type="checkbox" id="{{ entry.key }}-dropdown-toggle" hidden/>
+              <label
             aria-label="{{ entry.key }} menu toggle"
             for="{{ entry.key }}-dropdown-toggle"
           >
-            <svg
+                <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               class="dropdown-toggle"
               alt="dropdown toggle"
             >
-              <path
+                  <path
                 fill="#fff"
                 d="M26.925 11.613A1 1 0 0 0 26 11H6a1 1 0 0 0-.925.613 1.05 1.05 0 0 0 .213 1.1l10 10a1.025 1.025 0 0 0 1.424 0l10-10a1.05 1.05 0 0 0 .213-1.1z"
-              />
-            </svg>
-          </label>
-          {% endif %} {# Dropdowns have another ul/li set up within the parent
-          li. Render in the same way as a normal link #} {% if hasChild %}
-          <ul id="{{ entry.key }}-dropdown">
-            {% for child in entry.children %}
-            <li class="nav-item">
-              <a href="{{ child.url }}">{{ child.key }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
+/>
+                </svg>
+              </label>
+            {% endif %}
+            {# Dropdowns have another ul/li set up within the parent
+          li. Render in the same way as a normal link #}
+            {% if hasChild %}
+              <ul id="{{ entry.key }}-dropdown">
+                {% for child in entry.children %}
+                  <li class="nav-item">
+                    <a href="{{ child.url }}">{{ child.key }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
         {% endfor %}
       </ul>
       <a href="/contact" id="nav-contact" class="btn-solid">Contact Us</a>
