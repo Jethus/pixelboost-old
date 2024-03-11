@@ -6,14 +6,14 @@
   "scripts": {
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
-    "build:sass": "sass --no-source-map --style=compressed src/assets/sass:./public/assets/css",
-    "watch:sass": "sass --source-map --watch src/assets/sass:./public/assets/css",
+    "build:sass": "sass --style=compressed src/assets/sass:./public/assets/css",
+    "watch:sass": "sass --watch src/assets/sass:./public/assets/css",
     "watch:cms": "npx netlify-cms-proxy-server",
     "start": "del-cli ./public --force && npm-run-all --parallel watch:*",
     "build": "npm-run-all --parallel build:*"
   },
   "keywords": [],
-  "author": "Josh Del Vecchio",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
