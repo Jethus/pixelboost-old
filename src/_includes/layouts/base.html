@@ -17,11 +17,8 @@
       property="og:url"
       content="https://{{ client.domain }}{{ page.url }}"
     />
-    <meta property="og:image" content="/assets/images/logo-small.png" />
-    <meta
-      property="og:image:secure_url"
-      content="/assets/images/logo-small.png"
-    />
+    <meta property="og:image" content="/assets/svgs/logo-rgb.svg" />
+    <meta property="og:image:secure_url" content="/assets/svgs/logo-rgb.svg" />
 
     <!--Favicons-->
 
@@ -52,7 +49,7 @@
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Preloads -->
-
+    <link rel="preload" as="image" href="assets/svgs/logo-rgb.svg" />
     <!-- Preload an image - tag not rendered if preloadImg is blank to stop console errors -->
     {% if preloadImg != '' %}
     <link rel="preload" as="image" href="{{ preloadImg }}" />
@@ -64,17 +61,14 @@
 
     <!-- Scripts -->
 
+    {#
     <script
       src="https://js.sentry-cdn.com/0b0fd6f6402b056e6554685c6974b837.min.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      myUndefinedFunction();
-    </script>
+    #}
 
     <script defer src="/assets/js/nav.js"></script>
-
-    {% block head %}{% endblock %}
 
     <!--For home page, use service keywords for the title, including location for SEO.
         Other pages should just include the page name.

@@ -1,5 +1,5 @@
 // Styles for above the fold
-@use "vars" as vars;
+@use "vars";
 
 @keyframes slideFadeIn {
   from {
@@ -167,7 +167,7 @@
       transform: translateX(0);
       pointer-events: auto;
 
-      @for $i from 1 through 4 {
+      @for $i from 1 through 5 {
         & > li:nth-child(#{$i}) {
           animation: slideFadeIn 0.3s forwards;
           animation-delay: 0.3s + ($i * 0.1s);
@@ -227,6 +227,7 @@
 
           a:not(:hover) {
             color: vars.$dark;
+            transition: opacity 0s;
           }
         }
 

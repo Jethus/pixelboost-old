@@ -2,7 +2,7 @@
 <---        Core Styles         -->
 <--- -------------------------- -*/
 // Base/root style sheet
-@use "vars" as vars;
+@use "vars";
 
 // Text styles
 h1 {
@@ -148,10 +148,21 @@ a:not([class*="btn"]) {
 body,
 html {
   @include vars.body-style;
+  height: 100%;
   margin: 0;
   padding: 0;
   color: vars.$dark;
   overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background-color: vars.$dark;
+  flex-grow: 1;
 }
 
 body:has(#menu-toggle:checked) {
@@ -264,10 +275,12 @@ picture {
           margin-bottom: vars.$spacing-small;
         }
 
-        ul li {
-          &:first-child {
-            list-style: none;
-            margin-bottom: vars.$spacing-very-small;
+        ul {
+          list-style: none;
+          li {
+            &:first-child {
+              margin-bottom: vars.$spacing-very-small;
+            }
           }
         }
       }

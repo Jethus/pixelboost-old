@@ -1,10 +1,55 @@
 /*-- -------------------------- -->
-<---       Contact Page         -->
+<---        Contact us          -->
 <--- -------------------------- -*/
-@use "vars" as vars;
+@use "vars";
 
 // Contact styles
 
 #contact {
   background-color: vars.$brand-primary;
+}
+
+#get-in-touch {
+  background-color: vars.$acc-cream;
+
+  .flex-group-col {
+    align-items: flex-start;
+
+    #contact-form {
+      @include vars.flex-group-col;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 2rem;
+      .grid-group {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        :last-child {
+          grid-column: 1 / -1;
+        }
+        label {
+          span {
+            color: #ee0000;
+            margin-bottom: 0.5rem;
+          }
+        }
+        input,
+        textarea {
+          width: 100%;
+          @include vars.border-style(vars.$dark);
+          padding: 0.5rem 0.5rem;
+          border-radius: vars.$border-radius-small;
+          &[type="text"] {
+            font-size: 1rem;
+            @include vars.body-style;
+          }
+        }
+        textarea {
+          height: 12rem;
+          resize: vertical;
+          min-height: 6rem;
+          max-height: 20rem;
+        }
+      }
+    }
+  }
 }

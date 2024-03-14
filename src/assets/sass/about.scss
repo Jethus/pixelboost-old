@@ -1,0 +1,55 @@
+/*-- -------------------------- -->
+<---          About us          -->
+<--- -------------------------- -*/
+@use "vars";
+
+#about {
+  background-color: vars.$acc-yellow;
+  .flex-group-row {
+    flex-direction: column;
+    picture {
+      width: 70%;
+      align-self: flex-start;
+    }
+  }
+  .topper {
+    align-self: flex-start;
+  }
+  img {
+    @include vars.border-style(vars.$dark);
+  }
+}
+
+#why-choose-us {
+  background-color: vars.$acc-pink;
+  .flex-group-row {
+    flex-direction: column;
+    .card {
+      background-color: rgba(vars.$light, 1);
+      @include vars.border-style(vars.$dark);
+      border-radius: vars.$border-radius-medium;
+      padding: vars.$spacing-medium;
+    }
+  }
+}
+
+#what-else {
+  background-color: vars.$acc-purple;
+  .flex-group-col {
+    .topper,
+    .title {
+      align-self: flex-start;
+    }
+    .flex-group-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      & > * {
+        @include vars.btn-line;
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}

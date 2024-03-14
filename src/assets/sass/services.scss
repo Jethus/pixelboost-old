@@ -1,0 +1,29 @@
+/*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+@use "vars";
+
+#services {
+  background-color: vars.$acc-lightblue;
+}
+
+#web-design {
+  background-color: vars.$acc-pink;
+}
+
+#web-dev {
+  background-color: vars.$acc-purple;
+}
+
+#branding {
+  background-color: vars.$acc-yellow;
+}
+
+#services,
+#web-design,
+#web-dev,
+#branding {
+  .flex-group-row {
+    flex-direction: column;
+  }
+}

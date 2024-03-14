@@ -1,8 +1,11 @@
 ---
 title: "Contact"
 description: "Meta description for the page"
-preloadImg: "/assets/images/cabinets2.jpg"
+preloadImg: ""
 permalink: "contact/"
+eleventyNavigation:
+  key: Contact Us
+  order: 0
 ---
 
 {% extends "layouts/base.html" %} {% block head %} {% endblock %} {% block body
@@ -31,72 +34,79 @@ permalink: "contact/"
 
 <section id="get-in-touch">
   <div class="container">
-    <form
-      id="contact-form"
-      name="Contact Form"
-      method="post"
-      data-netlify="true"
-    >
-      <p class="topper">Tell us about your project</p>
-      <h2 class="title">Get in Touch</h2>
-      <label>
-        Full Name
-        <input
-          required
-          type="text"
-          id="name"
-          name="name"
-          placeholder="John Doe"
-        />
-      </label>
-      <label>
-        Company Name
-        <input
-          type="text"
-          id="company-name"
-          name="company-name"
-          placeholder="Microsoft"
-        />
-      </label>
-      <label>
-        Email
-        <input
-          required
-          type="text"
-          id="email"
-          name="email"
-          placeholder="jdoe@gmail.com"
-        />
-      </label>
-      <label>
-        How Did You Find Us
-        <input
-          type="text"
-          id="find"
-          name="find-us"
-          placeholder="How did you find us?"
-        />
-      </label>
-      <label class="project-description">
-        Project Description
-        <textarea
-          required
-          name="description"
-          id="description"
-          placeholder="Tell us about your project..."
-        ></textarea>
-      </label>
-      <button class="button-solid" type="submit">Send your inquiry</button>
-    </form>
-    <p>or, if you prefer to contact me directly:</p>
-    <p>
-      <b>email: </b>
-      <a href="mailto:{{client.email}}">{{client.email}}</a>
-    </p>
-    <p>
-      <b>phone: </b>
-      <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>
-    </p>
+    <div class="flex-group-col">
+      <form
+        id="contact-form"
+        name="Contact Form"
+        method="post"
+        data-netlify="true"
+      >
+        <p class="topper">Tell us about your project</p>
+        <h2 class="title">Get in Touch</h2>
+        <div class="grid-group">
+          <div class="flex-group-col">
+            <label for="name"> Full Name <span>*</span> </label>
+            <input
+              required
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+            />
+          </div>
+          <div class="flex-group-col">
+            <label for="company-name"> Company Name </label>
+            <input
+              type="text"
+              id="company-name"
+              name="company-name"
+              placeholder="Microsoft"
+            />
+          </div>
+          <div class="flex-group-col">
+            <label for="email"> Email <span>*</span> </label>
+            <input
+              required
+              type="text"
+              id="email"
+              name="email"
+              placeholder="jdoe@gmail.com"
+            />
+          </div>
+          <div class="flex-group-col">
+            <label for="find"> How Did You Find Us </label>
+            <input
+              type="text"
+              id="find"
+              name="find-us"
+              placeholder="How did you find us?"
+            />
+          </div>
+          <div class="flex-group-col">
+            <label for="description">
+              Project Description <span>*</span>
+            </label>
+            <textarea
+              required
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Tell us about your project..."
+            ></textarea>
+          </div>
+        </div>
+
+        <button class="btn-solid" type="submit">Send your inquiry</button>
+      </form>
+      <p>or, if you prefer to contact me directly:</p>
+      <p>
+        <b>email: </b>
+        <a href="mailto:{{client.personalEmail}}">{{client.personalEmail}}</a
+        ><br />
+        <b>phone: </b>
+        <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>
+      </p>
+    </div>
   </div>
 </section>
 {% endblock %}
