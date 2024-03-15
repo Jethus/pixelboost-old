@@ -17,6 +17,8 @@
   }
   img {
     @include vars.border-style(vars.$dark);
+    max-width: 400px;
+    max-height: 400px;
   }
 }
 

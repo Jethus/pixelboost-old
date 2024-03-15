@@ -279,7 +279,7 @@ picture {
           list-style: none;
           li {
             &:first-child {
-              margin-bottom: vars.$spacing-very-small;
+              margin-bottom: vars.$spacing-xsmall;
             }
           }
         }

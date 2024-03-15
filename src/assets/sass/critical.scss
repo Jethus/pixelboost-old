@@ -142,8 +142,13 @@
         }
       }
 
+      .nav-wrapper {
+        display: flex;
+        gap: vars.$spacing-xsmall;
+      }
+
       @for $i from 1 through 3 {
-        [id$="-dropdown-toggle"]:checked
+        .nav-wrapper:has([id$="-dropdown-toggle"]:checked)
           ~ [id$="-dropdown"]
           > li:nth-child(#{$i}) {
           transition-delay: 0 + ($i * 0.1s);

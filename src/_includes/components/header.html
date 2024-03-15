@@ -48,28 +48,34 @@
           %}
         >
           {# Similarly, if the link is active, apply the necessary classes #}
-          <a href="{{ entry.url }}" class="nav-item {{ entry.key }}">
-            {{ entry.key }}
-          </a>
-          {% if hasChild %}
-          <input type="checkbox" id="{{ entry.key }}-dropdown-toggle" hidden />
-          <label
-            aria-label="{{ entry.key }} menu toggle"
-            for="{{ entry.key }}-dropdown-toggle"
-          >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              class="dropdown-toggle"
-              alt="dropdown toggle"
+          <div class="nav-wrapper">
+            <a href="{{ entry.url }}" class="nav-item {{ entry.key }}">
+              {{ entry.key }}
+            </a>
+            {% if hasChild %}
+            <input
+              type="checkbox"
+              id="{{ entry.key }}-dropdown-toggle"
+              hidden
+            />
+            <label
+              aria-label="{{ entry.key }} menu toggle"
+              for="{{ entry.key }}-dropdown-toggle"
             >
-              <path
-                fill="#fff"
-                d="M26.925 11.613A1 1 0 0 0 26 11H6a1 1 0 0 0-.925.613 1.05 1.05 0 0 0 .213 1.1l10 10a1.025 1.025 0 0 0 1.424 0l10-10a1.05 1.05 0 0 0 .213-1.1z"
-              />
-            </svg>
-          </label>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                class="dropdown-toggle"
+                alt="dropdown toggle"
+              >
+                <path
+                  fill="#fff"
+                  d="M26.925 11.613A1 1 0 0 0 26 11H6a1 1 0 0 0-.925.613 1.05 1.05 0 0 0 .213 1.1l10 10a1.025 1.025 0 0 0 1.424 0l10-10a1.05 1.05 0 0 0 .213-1.1z"
+                />
+              </svg>
+            </label>
+          </div>
           {% endif %} {# Dropdowns have another ul/li set up within the parent
           li. Render in the same way as a normal link #} {% if hasChild %}
           <ul id="{{ entry.key }}-dropdown">
