@@ -5,6 +5,9 @@
 
 #services {
   background-color: vars.$acc-lightblue;
+  .flex-group-col {
+    align-items: flex-start;
+  }
 }
 
 #web-design {
@@ -13,6 +16,11 @@
 
 #web-dev {
   background-color: vars.$acc-purple;
+  @include vars.container-query(medium) {
+    .flex-group-row {
+      flex-direction: row-reverse !important;
+    }
+  }
 }
 
 #branding {
@@ -25,5 +33,19 @@
 #branding {
   .flex-group-row {
     flex-direction: column;
+    .flex-text {
+      @include vars.flex-group-col;
+      gap: 0.5rem;
+      align-items: flex-start;
+      flex: 2;
+    }
+    img {
+      @include vars.border-style(vars.$dark);
+      flex: 1;
+    }
+    @include vars.container-query(medium) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 }

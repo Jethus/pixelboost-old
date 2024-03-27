@@ -211,6 +211,9 @@
       #nav-contact {
         display: block;
       }
+      #mobile-nav-contact {
+        display: none !important;
+      }
 
       #nav-menu {
         @include vars.flex-center;
