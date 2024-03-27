@@ -7,9 +7,16 @@
   background-color: vars.$acc-yellow;
   .flex-group-row {
     flex-direction: column;
+    @include vars.container-query(medium) {
+      flex-direction: row;
+    }
     picture {
+      max-width: 400px;
       width: 70%;
       align-self: flex-start;
+    }
+    .flex-group-col {
+      align-items: flex-start;
     }
   }
   .topper {
@@ -26,11 +33,30 @@
   background-color: vars.$acc-pink;
   .flex-group-row {
     flex-direction: column;
+    align-items: stretch;
+    @include vars.container-query(medium) {
+      flex-direction: row;
+    }
     .card {
+      @include vars.flex-group-col;
+      justify-content: flex-start;
       background-color: rgba(vars.$light, 1);
       @include vars.border-style(vars.$dark);
       border-radius: vars.$border-radius-medium;
       padding: vars.$spacing-medium;
+      flex: 1;
+      h3 {
+        align-self: flex-start;
+      }
+      img {
+        width: 80px;
+        height: 80px;
+      }
+      @include vars.container-query(medium) {
+        h3 {
+          align-items: center;
+        }
+      }
     }
   }
 }
@@ -38,6 +64,7 @@
 #what-else {
   background-color: vars.$acc-purple;
   .flex-group-col {
+    align-items: flex-start;
     .topper,
     .title {
       align-self: flex-start;

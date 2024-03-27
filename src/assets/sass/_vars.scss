@@ -86,8 +86,14 @@ $breakpoints: (
 @mixin container-query($size) {
   $query: map-get($breakpoints, $size);
 
-  @container (min-width: #{$query}) {
-    @content;
+  @if $query {
+    @container (min-width: #{$query}) {
+      @content;
+    }
+  } @else {
+    @container (min-width: #{$size}) {
+      @content;
+    }
   }
 }
 

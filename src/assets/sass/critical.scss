@@ -268,63 +268,59 @@
 <---         What we do         -->
 <--- -------------------------- -*/
 
-// Mobile
-@include vars.mobile {
-  #what-we-do {
-    background-color: vars.$acc-lightblue;
+#what-we-do {
+  background-color: vars.$acc-lightblue;
 
-    .flex-group-row {
-      flex-direction: column;
+  .flex-group-row {
+    flex-direction: column;
 
-      .card {
-        display: flex;
-        background-color: vars.$light;
-        border-radius: vars.$border-radius-medium;
-        @include vars.border-style(vars.$dark);
-        padding: vars.$spacing-medium;
-        align-self: stretch;
-        gap: vars.$spacing-small;
-        flex-direction: column;
-        flex: 1;
-
-        .flex-group-row {
-          justify-content: flex-start;
-          gap: vars.$spacing-medium;
-          flex-direction: row;
-        }
-
-        .img-wrap {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #000;
-          border-radius: 50%;
-          width: 64px;
-          height: 64px;
-          flex-shrink: 0;
-        }
-
-        @include vars.container-query(x-small) {
-          .img-wrap {
-            width: 80px;
-            height: 80px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@include vars.tablet {
-  #what-we-do {
-    .flex-group-row {
+    @include vars.container-query(medium) {
       flex-direction: row;
+    }
 
-      .card {
-        .flex-group-row {
-          flex-wrap: wrap;
+    .card {
+      display: flex;
+      background-color: vars.$light;
+      border-radius: vars.$border-radius-medium;
+      @include vars.border-style(vars.$dark);
+      padding: vars.$spacing-medium;
+      align-self: stretch;
+      gap: vars.$spacing-small;
+      flex-direction: column;
+      flex: 1;
+      flex-shrink: 0;
+
+      .flex-group-row {
+        justify-content: flex-start;
+        gap: vars.$spacing-medium;
+        flex-direction: row;
+        @include vars.container-query(medium) {
+          flex-direction: column;
           text-align: center;
           justify-content: center;
+        }
+        @include vars.container-query(large) {
+          flex-direction: row;
+          text-align: left;
+          justify-content: flex-start;
+        }
+      }
+
+      .img-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+      }
+
+      @include vars.container-query(x-small) {
+        .img-wrap {
+          width: 80px;
+          height: 80px;
         }
       }
     }
