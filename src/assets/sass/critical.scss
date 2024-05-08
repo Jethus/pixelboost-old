@@ -101,6 +101,7 @@
         transition: all 0.3s ease-in-out;
         z-index: 3;
         align-self: flex-end;
+        pointer-events: none;
       }
 
       :nth-child(2) {
@@ -260,6 +261,10 @@
     .flex-group-row {
       flex-direction: column;
 
+      a {
+        font-size: vars.$h4-font-size;
+      }
+
       @include vars.container-query(small) {
         flex-direction: row;
       }
@@ -329,4 +334,3 @@
     }
   }
 }
-// testing

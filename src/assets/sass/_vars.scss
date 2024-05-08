@@ -232,10 +232,10 @@ $breakpoints: (
   }
 }
 
-@mixin btn-yellow {
+@mixin btn-blue {
   @include btn-base;
-  color: $dark;
-  background-color: $acc-yellow;
+  color: $light;
+  background-color: $brand-secondary;
   @include border-style($dark);
 
   &:active {

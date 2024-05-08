@@ -73,8 +73,8 @@ a:not([class*="btn"]) {
   @include vars.btn-line;
 }
 
-.btn-yellow {
-  @include vars.btn-yellow;
+.btn-blue {
+  @include vars.btn-blue;
 }
 
 /* Fonts and general styles */
@@ -145,6 +145,10 @@ a:not([class*="btn"]) {
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 html {
   @include vars.body-style;
@@ -178,6 +182,19 @@ body:has(#menu-toggle:checked) {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove tap highlight color */
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
 }
 
 section {
