@@ -101,15 +101,16 @@
       }
 
       button {
+        cursor: pointer;
         display: flex;
         align-items: center;
         width: 100%;
         background-color: transparent;
         border: none;
         padding: v.$spacing-medium v.$spacing-small;
-        cursor: pointer;
         transition: background-color 0.3s ease;
         border-radius: v.$border-radius-small;
+        text-align: left;
 
         &.active {
           border-bottom: v.$border-dark;
