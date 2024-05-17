@@ -2,15 +2,15 @@
 <---       Landing Page         -->
 <--- -------------------------- -*/
 // Landing styles
-@use "vars";
+@use "vars" as v;
 
 #portfolio {
-  background-color: vars.$acc-cream;
+  background-color: v.$acc-cream;
 
   .item {
-    background-color: vars.$acc-lightblue;
-    border-radius: vars.$border-radius-medium;
-    @include vars.border-style(vars.$dark);
+    background-color: v.$acc-lightblue;
+    border-radius: v.$border-radius-medium;
+    @include v.border-style(v.$dark);
     align-items: stretch;
     gap: 0;
     overflow: hidden;
@@ -21,14 +21,14 @@
     }
 
     .text {
-      border-bottom: vars.$border-dark;
+      border-bottom: v.$border-dark;
     }
 
-    @include vars.container-query(small) {
+    @include v.container-query(small) {
       max-height: 36rem;
     }
 
-    @include vars.container-query(medium) {
+    @include v.container-query(medium) {
       flex-direction: row;
       max-height: 24rem;
 
@@ -42,11 +42,11 @@
       }
 
       .text ~ picture {
-        border-left: vars.$border-dark;
+        border-left: v.$border-dark;
       }
 
       picture ~ .text {
-        border-left: vars.$border-dark;
+        border-left: v.$border-dark;
       }
     }
 
@@ -61,7 +61,7 @@
     }
 
     .text {
-      @include vars.flex-group-col;
+      @include v.flex-group-col;
       flex: 1;
       align-items: flex-start;
       justify-content: center;
@@ -77,10 +77,70 @@
 }
 
 #pricing {
-  background-color: vars.$acc-pink;
+  background-color: v.$acc-pink;
 
   .container {
     flex-direction: column;
+
+    .accordion {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+
+      li {
+        border-radius: v.$border-radius-medium;
+        @include v.border-style(v.$dark);
+        overflow: hidden;
+        transition: v.$transition-default;
+        &:has(button.active),
+        &:has(button:hover) {
+          @include v.drop-shadow;
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: v.$spacing-medium v.$spacing-small;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: v.$border-radius-small;
+
+        &.active {
+          border-bottom: v.$border-dark;
+          background-color: lighten(v.$acc-pink, 10%);
+        }
+        &:hover {
+          background-color: lighten(v.$acc-pink, 20%);
+        }
+
+        &.active svg {
+          transform: rotate(90deg);
+        }
+      }
+
+      svg {
+        margin-right: 0.5rem;
+        transition: v.$transition-default;
+      }
+
+      p {
+        max-height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0 v.$spacing-medium;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+
+        &.expanded {
+          padding: v.$spacing-medium;
+        }
+      }
+    }
 
     .flex-group-col {
       max-width: clamp(36rem, 30vw, 40rem);
@@ -88,36 +148,36 @@
       align-items: flex-start;
 
       .title {
-        font-size: vars.$spicy-font-size;
+        font-size: v.$spicy-font-size;
       }
     }
 
     .grid-group {
       grid-template-columns: 1fr;
 
-      @include vars.container-query(small) {
+      @include v.container-query(small) {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .card {
         display: flex;
         flex-direction: column;
-        background-color: rgba(vars.$light, 0.5);
-        gap: vars.$spacing-small;
-        padding: vars.$spacing-semi-small vars.$spacing-medium;
-        border-radius: vars.$border-radius-medium;
-        @include vars.border-style(vars.$dark);
+        background-color: rgba(v.$light, 0.5);
+        gap: v.$spacing-small;
+        padding: v.$spacing-semi-small v.$spacing-medium;
+        border-radius: v.$border-radius-medium;
+        @include v.border-style(v.$dark);
 
         .flex-group-row {
           justify-content: flex-start;
           flex-direction: row;
-          gap: vars.$spacing-medium;
+          gap: v.$spacing-medium;
 
           img {
             width: 32px;
             height: 32px;
 
-            @include vars.container-query(large) {
+            @include v.container-query(large) {
               width: 48px;
               height: 48px;
             }
