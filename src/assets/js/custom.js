@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const accordionButtons = document.querySelectorAll(".accordion button");
+  const tabs = document.querySelectorAll(".tab-link");
+  const contents = document.querySelectorAll(".tab-content");
 
   accordionButtons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -19,6 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
         panel.style.maxHeight = `${panel.scrollHeight + 30}px`;
         panel.classList.add("expanded");
       }
+    });
+  });
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const target = this.getAttribute("data-tab");
+
+      tabs.forEach((t) => t.classList.remove("active"));
+      this.classList.add("active");
+
+      contents.forEach((content) => {
+        content.classList.remove("active");
+        if (content.id === target) {
+          content.classList.add("active");
+        }
+      });
     });
   });
 });

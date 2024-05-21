@@ -133,7 +133,7 @@ $breakpoints: (
 
 @mixin focus-style($colour) {
   outline: 3px solid $colour;
-  outline-offset: 3px;
+  outline-offset: 6px;
 }
 
 @mixin link-style($colour) {

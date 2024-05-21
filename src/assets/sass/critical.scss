@@ -333,4 +333,42 @@
       }
     }
   }
+
+  .tab-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+  }
+
+  .tabs li {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .tabs li.active {
+    background-color: #f26722;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 20px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
 }

@@ -98,6 +98,9 @@
         &:has(button:hover) {
           @include v.drop-shadow;
         }
+        &:has(button:focus-visible) {
+          @include v.focus-style(#04d9ff);
+        }
       }
 
       button {
