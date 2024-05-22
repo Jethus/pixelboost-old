@@ -155,39 +155,5 @@
         font-size: v.$spicy-font-size;
       }
     }
-
-    .grid-group {
-      grid-template-columns: 1fr;
-
-      @include v.container-query(small) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
-        background-color: rgba(v.$light, 0.5);
-        gap: v.$spacing-small;
-        padding: v.$spacing-semi-small v.$spacing-medium;
-        border-radius: v.$border-radius-medium;
-        @include v.border-style(v.$dark);
-
-        .flex-group-row {
-          justify-content: flex-start;
-          flex-direction: row;
-          gap: v.$spacing-medium;
-
-          img {
-            width: 32px;
-            height: 32px;
-
-            @include v.container-query(large) {
-              width: 48px;
-              height: 48px;
-            }
-          }
-        }
-      }
-    }
   }
 }

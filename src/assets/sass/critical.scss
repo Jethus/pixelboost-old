@@ -1,5 +1,5 @@
 // Styles for above the fold
-@use "vars";
+@use "vars" as v;
 
 @keyframes slideFadeIn {
   from {
@@ -25,6 +25,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /*-- -------------------------- -->
 <---          Header            -->
 <--- -------------------------- -*/
@@ -34,13 +44,13 @@
   z-index: 2;
   // ^ so the mobile menu stacks correctly
   container-type: inline-size;
-  border: 1px solid vars.$dark;
-  background-color: vars.$light;
+  border: 1px solid v.$dark;
+  background-color: v.$light;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: vars.$spacing-medium vars.$spacing-semi-medium;
+  padding: v.$spacing-medium v.$spacing-semi-medium;
 
   .container {
     width: 100%;
@@ -61,11 +71,11 @@
 
   .nav-bar {
     width: 100%;
-    @include vars.flex-center;
+    @include v.flex-center;
     justify-content: space-between;
 
     .fries-btn {
-      @include vars.flex-center;
+      @include v.flex-center;
       cursor: pointer;
       background: none;
       border: none;
@@ -73,7 +83,7 @@
       width: 4rem;
       height: 4rem;
       gap: 8px;
-      padding: vars.$spacing-small;
+      padding: v.$spacing-small;
       position: relative;
       z-index: 3;
 
@@ -96,8 +106,8 @@
         display: block;
         width: 100%;
         height: 5px;
-        background-color: vars.$dark;
-        border-radius: vars.$border-radius-medium;
+        background-color: v.$dark;
+        border-radius: v.$border-radius-medium;
         transition: all 0.3s ease-in-out;
         z-index: 3;
         align-self: flex-end;
@@ -119,10 +129,10 @@
       width: calc(45vw + 4rem);
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(vars.$spacing-small);
+      backdrop-filter: blur(v.$spacing-small);
       list-style: none;
-      font-size: vars.$btn-nav-font-size;
-      font-weight: vars.$bold-weight;
+      font-size: v.$btn-nav-font-size;
+      font-weight: v.$bold-weight;
       text-align: right;
       padding: 90px 2rem 2rem;
       transform: translateX(100%);
@@ -139,13 +149,13 @@
         }
 
         a:not(:hover) {
-          color: vars.$light;
+          color: v.$light;
         }
       }
 
       .nav-wrapper {
         display: flex;
-        gap: vars.$spacing-xsmall;
+        gap: v.$spacing-xsmall;
       }
 
       @for $i from 1 through 3 {
@@ -183,7 +193,7 @@
 
     #menu-toggle:checked ~ .fries-btn {
       .fries {
-        background-color: vars.$light;
+        background-color: v.$light;
       }
 
       :nth-child(1) {
@@ -204,7 +214,7 @@
       display: none;
     }
 
-    @include vars.container-query(medium) {
+    @include v.container-query(medium) {
       .fries-btn {
         display: none;
       }
@@ -217,10 +227,10 @@
       }
 
       #nav-menu {
-        @include vars.flex-center;
+        @include v.flex-center;
         height: auto;
         flex-direction: row;
-        gap: vars.$spacing-large;
+        gap: v.$spacing-large;
         flex: 1;
         position: relative;
         background-color: transparent;
@@ -229,13 +239,13 @@
         transform: none;
         padding: 0;
         pointer-events: auto;
-        color: vars.$dark;
+        color: v.$dark;
 
         & > li {
           opacity: 1;
 
           a:not(:hover) {
-            color: vars.$dark;
+            color: v.$dark;
             transition: opacity 0s;
           }
         }
@@ -255,17 +265,17 @@
 
 // Mobile
 #hero {
-  background-color: vars.$acc-yellow;
+  background-color: v.$acc-yellow;
 
   .container {
     .flex-group-row {
       flex-direction: column;
 
       a {
-        font-size: vars.$h4-font-size;
+        font-size: v.$h4-font-size;
       }
 
-      @include vars.container-query(small) {
+      @include v.container-query(small) {
         flex-direction: row;
       }
     }
@@ -277,98 +287,102 @@
 <--- -------------------------- -*/
 
 #what-we-do {
-  background-color: vars.$acc-lightblue;
+  background-color: v.$acc-lightblue;
 
   .flex-group-row {
     flex-direction: column;
-
-    @include vars.container-query(medium) {
-      flex-direction: row;
-    }
-
-    .card {
-      display: flex;
-      background-color: vars.$light;
-      border-radius: vars.$border-radius-medium;
-      @include vars.border-style(vars.$dark);
-      padding: vars.$spacing-medium;
-      align-self: stretch;
-      gap: vars.$spacing-small;
-      flex-direction: column;
+    & > p {
       flex: 1;
-      flex-shrink: 0;
-
-      .flex-group-row {
-        justify-content: flex-start;
-        gap: vars.$spacing-medium;
-        flex-direction: row;
-        @include vars.container-query(medium) {
-          flex-direction: column;
-          text-align: center;
-          justify-content: center;
-        }
-        @include vars.container-query(large) {
-          flex-direction: row;
-          text-align: left;
-          justify-content: flex-start;
-        }
-      }
-
-      .img-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #000;
-        border-radius: 50%;
-        width: 64px;
-        height: 64px;
-        flex-shrink: 0;
-      }
-
-      @include vars.container-query(x-small) {
-        .img-wrap {
-          width: 80px;
-          height: 80px;
-        }
-      }
+    }
+    @include v.container-query(medium) {
+      flex-direction: row;
     }
   }
 
   .tab-container {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+    flex: 2;
 
-  .tabs {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    border-radius: 5px 5px 0 0;
-    margin: 0;
-  }
+    .tabs {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      border-radius: 5px 5px 0 0;
+      margin: 0;
 
-  .tabs li {
-    padding: 10px 20px;
-    cursor: pointer;
-    color: #fff;
-  }
+      .tab-link {
+        padding: 10px 20px;
+        border-radius: 1rem 1rem 0 0;
+        cursor: pointer;
+        color: v.$light;
+        background-color: lighten(v.$brand-secondary, 20%);
+        @include v.border-style(v.$dark);
+        border-bottom: none;
+        transition: v.$transition-default;
+        &:hover {
+          background-color: lighten(v.$brand-secondary, 10%);
+        }
+        &:focus-visible {
+          @include v.focus-style(v.$dark);
+        }
+        &.active {
+          background-color: v.$brand-secondary;
+        }
+      }
+    }
 
-  .tabs li.active {
-    background-color: #f26722;
-  }
+    .tab-content {
+      padding: v.$spacing-semi-large;
+      border-radius: 0 1rem 1rem 1rem;
+      @include v.border-style(v.$dark);
+      transition: v.$transition-default;
+      display: none;
 
-  .tab-content {
-    display: none;
-    padding: 20px;
-  }
+      .flex-group-row {
+        justify-content: flex-start;
+        gap: v.$spacing-medium;
+        flex-direction: row;
+        margin-bottom: v.$spacing-medium;
+        @include v.container-query(medium) {
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+        }
+        @include v.container-query(large) {
+          flex-direction: row;
+          text-align: left;
+          justify-content: flex-start;
+        }
 
-  .tab-content.active {
-    display: block;
+        .img-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #000;
+          border-radius: 50%;
+          width: 64px;
+          height: 64px;
+          flex-shrink: 0;
+        }
+
+        @include v.container-query(x-small) {
+          .img-wrap {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+      &.active {
+        background-color: #fff;
+        display: block;
+        @include v.drop-shadow;
+
+        .img-wrap,
+        h3,
+        p {
+          // animation: fadeIn 0.3s ease-in-out;
+        }
+      }
+    }
   }
 }

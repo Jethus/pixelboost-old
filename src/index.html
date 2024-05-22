@@ -86,90 +86,97 @@ order: 1
     <div class="flex-group-col">
       <p class="topper">What We Do</p>
       <h2 class="title">What we offer</h2>
-      <p>
-        We specialize in web design and development for businesses across
-        Canada. Every line of code is meticulously crafted to enhance site
-        performance, increasing customer engagement and boosting your business's
-        conversions.
-      </p>
-      <div class="flex-group-row">
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/responsive-design 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
-            </div>
-            <h3>Fully Responsive Design</h3>
-          </div>
-          <p>
-            Seamless across all devices, our responsive designs adapt perfectly
-            to any screen, ensuring a superior user experience.
-          </p>
-        </div>
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/smartphone 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
-            </div>
-            <h3>Mobile First Strategy</h3>
-          </div>
-          <p>
-            Our mobile-first approach focuses on intuitive and accessible
-            designs, enhancing engagement for on-the-go users.
-          </p>
-        </div>
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/settings 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
-            </div>
-            <h3>Website Optimization</h3>
-          </div>
-          <p>
-            Fast, efficient, and optimized for search engines. Our websites are
-            built to deliver top performance and visibility.
-          </p>
-        </div>
-      </div>
       {# new area #}
       <div class="flex-group-row">
         <div class="tab-container">
-          <ul class="tabs">
-            <li class="tab-link active" data-tab="tab-1">Tab 1</li>
-            <li class="tab-link" data-tab="tab-2">Tab 2</li>
-            <li class="tab-link" data-tab="tab-3">Tab 3</li>
+          <ul class="tabs" role="tablist">
+            <li
+              class="tab-link active"
+              role="tab"
+              aria-controls="tab-1"
+              aria-selected="true"
+              tabindex="0"
+              data-tab="tab-1"
+            >
+              <strong>Responsive</strong>
+            </li>
+            <li
+              class="tab-link"
+              role="tab"
+              aria-controls="tab-2"
+              aria-selected="false"
+              tabindex="0"
+              data-tab="tab-2"
+            >
+              <strong>Mobile</strong>
+            </li>
+            <li
+              class="tab-link"
+              role="tab"
+              aria-controls="tab-3"
+              aria-selected="false"
+              tabindex="0"
+              data-tab="tab-3"
+            >
+              <strong>Optimize</strong>
+            </li>
           </ul>
           <div id="tab-1" class="tab-content active">
-            <h3>Tab 1 Content</h3>
-            <p>This is the content of Tab 1.</p>
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/responsive-design 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Fully Responsive Design</h3>
+            </div>
+            <p>
+              Seamless across all devices, our responsive designs adapt
+              perfectly to any screen, ensuring a superior user experience.
+            </p>
           </div>
           <div id="tab-2" class="tab-content">
-            <h3>Tab 2 Content</h3>
-            <p>This is the content of Tab 2.</p>
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/smartphone 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Mobile First Strategy</h3>
+            </div>
+            <p>
+              Our mobile-first approach focuses on intuitive and accessible
+              designs, enhancing engagement for on-the-go users.
+            </p>
           </div>
           <div id="tab-3" class="tab-content">
-            <h3>Tab 3 Content</h3>
-            <p>This is the content of Tab 3.</p>
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/settings 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Website Optimization</h3>
+            </div>
+            <p>
+              Fast, efficient, and optimized for search engines. Our websites
+              are built to deliver top performance and visibility.
+            </p>
           </div>
         </div>
         <p>
@@ -433,110 +440,6 @@ order: 1
         </p>
       </li>
     </ul>
-    <div class="grid-group">
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Hosting Simplified</h3>
-        </div>
-        <p>
-          Your monthly payment includes hosting. No extra fees, just seamless
-          service to keep your site up and running.
-        </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Unlimited Edits</h3>
-        </div>
-        <p>
-          Need to make a change? No problem. We offer unlimited updates to keep
-          your site current with your business needs.
-        </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Support Always Available</h3>
-        </div>
-        <p>
-          Get help anytime with a real person on our 24/7 direct line. No AI,
-          bots or automated scripts.
-        </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Web Design & Development</h3>
-        </div>
-        <p>
-          More than 40 hours dedicated to crafting, testing, and refining your
-          site for peak performance.
-        </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Optimized for Search Engines</h3>
-        </div>
-        <p>
-          We tune your sites technical SEO for better performance in search
-          engine rankings.
-        </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Analytics Integration</h3>
-        </div>
-        <p>
-          Google Analytics setup included to monitor and strategize based on
-          site performance metrics.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
