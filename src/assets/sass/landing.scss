@@ -15,6 +15,11 @@
     gap: 0;
     overflow: hidden;
     flex-direction: column;
+    @include v.transition-slow(transform);
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     &:has(picture ~ .text) {
       flex-direction: column-reverse;
@@ -82,6 +87,20 @@
   .container {
     flex-direction: column;
 
+    .flex-group-col {
+      max-width: clamp(40rem, 32vw, 48rem);
+      align-self: flex-start;
+      align-items: flex-start;
+
+      .flex-text {
+        align-items: flex-start;
+      }
+
+      .title {
+        font-size: v.$fs-xxxl;
+      }
+    }
+
     .accordion {
       width: 100%;
       list-style: none;
@@ -92,6 +111,7 @@
       li {
         border-radius: v.$border-radius-medium;
         @include v.border-style(v.$dark);
+        @include v.fade-in;
         overflow: hidden;
         transition: v.$transition-default;
         &:has(button.active),
@@ -111,9 +131,9 @@
         background-color: transparent;
         border: none;
         padding: v.$spacing-medium v.$spacing-small;
-        transition: background-color 0.3s ease;
         border-radius: v.$border-radius-small;
         text-align: left;
+        @include v.transition-slow(background-color);
 
         &.active {
           border-bottom: v.$border-dark;
@@ -124,13 +144,13 @@
         }
 
         &.active svg {
-          transform: rotate(90deg);
+          transform: rotate(225deg);
         }
       }
 
       svg {
-        margin-right: 0.5rem;
-        transition: v.$transition-default;
+        margin-right: v.$spacing-small;
+        @include v.transition-slow(transform);
       }
 
       p {
@@ -143,16 +163,6 @@
         &.expanded {
           padding: v.$spacing-medium;
         }
-      }
-    }
-
-    .flex-group-col {
-      max-width: clamp(36rem, 30vw, 40rem);
-      align-self: flex-start;
-      align-items: flex-start;
-
-      .title {
-        font-size: v.$spicy-font-size;
       }
     }
   }

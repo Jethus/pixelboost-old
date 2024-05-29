@@ -40,7 +40,10 @@
 <--- -------------------------- -*/
 
 #header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   // ^ so the mobile menu stacks correctly
   container-type: inline-size;
@@ -51,6 +54,14 @@
   align-items: center;
   justify-content: space-between;
   padding: v.$spacing-medium v.$spacing-semi-medium;
+  transition: v.$transition-default;
+
+  &.scrolled {
+    padding: v.$spacing-small v.$spacing-semi-medium;
+    #nav-contact {
+      padding: v.$spacing-small v.$spacing-medium;
+    }
+  }
 
   .container {
     width: 100%;
@@ -58,7 +69,7 @@
   }
 
   .logo {
-    width: 12rem;
+    width: 15rem;
     display: flex;
     z-index: 1;
 
@@ -131,7 +142,7 @@
       background-color: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(v.$spacing-small);
       list-style: none;
-      font-size: v.$btn-nav-font-size;
+      font-size: v.$fs-s;
       font-weight: v.$bold-weight;
       text-align: right;
       padding: 90px 2rem 2rem;
@@ -270,9 +281,11 @@
   .container {
     .flex-group-row {
       flex-direction: column;
-
-      a {
-        font-size: v.$h4-font-size;
+      .flex-group-row {
+        flex-direction: row;
+      }
+      picture {
+        flex: 0.8;
       }
 
       @include v.container-query(small) {
@@ -376,12 +389,6 @@
         background-color: #fff;
         display: block;
         @include v.drop-shadow;
-
-        .img-wrap,
-        h3,
-        p {
-          // animation: fadeIn 0.3s ease-in-out;
-        }
       }
     }
   }

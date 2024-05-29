@@ -13,17 +13,17 @@ $acc-purple: #e2bdff;
 $dark: #000;
 $light: #fff;
 
-/* 13px - 16px */
-$topper-font-size: clamp(0.8125rem, 1.6vw, 1rem);
-$h1-font-size: clamp(2.5rem, 5vw, 3.5rem); // 40-56px
-$h2-font-size: clamp(2rem, 4vw, 3rem); // 32-48px
-$h3-font-size: clamp(1.5rem, 3vw, 2rem); // 24-32px
-$h4-font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-24px
-$h5-font-size: clamp(1rem, 2vw, 1.25rem); // 16-20px
-$body-font-size: 1rem;
-$btn-nav-font-size: 1.25rem;
-$spicy-font-size: clamp(2.5rem, 6vw, 4rem); // 48-64px
-$extra-spicy-font-size: clamp(4rem, 10vw, 8rem); // 60-108px
+$fs-xxxxl: clamp(4rem, 10vw, 8rem); // 64-128px
+$fs-xxxl: clamp(3.75rem, 6vw, 4.5rem); // 60-72px
+$fs-xxl: clamp(3rem, 5vw, 3.75rem); // 48-60px
+$fs-xl: clamp(2.5rem, 4vw, 3rem); // 40-48px
+$fs-l: clamp(1.875rem, 3vw, 2.5rem); // 30-40px
+$fs-m: clamp(1.5rem, 2vw, 1.875rem); // 20-30px
+$fs-s: clamp(1.125rem, 1.5vw, 1.5rem); // 18-24px
+$fs-base: clamp(1rem, 1.25vw, 1.125rem); // 16-18px
+$fs-xs: clamp(0.875rem, 1.25vw, 1rem); // 14-16px
+
+$line-height: calc(4px + 2ex + 4px);
 
 /* 60px - 100px top and bottom */
 $container-padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
@@ -97,22 +97,22 @@ $breakpoints: (
   }
 }
 
-// Mixins for responsive design
-@mixin mobile {
-  @media only screen and (min-width: $mobile) {
-    @content;
-  }
+@mixin transition-fast($property) {
+  transition: $property 0.12s ease-in-out;
+}
+@mixin transition-slow($property) {
+  transition: $property 0.3s ease;
 }
 
-@mixin tablet {
-  @media only screen and (min-width: $tablet) {
-    @content;
-  }
-}
+// _mixins.scss
+@mixin fade-in() {
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 1s ease;
+  transform: translateY(2rem);
 
-@mixin sm-desktop {
-  @media only screen and (min-width: $sm-desktop) {
-    @content;
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -160,7 +160,6 @@ $breakpoints: (
 
 @mixin flex-group-col {
   @include flex-group-row;
-  gap: $spacing-medium;
   flex-direction: column;
 }
 
@@ -182,9 +181,10 @@ $breakpoints: (
 
 @mixin btn-base {
   @include header-style;
-  font-size: $btn-nav-font-size;
+  @include fade-in;
+  font-size: $fs-s;
   font-weight: $bold-weight;
-  padding: $spacing-small $spacing-medium;
+  padding: $spacing-medium $spacing-semi-large;
   border-radius: $border-radius-medium;
   transition: $transition-default;
 

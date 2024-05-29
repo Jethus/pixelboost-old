@@ -2,27 +2,27 @@
 <---        Core Styles         -->
 <--- -------------------------- -*/
 // Base/root style sheet
-@use "vars";
+@use "vars" as v;
 
 // Text styles
 h1 {
-  font-size: vars.$h1-font-size;
+  font-size: v.$fs-xxl;
 }
 
 h2 {
-  font-size: vars.$h2-font-size;
+  font-size: v.$fs-xl;
 }
 
 h3 {
-  font-size: vars.$h3-font-size;
+  font-size: v.$fs-l;
 }
 
 h4 {
-  font-size: vars.$h4-font-size;
+  font-size: v.$fs-m;
 }
 
 h5 {
-  font-size: vars.$h5-font-size;
+  font-size: v.$fs-s;
 }
 
 h1,
@@ -30,7 +30,15 @@ h2,
 h3,
 h4,
 h5 {
-  @include vars.header-style;
+  @include v.header-style;
+  line-height: v.$line-height;
+}
+
+p,
+ul,
+label,
+input {
+  font-size: v.$fs-base;
 }
 
 a {
@@ -38,43 +46,57 @@ a {
 }
 
 a:not([class*="btn"]) {
-  @include vars.link-style(vars.$brand-secondary);
-  transition: vars.$transition-default;
+  @include v.link-style(v.$brand-secondary);
+  transition: v.$transition-default;
 }
 
 .topper {
-  font-size: vars.$topper-font-size;
-  font-weight: vars.$bold-weight;
-  line-height: vars.$line-height-small;
+  @include v.fade-in;
+  font-size: v.$fs-xs;
+  font-weight: v.$bold-weight;
+  line-height: v.$line-height-small;
   text-transform: uppercase;
-  letter-spacing: vars.$letter-spacing-wide;
-  color: vars.$brand-secondary;
+  letter-spacing: v.$letter-spacing-wide;
+  color: v.$brand-secondary;
   display: block;
 }
 
+.title {
+  @include v.fade-in;
+}
+
 .flex-group-col {
-  @include vars.flex-group-col;
+  @include v.flex-group-col;
   flex: 1;
+  @include v.fade-in;
 }
 
 .flex-group-row {
-  @include vars.flex-group-row;
+  @include v.flex-group-row;
+  @include v.fade-in;
 }
 
 .grid-group {
-  @include vars.grid-group;
+  @include v.grid-group;
+  @include v.fade-in;
+}
+
+.flex-text {
+  @include v.flex-group-col;
+  gap: v.$spacing-small;
+  @include v.fade-in;
 }
 
 .btn-solid {
-  @include vars.btn-solid;
+  @include v.btn-solid;
 }
 
 .btn-line {
-  @include vars.btn-line;
+  @include v.btn-line;
 }
 
 .btn-blue {
-  @include vars.btn-blue;
+  @include v.btn-blue;
 }
 
 /* Fonts and general styles */
@@ -151,11 +173,11 @@ html {
 
 body,
 html {
-  @include vars.body-style;
+  @include v.body-style;
   height: 100%;
   margin: 0;
   padding: 0;
-  color: vars.$dark;
+  color: v.$dark;
   overflow-x: hidden;
 }
 
@@ -165,7 +187,7 @@ body {
 }
 
 main {
-  background-color: vars.$dark;
+  background-color: v.$dark;
   flex-grow: 1;
 }
 
@@ -198,18 +220,18 @@ textarea {
 }
 
 section {
-  border: 1px solid vars.$dark;
-  padding: vars.$spacing-large vars.$spacing-medium;
+  border: 1px solid v.$dark;
+  padding: v.$spacing-large v.$spacing-medium;
 }
 
 .container {
-  max-width: vars.$content-width;
+  max-width: v.$content-width;
   container-type: inline-size;
   position: relative;
   z-index: 1;
   width: 92%;
   margin: auto;
-  @include vars.flex-group-row;
+  @include v.flex-group-row;
 }
 
 // Hidden Screen reader skip nav btn
@@ -231,35 +253,35 @@ picture {
     object-fit: cover;
     top: 0;
     left: 0;
-    border-radius: vars.$border-radius-medium;
+    border-radius: v.$border-radius-medium;
   }
 }
 
 #cta {
-  background-color: vars.$acc-mint;
+  background-color: v.$acc-mint;
 
   .flex-group-col {
     align-items: flex-start;
 
     .title {
-      font-size: vars.$extra-spicy-font-size;
+      font-size: v.$fs-xxxxl;
     }
   }
 }
 
 #footer {
-  background-color: vars.$dark;
-  color: vars.$light;
+  background-color: v.$dark;
+  color: v.$light;
 
   .flex-group-col {
     container-type: inline-size;
 
     a {
-      @include vars.link-style(vars.$light);
+      @include v.link-style(v.$light);
     }
 
     .container {
-      padding: calc(vars.$spacing-large - 0.5rem);
+      padding: calc(v.$spacing-large - 0.5rem);
       justify-content: space-between;
       flex-direction: column;
 
@@ -285,31 +307,31 @@ picture {
         flex-direction: column;
         grid-template-columns: 2fr 1fr;
         flex: 2;
-        gap: vars.$spacing-large;
+        gap: v.$spacing-large;
         justify-content: flex-end;
 
         h5 {
-          margin-bottom: vars.$spacing-small;
+          margin-bottom: v.$spacing-small;
         }
 
         ul {
           list-style: none;
           li {
             &:first-child {
-              margin-bottom: vars.$spacing-xsmall;
+              margin-bottom: v.$spacing-xsmall;
             }
           }
         }
       }
 
-      @include vars.container-query(x-small) {
+      @include v.container-query(x-small) {
         .right-section {
           display: grid;
           font-size: 0.9375rem;
         }
       }
 
-      @include vars.container-query(small) {
+      @include v.container-query(small) {
         .left-section {
           width: 70%;
         }
@@ -321,7 +343,7 @@ picture {
         }
       }
 
-      @include vars.container-query(large) {
+      @include v.container-query(large) {
         flex-direction: row;
 
         .left-section {
@@ -332,16 +354,16 @@ picture {
 
     .credit {
       width: 100%;
-      border-top: 1px solid vars.$light;
+      border-top: 1px solid v.$light;
       font-size: 0.875rem;
-      @include vars.flex-group-row;
+      @include v.flex-group-row;
       justify-content: center;
-      gap: vars.$spacing-small;
-      padding: vars.$spacing-small;
+      gap: v.$spacing-small;
+      padding: v.$spacing-small;
       text-align: center;
 
-      @include vars.container-query(small) {
-        font-size: vars.$body-font-size;
+      @include v.container-query(small) {
+        font-size: v.$fs-base;
       }
     }
   }

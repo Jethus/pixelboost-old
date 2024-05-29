@@ -1,10 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const accordionContainer = document.querySelector(".accordion");
   const accordionButtons = document.querySelectorAll(".accordion button");
-  const tabs = document.querySelectorAll(".tab-link");
-  const contents = document.querySelectorAll(".tab-content");
+  const tabContainer = document.querySelector(".tab-container");
+  const tabContents = document.querySelectorAll(".tab-content");
+  const header = document.getElementById("header");
+  const fadeInElements = document.querySelectorAll("*");
 
-  accordionButtons.forEach((button) => {
-    button.addEventListener("click", function () {
+  elements = {};
+
+  const checkExistence = (selector) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      elements[selector] = element;
+    }
+  };
+
+  checkExistence(".accordion");
+  checkExistence(".accordion button");
+  checkExistence(".tab-container");
+  checkExistence(".tab-content");
+  checkExistence("#header");
+
+  console.log(elements);
+
+  // sliding accordion
+  accordionContainer.addEventListener("click", (e) => {
+    const button = e.target.closest("button");
+    if (button) {
       const panel = button.nextElementSibling;
       const isActive = button.classList.contains("active");
 
@@ -21,22 +43,55 @@ document.addEventListener("DOMContentLoaded", function () {
         panel.style.maxHeight = `${panel.scrollHeight + 30}px`;
         panel.classList.add("expanded");
       }
-    });
+    }
   });
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", function () {
-      const target = this.getAttribute("data-tab");
+  // Tabbed content interactivity
+  tabContainer.addEventListener("click", (e) => {
+    const tab = e.target.closest(".tab-link");
+    if (tab) {
+      const target = tab.getAttribute("data-tab");
 
-      tabs.forEach((t) => t.classList.remove("active"));
-      this.classList.add("active");
+      // Activate clicked tab
+      document
+        .querySelectorAll(".tab-link")
+        .forEach((tab) => tab.classList.remove("active"));
+      tab.classList.add("active");
 
-      contents.forEach((content) => {
-        content.classList.remove("active");
-        if (content.id === target) {
-          content.classList.add("active");
+      // Show the corresponding content and hide others
+      tabContents.forEach((tabContent) => {
+        tabContent.classList.remove("active");
+        if (tabContent.id === target) {
+          tabContent.classList.add("active");
         }
       });
-    });
+    }
   });
+
+  // triggers "scroll" class on #header
+  document.body.addEventListener("scroll", () => {
+    if (document.body.scrollTop > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  const observerOptions = {
+    root: null, // Observe changes in the viewport
+    rootMargin: "0px", // No margin around the root
+    threshold: 0.1, // 10% of the element must be visible to trigger the callback
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry);
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Stop observing once visible
+      }
+    });
+  }, observerOptions);
+
+  fadeInElements.forEach((element) => observer.observe(element));
 });
