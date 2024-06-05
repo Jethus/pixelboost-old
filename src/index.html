@@ -1,8 +1,6 @@
 ---
 title: "Pixelboost | Expert Web Design & Development | Whitby, ON"
-description: "At Pixel Boost, we specialize in crafting bespoke, high-performance websites for small businesses in
-Whitby. Our web development and design solutions are tailored to elevate your digital footprint affordably and
-effectively."
+description: "Discover expert web design and development in Toronto. Specializing in responsive, mobile-first websites and speed optimization."
 preloadImg: "/assets/images/hero.webp"
 permalink: "/"
 eleventyNavigation:
@@ -12,10 +10,11 @@ order: 1
 
 {% extends "layouts/base.html" %} {% block head %}
 
+<script src="/assets/js/landing.js" defer></script>
 <!-- Script for Netlify Identity -->
 <script
-  defer
   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  defer
 ></script>
 <script defer>
   if (window.netlifyIdentity) {
@@ -29,6 +28,9 @@ order: 1
   }
 </script>
 {% endblock %} {% block body %}
+<section id="preloader">
+  <p>// Initializing website...</p>
+</section>
 
 <!-- ============================================ -->
 <!--                    Hero                      -->
@@ -38,15 +40,86 @@ order: 1
   <div class="container">
     <div class="flex-group-row">
       <div class="flex-group-col">
-        <p class="topper">Web Design & Development</p>
-        <h1 class="title">Pixel-Perfect, Performance Proven</h1>
-        <p>
+        <div class="flex-text fade-in">
+          <p class="topper">Web Design & Development</p>
+          <h1 class="title">Transform your business with web design experts</h1>
+        </div>
+        <p class="fade-in">
           No page builders or WordPress - We offer 100% hand-coded websites with
-          superior results starting at $200/mo.
+          superior results starting at $200/mo. Discover web solutions crafted
+          to enhance user engagement and drive conversions.
         </p>
-        <a href="/contact" class="btn-solid">Learn more</a>
+        <div class="flex-group-row">
+          <a
+            href="/contact"
+            class="btn-solid fade-in"
+            aria-label="get in touch with us"
+            >Get in touch</a
+          >
+
+          <a
+            href="#portfolio"
+            class="btn-line fade-in"
+            aria-label="see our work"
+            >See our work</a
+          >
+        </div>
       </div>
-      <picture>
+      <div class="terminal fade-in">
+        <div class="topbar">
+          <div class="task">
+            <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+              <rect height="10.5" width="12.5" y="2.75" x="1.75"/>
+              <path d="m8.75 10.25h2.5m-6.5-4.5 2.5 2.25-2.5 2.25"/>
+              </svg><p><strong>Terminal</strong></p>
+          </div>
+        </div>
+        <div class="content">
+          <p><span class="object">console</span>.<span class="method">log</span
+            ><span class="parenthese">(</span>"<span class="string"
+              >Welcome to Pixelboost!</span
+            >"<span class="parenthese">)</span>;
+          </p>
+          <p>
+            <span class="keyword">let</span><span class="object"> user</span>
+            <span class="parenthese">=</span>
+            "<span class="string">Valued Client</span>";
+          </p>
+          <p>
+            <span class="keyword">const</span
+            ><span class="variable"> services</span
+            > <span class="parenthese">= [</span>"<span class="string"
+              >Web Design</span
+            >", "<span class="string">Development</span>", "<span class="string"
+              >SEO</span
+            >", "<span class="string">Branding</span>"<span class="parenthese"
+              >]</span
+            >;
+          </p>
+          <p>
+            <span class="keyword">const</span
+            > <span class="variable">message</span
+            > <span class="parenthese">= `</span><span class="string">Hello, <span class="parenthese">${</span
+              ><span class="object">user</span><span class="parenthese">}</span>!
+              Ready to transform your digital presence?</span
+            ><span class="parenthese">`</span>;
+          </p>
+          <p>
+            <span class="object">console</span>.<span class="method">log</span
+            ><span class="parenthese">(</span><span class="object">message</span><span class="parenthese"
+              >)</span
+            >;
+          </p>
+          <p>// Our Services:</span></p>
+          <p>// - Web Design: Stunning, user-friendly interfaces.</p>
+          <p>// - Development: Robust, scalable solutions.</p>
+          <p>// - SEO: Be found, be visible.</p>
+          <p>// - Branding: Your identity, elevated.</p>
+          <p>// Contact us today to start your journey!</p>
+          <p>// pixelboost.ca | hello@pixelboost.ca<span></span></p>
+        </div>
+    </div>
+      <picture class="fade-in">
         <source media="(max-width: 600px)" srcset="/assets/images/hero.webp" />
         <source media="(min-width: 601px)" srcset="/assets/images/hero.webp" />
         <img
@@ -70,72 +143,109 @@ order: 1
 <section id="what-we-do">
   <div class="container">
     <div class="flex-group-col">
-      <p class="topper">What We Do</p>
-      <h2 class="title">What we offer</h2>
-      <p>
-        We specialize in small business web design and development for clients
-        anywhere in the US. Every line of code is written by hand to ensure the
-        best performance, which helps bring in more customers to your site and
-        bring more revenue to your business.
-      </p>
+      <div class="flex-text fade-in">
+        <p class="topper">Our bread & butter</p>
+        <h2 class="title">What we offer</h2>
+      </div>
+      {# new area #}
       <div class="flex-group-row">
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/responsive-design 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
+        <div class="tab-container fade-in">
+          <ul class="tabs" role="tablist">
+            <li
+              class="tab-link active"
+              role="tab"
+              aria-controls="tab-1"
+              aria-selected="true"
+              tabindex="0"
+              data-tab="tab-1"
+            >
+              <strong>Responsive</strong>
+            </li>
+            <li
+              class="tab-link"
+              role="tab"
+              aria-controls="tab-2"
+              aria-selected="false"
+              tabindex="0"
+              data-tab="tab-2"
+            >
+              <strong>Mobile</strong>
+            </li>
+            <li
+              class="tab-link"
+              role="tab"
+              aria-controls="tab-3"
+              aria-selected="false"
+              tabindex="0"
+              data-tab="tab-3"
+            >
+              <strong>Optimize</strong>
+            </li>
+          </ul>
+          <div id="tab-1" class="tab-content active">
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/responsive-design 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Fully Responsive Design</h3>
             </div>
-            <h3>Fully Responsive</h3>
+            <p>
+              Seamless across all devices, our responsive designs adapt
+              perfectly to any screen, ensuring a superior user experience.
+            </p>
           </div>
-          <p>
-            Seamless design meets performance. Our websites excel across all
-            devices for an unmatched user experience.
-          </p>
-        </div>
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/smartphone 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
+          <div id="tab-2" class="tab-content">
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/smartphone 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Mobile First Strategy</h3>
             </div>
-            <h3>Mobile First</h3>
+            <p>
+              Our mobile-first approach focuses on intuitive and accessible
+              designs, enhancing engagement for on-the-go users.
+            </p>
           </div>
-          <p>
-            Capturing mobile audiences with intuitive design that's ahead of the
-            curve. Engage more, effortlessly.
-          </p>
-        </div>
-        <div class="card">
-          <div class="flex-group-row">
-            <div class="img-wrap">
-              <img
-                loading="lazy"
-                decoding="async"
-                src="./assets/images/settings 1.png"
-                alt=""
-                width="80px"
-                height="80px"
-              />
+          <div id="tab-3" class="tab-content">
+            <div class="flex-group-row">
+              <div class="img-wrap">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="./assets/images/settings 1.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </div>
+              <h3>Website Optimization</h3>
             </div>
-            <h3>Optimization</h3>
+            <p>
+              Fast, efficient, and optimized for search engines. Our websites
+              are built to deliver top performance and visibility.
+            </p>
           </div>
-          <p>
-            Engineered for speed. Our mobile-optimized websites deliver fast,
-            fluid, and striking user experiences.
-          </p>
         </div>
+        <p class="fade-in">
+          We specialize in web design and development for businesses across
+          Canada. Every line of code is meticulously crafted to enhance site
+          performance, increasing customer engagement and boosting your
+          business's conversions.
+        </p>
       </div>
     </div>
   </div>
@@ -148,23 +258,25 @@ order: 1
 <section id="portfolio">
   <div class="container">
     <div class="flex-group-col">
-      <p class="topper">Our Work</p>
-      <h2 class="title">See the clients we've helped out</h2>
+      <div class="flex-text fade-in">
+        <p class="topper">Our Work</p>
+        <h2 class="title">See the clients we've helped out</h2>
+      </div>
       <div class="flex-group-col">
-        <div class="item flex-group-row">
+        <div class="item flex-group-row fade-in">
           <picture>
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/oct-website.png"
+              srcset="/assets/images/portfolio/oct-website.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/oct-website.png"
+              srcset="/assets/images/portfolio/oct-website.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/oct-website.png"
+              src="/assets/images/portfolio/oct-website.webp"
               alt=""
               loading="lazy"
               width="100%"
@@ -182,7 +294,7 @@ order: 1
             >
           </div>
         </div>
-        <div class="item flex-group-row">
+        <div class="item flex-group-row fade-in">
           <div class="text" style="background-color: #b5cc9e">
             <p class="topper">Farm / CSA / Food</p>
             <h3 class="title">CSA Lunar Rhythm Garden</h3>
@@ -196,16 +308,16 @@ order: 1
           <picture>
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/csa-website.png"
+              srcset="/assets/images/portfolio/csa-website.webp"
             />
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/csa-website.png"
+              srcset="/assets/images/portfolio/csa-website.webp"
             />
             <img
               aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/csa-website.png"
+              src="/assets/images/portfolio/csa-website.webp"
               alt=""
               loading="lazy"
               width="100%"
@@ -225,107 +337,262 @@ order: 1
 <section id="pricing">
   <div class="container">
     <div class="flex-group-col">
-      <p class="topper">Pricing</p>
-      <h2 class="title">$0 Down,<br />$200 Per Month,<br />6 Month Minimum</h2>
-      <p>
-        $0 down for a standard 5 page small business website. If you need more
-        than that then we have to do custom pricing based on the scope of work,
-        number of additional pages, and time involved. You own your domain,
-        content, listing, and profiles. Cancel anytime with no fees or hassle.
+      <div class="flex-text fade-in">
+        <p class="topper">Pricing</p>
+        <h2 class="title">
+          $0 Down,<br />$200 Per Month,<br />6 Month Minimum Contract
+        </h2>
+      </div>
+      <p class="fade-in">
+        Get a 5-page website with <strong>no initial fees</strong>. Custom
+        projects quoted based on your specific needs.
+      </p>
+      <p class="fade-in">
+        You retain full ownership of your domain, content, and profiles. No
+        cancellation fees.
       </p>
     </div>
-    <div class="grid-group">
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Hosting Included</h3>
-        </div>
-        <p>Hosting fees are built right into the monthly payment.</p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
+    <ul class="accordion fade-in">
+      <li>
+        <button>
+          <svg
+            version="1.2"
+            baseProfile="tiny"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 72 72"
+            width="48px"
+            height="48px"
+          >
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
+          <h3>Hosting Simplified</h3>
+        </button>
+
+        <p>
+          Your monthly payment includes hosting. No extra fees, just seamless
+          service to keep your site up and running.
+        </p>
+      </li>
+      <li>
+        <button>
+          <svg
+            version="1.2"
+            baseProfile="tiny"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 72 72"
+            width="48px"
+            height="48px"
+          >
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
           <h3>Unlimited Edits</h3>
-        </div>
-        <p>Change anything you want at anytime and it will be done that day.</p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>24/7 Support</h3>
-        </div>
-        <p>Call direct anytime, day or night. No AI or automtated responses.</p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
+        </button>
+        <p>
+          Need to make a change? No problem. We offer unlimited updates to keep
+          your site current with your business needs.
+        </p>
+      </li>
+      <li>
+        <button>
+          <svg
+            version="1.2"
+            baseProfile="tiny"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 72 72"
+            width="48px"
+            height="48px"
+          >
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
+          <h3>Support Available 24/7</h3>
+        </button>
+        <p>
+          Get help anytime with a real person on our 24/7 direct line. No AI,
+          bots or automated scripts.
+        </p>
+      </li>
+      <li>
+        <button>
+          <svg
+            version="1.2"
+            baseProfile="tiny"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 72 72"
+            width="48px"
+            height="48px"
+          >
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
           <h3>Web Design & Development</h3>
-        </div>
-        <p>Includes over 40 hours of design, development, and testing.</p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Boost your search ranking</h3>
-        </div>
+        </button>
         <p>
-          We can achieve a perfect 100 on Google Page Speed scores and boost
-          your search ranking.
+          More than 40 hours dedicated to crafting, testing, and refining your
+          site for peak performance.
         </p>
-      </div>
-      <div class="card">
-        <div class="flex-group-row">
-          <img
-            src="assets/images/checked 1.png"
-            alt="logo"
-            width="48"
-            height="48"
-            aria-hidden="true"
-            decoding="async"
-          />
-          <h3>Google Analytics</h3>
-        </div>
+      </li>
+      <li>
+        <button>
+          <svg
+            version="1.2"
+            baseProfile="tiny"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 72 72"
+            width="48px"
+            height="48px"
+          >
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
+          <h3>Optimized for Search Engines</h3>
+        </button>
         <p>
-          We install Analytics for free to monitor traffic and where it comes
-          from.
+          We tune your sites technical SEO for better performance in search
+          engine rankings.
         </p>
-      </div>
-    </div>
+      </li>
+      <li>
+        <button>
+          <svg viewBox="0 0 72 72" width="48px" height="48px">
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="36"
+              y1="12"
+              x2="36"
+              y2="60"
+            />
+            <line
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+              stroke-miterlimit="10"
+              x1="60"
+              y1="36"
+              x2="12"
+              y2="36"
+            />
+          </svg>
+          <h3>Analytics Integration</h3>
+        </button>
+        <p>
+          Google Analytics setup included to monitor and strategize based on
+          site performance metrics.
+        </p>
+      </li>
+    </ul>
   </div>
 </section>
 

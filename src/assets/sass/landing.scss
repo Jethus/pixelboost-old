@@ -2,33 +2,38 @@
 <---       Landing Page         -->
 <--- -------------------------- -*/
 // Landing styles
-@use "vars";
+@use "vars" as v;
 
 #portfolio {
-  background-color: vars.$acc-cream;
+  background-color: v.$acc-cream;
 
   .item {
-    background-color: vars.$acc-lightblue;
-    border-radius: vars.$border-radius-medium;
-    @include vars.border-style(vars.$dark);
+    background-color: v.$acc-lightblue;
+    border-radius: v.$border-radius-medium;
+    @include v.border-style(v.$dark);
     align-items: stretch;
     gap: 0;
     overflow: hidden;
     flex-direction: column;
+    @include v.transition-slow(scale);
+
+    &:hover {
+      scale: 1.1;
+    }
 
     &:has(picture ~ .text) {
       flex-direction: column-reverse;
     }
 
     .text {
-      border-bottom: vars.$border-dark;
+      border-bottom: v.$border-dark;
     }
 
-    @include vars.container-query(small) {
+    @include v.container-query(small) {
       max-height: 36rem;
     }
 
-    @include vars.container-query(medium) {
+    @include v.container-query(medium) {
       flex-direction: row;
       max-height: 24rem;
 
@@ -42,11 +47,11 @@
       }
 
       .text ~ picture {
-        border-left: vars.$border-dark;
+        border-left: v.$border-dark;
       }
 
       picture ~ .text {
-        border-left: vars.$border-dark;
+        border-left: v.$border-dark;
       }
     }
 
@@ -61,7 +66,7 @@
     }
 
     .text {
-      @include vars.flex-group-col;
+      @include v.flex-group-col;
       flex: 1;
       align-items: flex-start;
       justify-content: center;
@@ -77,51 +82,86 @@
 }
 
 #pricing {
-  background-color: vars.$acc-pink;
+  background-color: v.$acc-pink;
 
   .container {
     flex-direction: column;
 
     .flex-group-col {
-      max-width: clamp(36rem, 30vw, 40rem);
+      max-width: clamp(40rem, 32vw, 48rem);
       align-self: flex-start;
       align-items: flex-start;
 
+      .flex-text {
+        align-items: flex-start;
+      }
+
       .title {
-        font-size: vars.$spicy-font-size;
+        font-size: v.$fs-xxxl;
       }
     }
 
-    .grid-group {
-      grid-template-columns: 1fr;
+    .accordion {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
 
-      @include vars.container-query(small) {
-        grid-template-columns: repeat(2, 1fr);
+      li {
+        border-radius: v.$border-radius-medium;
+        @include v.border-style(v.$dark);
+        overflow: hidden;
+        transition: v.$transition-default;
+        &:has(button.active),
+        &:has(button:hover) {
+          @include v.drop-shadow;
+        }
+        &:has(button:focus-visible) {
+          @include v.focus-style(#04d9ff);
+        }
       }
 
-      .card {
+      button {
+        cursor: pointer;
         display: flex;
-        flex-direction: column;
-        background-color: rgba(vars.$light, 0.5);
-        gap: vars.$spacing-small;
-        padding: vars.$spacing-semi-small vars.$spacing-medium;
-        border-radius: vars.$border-radius-medium;
-        @include vars.border-style(vars.$dark);
+        align-items: center;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: v.$spacing-medium v.$spacing-small;
+        border-radius: v.$border-radius-small;
+        text-align: left;
+        @include v.transition-slow(background-color);
 
-        .flex-group-row {
-          justify-content: flex-start;
-          flex-direction: row;
-          gap: vars.$spacing-medium;
+        &.active {
+          border-bottom: v.$border-dark;
+          background-color: lighten(v.$acc-pink, 10%);
+        }
+        &:hover {
+          background-color: lighten(v.$acc-pink, 20%);
+        }
 
-          img {
-            width: 32px;
-            height: 32px;
+        &.active svg {
+          transform: rotate(225deg);
+        }
+      }
 
-            @include vars.container-query(large) {
-              width: 48px;
-              height: 48px;
-            }
-          }
+      svg {
+        margin-right: v.$spacing-small;
+        min-width: 48px;
+        @include v.transition-slow(transform);
+      }
+
+      p {
+        max-height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0 v.$spacing-medium;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+
+        &.expanded {
+          padding: v.$spacing-medium;
         }
       }
     }

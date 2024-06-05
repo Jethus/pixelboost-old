@@ -1,28 +1,41 @@
 /*-- -------------------------- -->
 <---        Contact us          -->
 <--- -------------------------- -*/
-@use "vars";
+@use "vars" as v;
 
 // Contact styles
 
 #contact {
-  background-color: vars.$acc-yellow;
+  background-color: v.$acc-yellow;
+  .flex-group-col {
+    align-items: flex-start;
+    .flex-text {
+      align-items: flex-start;
+    }
+  }
 }
 
 #get-in-touch {
-  background-color: vars.$acc-cream;
+  background-color: v.$acc-cream;
 
   .flex-group-col {
     align-items: flex-start;
 
+    .flex-text {
+      align-items: flex-start;
+    }
+
     #contact-form {
-      @include vars.flex-group-col;
+      @include v.flex-group-col;
       align-items: flex-start;
       width: 100%;
       margin-bottom: 2rem;
       .grid-group {
         width: 100%;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        @include v.container-query(small) {
+          grid-template-columns: 1fr 1fr;
+        }
         :last-child {
           grid-column: 1 / -1;
         }
@@ -35,12 +48,12 @@
         input,
         textarea {
           width: 100%;
-          @include vars.border-style(vars.$dark);
+          @include v.border-style(v.$dark);
           padding: 0.5rem 0.5rem;
-          border-radius: vars.$border-radius-small;
+          border-radius: v.$border-radius-small;
           &[type="text"] {
             font-size: 1rem;
-            @include vars.body-style;
+            @include v.body-style;
           }
         }
         textarea {

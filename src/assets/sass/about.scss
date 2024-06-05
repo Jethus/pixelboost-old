@@ -1,13 +1,13 @@
 /*-- -------------------------- -->
 <---          About us          -->
 <--- -------------------------- -*/
-@use "vars";
+@use "vars" as v;
 
 #about {
-  background-color: vars.$acc-yellow;
+  background-color: v.$acc-yellow;
   .flex-group-row {
     flex-direction: column;
-    @include vars.container-query(medium) {
+    @include v.container-query(medium) {
       flex-direction: row;
     }
     picture {
@@ -23,27 +23,28 @@
     align-self: flex-start;
   }
   img {
-    @include vars.border-style(vars.$dark);
+    @include v.border-style(v.$dark);
     max-width: 400px;
     max-height: 400px;
   }
 }
 
 #why-choose-us {
-  background-color: vars.$acc-pink;
+  background-color: v.$acc-pink;
   .flex-group-row {
     flex-direction: column;
     align-items: stretch;
-    @include vars.container-query(medium) {
+    @include v.container-query(medium) {
       flex-direction: row;
     }
     .card {
-      @include vars.flex-group-col;
+      @include v.flex-group-col;
       justify-content: flex-start;
-      background-color: rgba(vars.$light, 1);
-      @include vars.border-style(vars.$dark);
-      border-radius: vars.$border-radius-medium;
-      padding: vars.$spacing-medium;
+      background-color: rgba(v.$light, 1);
+      @include v.border-style(v.$dark);
+      transition: all 0.3s ease;
+      border-radius: v.$border-radius-medium;
+      padding: v.$spacing-medium;
       flex: 1;
       h3 {
         align-self: flex-start;
@@ -52,17 +53,21 @@
         width: 80px;
         height: 80px;
       }
-      @include vars.container-query(medium) {
+      @include v.container-query(medium) {
         h3 {
           align-items: center;
         }
+      }
+
+      &:hover {
+        transform: translateY(-1rem);
       }
     }
   }
 }
 
 #what-else {
-  background-color: vars.$acc-purple;
+  background-color: v.$acc-purple;
   .flex-group-col {
     align-items: flex-start;
     .topper,
@@ -72,11 +77,20 @@
     .flex-group-wrap {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: v.$spacing-medium;
+      @include v.container-query(medium) {
+        gap: v.$spacing-large;
+      }
       & > * {
-        @include vars.btn-line;
+        @include v.btn-line;
+        font-size: v.$fs-l;
+        @include v.transition-fast(transform);
+        @include v.container-query(medium) {
+          font-size: v.$fs-xl;
+        }
         &:hover {
           cursor: default;
+          transform: scale(1.05);
         }
       }
     }
