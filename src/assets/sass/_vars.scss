@@ -82,6 +82,25 @@ $breakpoints: (
   //max-content width minus padding (1216px)
 );
 
+// Animations
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTransform {
+  from {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 // Mixin for container query
 @mixin container-query($size) {
   $query: map-get($breakpoints, $size);
@@ -107,12 +126,9 @@ $breakpoints: (
 // _mixins.scss
 @mixin fade-in() {
   opacity: 0;
-  transition: transform 0.8s ease, opacity 1s ease;
   transform: translateY(2rem);
-
   &.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: fadeInOpacity 1s ease forwards, fadeInTransform 1s ease forwards;
   }
 }
 
@@ -181,7 +197,6 @@ $breakpoints: (
 
 @mixin btn-base {
   @include header-style;
-  @include fade-in;
   font-size: $fs-s;
   font-weight: $bold-weight;
   padding: $spacing-medium $spacing-semi-large;

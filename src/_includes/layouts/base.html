@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{ client.description }}" />
-    <meta name="keywords" content="" />
     <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}" />
 
     <!--Social Media Display-->
@@ -61,14 +60,13 @@
 
     <!-- Scripts -->
 
-    {#
     <script
       src="https://js.sentry-cdn.com/0b0fd6f6402b056e6554685c6974b837.min.js"
       crossorigin="anonymous"
+      defer
     ></script>
-    #}
 
-    <script defer src="/assets/js/custom.js"></script>
+    <script src="/assets/js/common.js" defer></script>
 
     <!--For home page, use service keywords for the title, including location for SEO.
         Other pages should just include the page name.
@@ -82,8 +80,9 @@
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-HHR2PQB4C0"
+      defer
     ></script>
-    <script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -91,9 +90,10 @@
       gtag("js", new Date());
 
       gtag("config", "G-HHR2PQB4C0", {
-        cookie_flags: "max-age=7200;secure;samesite=none",
+        cookie_flags: "max-age=7200;SameSite=None;Secure;",
       });
     </script>
+    {% block head %}{% endblock %}
 
     <title>
       {% if page.url == '/'%} {{ title }} {% else %} {{ title }} | {{

@@ -50,8 +50,15 @@ a:not([class*="btn"]) {
   transition: v.$transition-default;
 }
 
-.topper {
+.fade-in {
   @include v.fade-in;
+}
+
+.slide-out {
+  transform: translateY(-110vh);
+}
+
+.topper {
   font-size: v.$fs-xs;
   font-weight: v.$bold-weight;
   line-height: v.$line-height-small;
@@ -61,30 +68,22 @@ a:not([class*="btn"]) {
   display: block;
 }
 
-.title {
-  @include v.fade-in;
-}
-
 .flex-group-col {
   @include v.flex-group-col;
   flex: 1;
-  @include v.fade-in;
 }
 
 .flex-group-row {
   @include v.flex-group-row;
-  @include v.fade-in;
 }
 
 .grid-group {
   @include v.grid-group;
-  @include v.fade-in;
 }
 
 .flex-text {
   @include v.flex-group-col;
   gap: v.$spacing-small;
-  @include v.fade-in;
 }
 
 .btn-solid {
@@ -174,7 +173,6 @@ html {
 body,
 html {
   @include v.body-style;
-  height: 100%;
   margin: 0;
   padding: 0;
   color: v.$dark;
@@ -221,7 +219,10 @@ textarea {
 
 section {
   border: 1px solid v.$dark;
-  padding: v.$spacing-large v.$spacing-medium;
+  padding: v.$spacing-semi-large v.$spacing-semi-small;
+  @include v.container-query(medium) {
+    padding: v.$spacing-large v.$spacing-medium;
+  }
 }
 
 .container {
@@ -263,8 +264,11 @@ picture {
   .flex-group-col {
     align-items: flex-start;
 
-    .title {
-      font-size: v.$fs-xxxxl;
+    .flex-text {
+      align-items: flex-start;
+      .title {
+        font-size: v.$fs-xxxxl;
+      }
     }
   }
 }

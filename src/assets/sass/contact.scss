@@ -21,6 +21,10 @@
   .flex-group-col {
     align-items: flex-start;
 
+    .flex-text {
+      align-items: flex-start;
+    }
+
     #contact-form {
       @include v.flex-group-col;
       align-items: flex-start;

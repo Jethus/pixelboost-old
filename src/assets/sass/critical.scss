@@ -13,25 +13,72 @@
   }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
+@keyframes type {
+  0% {
+    width: 0;
+    height: auto;
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+    height: auto;
+    white-space: normal;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@keyframes mobileType {
+  0% {
+    width: 0;
+    height: auto;
   }
+  50% {
+    width: 90cqw;
+  }
+  100% {
+    width: 90cqw;
+    height: auto;
+    white-space: wrap;
+  }
+}
 
-  to {
-    opacity: 1;
+@keyframes preloaderType {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-color: v.$dark;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 2s ease;
+  p {
+    width: 26ch;
+    color: #bbb;
+    font-family: "Courier";
+    font-size: 16px;
+    margin: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    animation: preloaderType 2s steps(22),
+      blink 0.5s step-end infinite alternate;
   }
 }
 
@@ -281,11 +328,111 @@
   .container {
     .flex-group-row {
       flex-direction: column;
+      .title {
+        font-size: v.$fs-xxl;
+        @include v.container-query(medium) {
+          font-size: v.$fs-xxxl;
+        }
+      }
+
+      .terminal {
+        flex: 0.8;
+        width: 100%;
+        max-width: 100cqw;
+        background-color: v.$dark;
+        border-radius: v.$border-radius-medium;
+        @include v.drop-shadow;
+        @include v.border-style(v.$dark);
+        @include v.container-query(medium) {
+          max-width: 40%;
+        }
+        .topbar {
+          width: 100%;
+          background-color: #616161;
+          border-radius: v.$border-radius-medium v.$border-radius-medium 0 0;
+          padding: v.$spacing-small;
+          padding-bottom: 0;
+          .task {
+            display: flex;
+            gap: v.$spacing-small;
+            align-items: center;
+            width: 55%;
+            color: v.$light;
+            background-color: v.$dark;
+            border-radius: v.$border-radius-medium v.$border-radius-medium 0 0;
+            padding: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
+            @include v.border-style(v.$dark);
+            @include v.container-query(medium) {
+              width: 35%;
+            }
+            p {
+              font-size: 1rem;
+            }
+          }
+        }
+        .content {
+          padding: 0 v.$spacing-semi-small;
+          margin: v.$spacing-medium 0;
+          border-radius: v.$border-radius-medium;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          height: 400px;
+          scroll-behavior: smooth;
+          p {
+            width: 0;
+            height: 0;
+            color: #bbb;
+            font-family: "Courier";
+            font-size: 14px;
+            margin: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: mobileType 2s steps(22) forwards;
+            @include v.container-query(medium) {
+              font-size: 16px;
+              animation: type 2s steps(22) forwards;
+            }
+            .object {
+              color: v.$light;
+            }
+
+            .keyword {
+              color: #98d7e6;
+            }
+
+            .string {
+              color: #f7da6b;
+            }
+
+            .method {
+              color: #b6d883;
+            }
+
+            .variable {
+              color: #a99ecd;
+            }
+
+            .parenthese {
+              color: #e55e51;
+            }
+          }
+          @for $i from 1 through 12 {
+            p:nth-child(#{$i}) {
+              animation-delay: #{$i * 1}s;
+            }
+          }
+          p:nth-child(12) span {
+            border-right: 3px solid;
+            animation: blink 0.5s step-end infinite alternate;
+          }
+        }
+      }
       .flex-group-row {
         flex-direction: row;
       }
       picture {
         flex: 0.8;
+        display: none;
       }
 
       @include v.container-query(small) {
@@ -313,18 +460,28 @@
   }
 
   .tab-container {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-medium;
     width: 100%;
     flex: 2;
+    @include v.container-query(medium) {
+      display: block;
+    }
 
     .tabs {
+      display: none;
       list-style: none;
       padding: 0;
-      display: flex;
       border-radius: 5px 5px 0 0;
       margin: 0;
 
+      @include v.container-query(medium) {
+        display: flex;
+      }
+
       .tab-link {
-        padding: 10px 20px;
+        padding: v.$spacing-xsmall v.$spacing-small;
         border-radius: 1rem 1rem 0 0;
         cursor: pointer;
         color: v.$light;
@@ -341,23 +498,32 @@
         &.active {
           background-color: v.$brand-secondary;
         }
+        @include v.container-query(small) {
+          padding: v.$spacing-small v.$spacing-medium;
+        }
       }
     }
 
     .tab-content {
+      display: block;
       padding: v.$spacing-semi-large;
-      border-radius: 0 1rem 1rem 1rem;
+      border-radius: v.$spacing-medium;
       @include v.border-style(v.$dark);
       transition: v.$transition-default;
-      display: none;
+      background-color: #fff;
+      @include v.drop-shadow;
+      @include v.container-query(medium) {
+        display: none;
+        border-radius: 0 v.$spacing-medium;
+      }
 
       .flex-group-row {
         justify-content: flex-start;
         gap: v.$spacing-medium;
-        flex-direction: row;
         margin-bottom: v.$spacing-medium;
+        flex-direction: column;
         @include v.container-query(medium) {
-          flex-direction: column;
+          flex-direction: row;
           text-align: center;
           justify-content: center;
         }
@@ -386,9 +552,7 @@
         }
       }
       &.active {
-        background-color: #fff;
         display: block;
-        @include v.drop-shadow;
       }
     }
   }

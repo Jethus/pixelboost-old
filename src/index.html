@@ -10,10 +10,11 @@ order: 1
 
 {% extends "layouts/base.html" %} {% block head %}
 
+<script src="/assets/js/landing.js" defer></script>
 <!-- Script for Netlify Identity -->
 <script
-  defer
   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  defer
 ></script>
 <script defer>
   if (window.netlifyIdentity) {
@@ -27,6 +28,9 @@ order: 1
   }
 </script>
 {% endblock %} {% block body %}
+<section id="preloader">
+  <p>// Initializing website...</p>
+</section>
 
 <!-- ============================================ -->
 <!--                    Hero                      -->
@@ -36,26 +40,86 @@ order: 1
   <div class="container">
     <div class="flex-group-row">
       <div class="flex-group-col">
-        <div class="flex-text">
+        <div class="flex-text fade-in">
           <p class="topper">Web Design & Development</p>
           <h1 class="title">Transform your business with web design experts</h1>
         </div>
-        <p>
+        <p class="fade-in">
           No page builders or WordPress - We offer 100% hand-coded websites with
           superior results starting at $200/mo. Discover web solutions crafted
           to enhance user engagement and drive conversions.
         </p>
         <div class="flex-group-row">
-          <a href="/contact" class="btn-solid" aria-label="get in touch with us"
+          <a
+            href="/contact"
+            class="btn-solid fade-in"
+            aria-label="get in touch with us"
             >Get in touch</a
           >
 
-          <a href="#portfolio" class="btn-line" aria-label="see our work"
+          <a
+            href="#portfolio"
+            class="btn-line fade-in"
+            aria-label="see our work"
             >See our work</a
           >
         </div>
       </div>
-      <picture>
+      <div class="terminal fade-in">
+        <div class="topbar">
+          <div class="task">
+            <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+              <rect height="10.5" width="12.5" y="2.75" x="1.75"/>
+              <path d="m8.75 10.25h2.5m-6.5-4.5 2.5 2.25-2.5 2.25"/>
+              </svg><p><strong>Terminal</strong></p>
+          </div>
+        </div>
+        <div class="content">
+          <p><span class="object">console</span>.<span class="method">log</span
+            ><span class="parenthese">(</span>"<span class="string"
+              >Welcome to Pixelboost!</span
+            >"<span class="parenthese">)</span>;
+          </p>
+          <p>
+            <span class="keyword">let</span><span class="object"> user</span>
+            <span class="parenthese">=</span>
+            "<span class="string">Valued Client</span>";
+          </p>
+          <p>
+            <span class="keyword">const</span
+            ><span class="variable"> services</span
+            > <span class="parenthese">= [</span>"<span class="string"
+              >Web Design</span
+            >", "<span class="string">Development</span>", "<span class="string"
+              >SEO</span
+            >", "<span class="string">Branding</span>"<span class="parenthese"
+              >]</span
+            >;
+          </p>
+          <p>
+            <span class="keyword">const</span
+            > <span class="variable">message</span
+            > <span class="parenthese">= `</span><span class="string">Hello, <span class="parenthese">${</span
+              ><span class="object">user</span><span class="parenthese">}</span>!
+              Ready to transform your digital presence?</span
+            ><span class="parenthese">`</span>;
+          </p>
+          <p>
+            <span class="object">console</span>.<span class="method">log</span
+            ><span class="parenthese">(</span><span class="object">message</span><span class="parenthese"
+              >)</span
+            >;
+          </p>
+          <p>// Our Services:</span></p>
+          <p>// - Web Design: Stunning, user-friendly interfaces.</p>
+          <p>// - Development: Robust, scalable solutions.</p>
+          <p>// - SEO: Be found, be visible.</p>
+          <p>// - Branding: Your identity, elevated.</p>
+          <p>// Contact us today to start your journey!</p>
+          <p>// pixelboost.ca | hello@pixelboost.ca<span></span></p>
+        </div>
+    </div>
+      <picture class="fade-in">
         <source media="(max-width: 600px)" srcset="/assets/images/hero.webp" />
         <source media="(min-width: 601px)" srcset="/assets/images/hero.webp" />
         <img
@@ -79,13 +143,13 @@ order: 1
 <section id="what-we-do">
   <div class="container">
     <div class="flex-group-col">
-      <div class="flex-text">
+      <div class="flex-text fade-in">
         <p class="topper">Our bread & butter</p>
         <h2 class="title">What we offer</h2>
       </div>
       {# new area #}
       <div class="flex-group-row">
-        <div class="tab-container">
+        <div class="tab-container fade-in">
           <ul class="tabs" role="tablist">
             <li
               class="tab-link active"
@@ -176,7 +240,7 @@ order: 1
             </p>
           </div>
         </div>
-        <p>
+        <p class="fade-in">
           We specialize in web design and development for businesses across
           Canada. Every line of code is meticulously crafted to enhance site
           performance, increasing customer engagement and boosting your
@@ -194,12 +258,12 @@ order: 1
 <section id="portfolio">
   <div class="container">
     <div class="flex-group-col">
-      <div class="flex-text">
+      <div class="flex-text fade-in">
         <p class="topper">Our Work</p>
         <h2 class="title">See the clients we've helped out</h2>
       </div>
       <div class="flex-group-col">
-        <div class="item flex-group-row">
+        <div class="item flex-group-row fade-in">
           <picture>
             <source
               media="(max-width: 600px)"
@@ -230,7 +294,7 @@ order: 1
             >
           </div>
         </div>
-        <div class="item flex-group-row">
+        <div class="item flex-group-row fade-in">
           <div class="text" style="background-color: #b5cc9e">
             <p class="topper">Farm / CSA / Food</p>
             <h3 class="title">CSA Lunar Rhythm Garden</h3>
@@ -273,22 +337,22 @@ order: 1
 <section id="pricing">
   <div class="container">
     <div class="flex-group-col">
-      <div class="flex-text">
+      <div class="flex-text fade-in">
         <p class="topper">Pricing</p>
         <h2 class="title">
           $0 Down,<br />$200 Per Month,<br />6 Month Minimum Contract
         </h2>
       </div>
-      <p>
+      <p class="fade-in">
         Get a 5-page website with <strong>no initial fees</strong>. Custom
         projects quoted based on your specific needs.
       </p>
-      <p>
+      <p class="fade-in">
         You retain full ownership of your domain, content, and profiles. No
         cancellation fees.
       </p>
     </div>
-    <ul class="accordion">
+    <ul class="accordion fade-in">
       <li>
         <button>
           <svg
@@ -406,7 +470,7 @@ order: 1
               y2="36"
             />
           </svg>
-          <h3>Support Always Available</h3>
+          <h3>Support Available 24/7</h3>
         </button>
         <p>
           Get help anytime with a real person on our 24/7 direct line. No AI,

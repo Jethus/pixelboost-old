@@ -15,10 +15,10 @@
     gap: 0;
     overflow: hidden;
     flex-direction: column;
-    @include v.transition-slow(transform);
+    @include v.transition-slow(scale);
 
     &:hover {
-      transform: scale(1.1);
+      scale: 1.1;
     }
 
     &:has(picture ~ .text) {
@@ -111,7 +111,6 @@
       li {
         border-radius: v.$border-radius-medium;
         @include v.border-style(v.$dark);
-        @include v.fade-in;
         overflow: hidden;
         transition: v.$transition-default;
         &:has(button.active),
@@ -150,6 +149,7 @@
 
       svg {
         margin-right: v.$spacing-small;
+        min-width: 48px;
         @include v.transition-slow(transform);
       }
 
