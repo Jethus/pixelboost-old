@@ -65,9 +65,9 @@ if (sessionStorage.getItem("preloaderSeen")) {
   preloader.querySelector("p").addEventListener("animationend", () => {
     setTimeout(() => {
       preloader.classList.add("slide-out");
-      sessionStorage.setItem("preloaderSeen", "true");
+      // sessionStorage.setItem("preloaderSeen", "true");
       triggerFadeIn();
-    }, 1000);
+    }, 3000);
   });
 }
 

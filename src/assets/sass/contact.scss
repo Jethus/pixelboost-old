@@ -41,7 +41,7 @@
         }
         label {
           span {
-            color: #ee0000;
+            color: #e00;
             margin-bottom: 0.5rem;
           }
         }
@@ -49,7 +49,7 @@
         textarea {
           width: 100%;
           @include v.border-style(v.$dark);
-          padding: 0.5rem 0.5rem;
+          padding: 0.5rem;
           border-radius: v.$border-radius-small;
           &[type="text"] {
             font-size: 1rem;
