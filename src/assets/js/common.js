@@ -1,7 +1,9 @@
 const header = document.getElementById("header");
 const fadeInElements = document.querySelectorAll(".fade-in");
 const mobileNav = document.getElementById("nav-menu");
-let lastScrollY = 0;
+const SCROLL_THRESHOLD = 200;
+let lastScrollY = window.scrollY;
+let ticking = false;
 
 const observerOptions = {
   root: null, // Observe changes in the viewport
@@ -23,31 +25,28 @@ const initializeFadeIn = () => {
   fadeInElements.forEach((element) => observer.observe(element));
 };
 
-// Throttle function to limit the rate of execution
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function () {
-    const args = arguments;
-    const context = this;
-    if (!inThrottle) {
-      func.apply(context, args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
-
 const handleScroll = () => {
   const currentScrollY = window.scrollY;
-  if (currentScrollY > lastScrollY) {
-    header.classList.add("scrolledDown");
-    console.log("added scrolledDown");
-  } else if (currentScrollY < lastScrollY) {
-    header.classList.remove("scrolledDown");
-    console.log("removed scrolledDown");
+  const scrollDelta = currentScrollY - lastScrollY;
+
+  if (Math.abs(scrollDelta) > SCROLL_THRESHOLD) {
+    if (scrollDelta > 0) {
+      header.classList.add("scrolledDown");
+    } else {
+      header.classList.remove("scrolledDown");
+    }
+
+    lastScrollY = currentScrollY;
   }
-  lastScrollY = currentScrollY;
+
+  ticking = false;
 };
 
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(handleScroll);
+    ticking = true;
+  }
+});
+
 initializeFadeIn();
-window.addEventListener("scroll", throttle(handleScroll, 50));
