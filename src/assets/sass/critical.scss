@@ -1,7 +1,7 @@
 // Styles for above the fold
 @use "vars" as v;
 
-@keyframes slideFadeIn {
+@keyframes slide-fade-in {
   from {
     opacity: 0;
     transform: translateX(-5rem);
@@ -28,7 +28,7 @@
   }
 }
 
-@keyframes mobileType {
+@keyframes mobile-type {
   0% {
     width: 0;
     height: auto;
@@ -43,9 +43,12 @@
   }
 }
 
-@keyframes preloaderType {
+@keyframes preloader-type {
   from {
     width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 
@@ -57,28 +60,23 @@
 
 #preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   height: 100vh;
   background-color: v.$dark;
   z-index: 999;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   transition: transform 2s ease;
   p {
-    width: 26ch;
     color: #bbb;
-    font-family: "Courier";
+    font-family: Courier, "Open Sans", sans-serif;
     font-size: 16px;
     margin: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
-    animation: preloaderType 2s steps(22),
-      blink 0.5s step-end infinite alternate;
+    animation: preloader-type 2s steps(26), blink 0.5s step-end 10 alternate;
   }
 }
 
@@ -101,13 +99,10 @@
   align-items: center;
   justify-content: space-between;
   padding: v.$spacing-medium v.$spacing-semi-medium;
-  transition: v.$transition-default;
+  @include v.transition-slow(transform);
 
-  &.scrolled {
-    padding: v.$spacing-small v.$spacing-semi-medium;
-    #nav-contact {
-      padding: v.$spacing-small v.$spacing-medium;
-    }
+  &.scrolledDown {
+    transform: translateY(-100%);
   }
 
   .container {
@@ -189,7 +184,7 @@
       background-color: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(v.$spacing-small);
       list-style: none;
-      font-size: v.$fs-s;
+      font-size: v.$fs-m;
       font-weight: v.$bold-weight;
       text-align: right;
       padding: 90px 2rem 2rem;
@@ -197,6 +192,9 @@
       transition: transform 0.3s ease;
       pointer-events: none;
       z-index: 2;
+      @include v.container-query(large) {
+        font-size: v.$fs-s;
+      }
 
       li {
         opacity: 0;
@@ -243,7 +241,7 @@
 
       @for $i from 1 through 5 {
         & > li:nth-child(#{$i}) {
-          animation: slideFadeIn 0.3s forwards;
+          animation: slide-fade-in 0.3s forwards;
           animation-delay: 0.3s + ($i * 0.1s);
         }
       }
@@ -330,6 +328,12 @@
       flex-direction: column;
       .title {
         font-size: v.$fs-xxl;
+        span {
+          text-decoration: underline;
+          // border-bottom: 5px solid v.$dark;
+          border-right: 3px solid;
+          animation: blink 0.5s step-end infinite alternate;
+        }
         @include v.container-query(medium) {
           font-size: v.$fs-xxxl;
         }
@@ -363,7 +367,7 @@
             padding: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
             @include v.border-style(v.$dark);
             @include v.container-query(medium) {
-              width: 35%;
+              width: 45%;
             }
             p {
               font-size: 1rem;
@@ -374,23 +378,22 @@
           padding: 0 v.$spacing-semi-small;
           margin: v.$spacing-medium 0;
           border-radius: v.$border-radius-medium;
-          overflow-y: scroll;
-          overflow-x: hidden;
+          overflow: hidden scroll;
           height: 400px;
           scroll-behavior: smooth;
           p {
             width: 0;
             height: 0;
             color: #bbb;
-            font-family: "Courier";
+            font-family: Courier, "Open Sans", sans-serif;
             font-size: 14px;
             margin: v.$spacing-xsmall 0 0 v.$spacing-xsmall;
             white-space: nowrap;
             overflow: hidden;
-            animation: mobileType 2s steps(22) forwards;
+            animation: mobile-type 2s steps(30) forwards;
             @include v.container-query(medium) {
               font-size: 16px;
-              animation: type 2s steps(22) forwards;
+              animation: type 2s steps(30) forwards;
             }
             .object {
               color: v.$light;
@@ -435,7 +438,7 @@
         display: none;
       }
 
-      @include v.container-query(small) {
+      @include v.container-query(medium) {
         flex-direction: row;
       }
     }
@@ -514,7 +517,7 @@
       @include v.drop-shadow;
       @include v.container-query(medium) {
         display: none;
-        border-radius: 0 v.$spacing-medium;
+        border-radius: 0 v.$spacing-medium v.$spacing-medium;
       }
 
       .flex-group-row {

@@ -1,25 +1,9 @@
 const header = document.getElementById("header");
 const fadeInElements = document.querySelectorAll(".fade-in");
 const mobileNav = document.getElementById("nav-menu");
-
-// Utility function to initialize or wait for animations
-const initializeFadeIn = () => {
-  if (sessionStorage.getItem("preloaderSeen")) {
-    fadeInElements.forEach((element) => observer.observe(element));
-  } else {
-    document.addEventListener("preloaderDone", () => {
-      fadeInElements.forEach((element) => observer.observe(element));
-    });
-  }
-};
-// triggers "scroll" class on #header
-document.body.addEventListener("scroll", () => {
-  if (document.body.scrollTop > 0) {
-    header.classList.toggle("scrolled");
-  } else {
-    header.classList.toggle("scrolled");
-  }
-});
+const SCROLL_THRESHOLD = 200;
+let lastScrollY = window.scrollY;
+let ticking = false;
 
 const observerOptions = {
   root: null, // Observe changes in the viewport
@@ -35,5 +19,34 @@ const observer = new IntersectionObserver((entries, observer) => {
     }
   });
 }, observerOptions);
+
+// Utility function to initialize or wait for animations
+const initializeFadeIn = () => {
+  fadeInElements.forEach((element) => observer.observe(element));
+};
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+  const scrollDelta = currentScrollY - lastScrollY;
+
+  if (Math.abs(scrollDelta) > SCROLL_THRESHOLD) {
+    if (scrollDelta > 0) {
+      header.classList.add("scrolledDown");
+    } else {
+      header.classList.remove("scrolledDown");
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  ticking = false;
+};
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(handleScroll);
+    ticking = true;
+  }
+});
 
 initializeFadeIn();

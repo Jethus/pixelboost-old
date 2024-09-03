@@ -43,11 +43,6 @@ $regular-weight: 400;
 $bold-weight: 700;
 $black-weight: 900;
 
-// Breakpoints
-$mobile: 0em;
-$tablet: 48em;
-$sm-desktop: 64em;
-
 // Content width
 $content-width: 80em;
 
@@ -79,24 +74,16 @@ $breakpoints: (
   medium: 48rem,
   large: 64rem,
   max: 76rem,
-  //max-content width minus padding (1216px)
 );
 
 // Animations
-@keyframes fadeInOpacity {
+@keyframes fade-in {
   from {
     opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInTransform {
-  from {
     transform: translateY(2rem);
   }
   to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -128,7 +115,7 @@ $breakpoints: (
   opacity: 0;
   transform: translateY(2rem);
   &.visible {
-    animation: fadeInOpacity 1s ease forwards, fadeInTransform 1s ease forwards;
+    animation: fade-in 1s ease forwards;
   }
 }
 
@@ -171,7 +158,7 @@ $breakpoints: (
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: $spacing-large;
+  gap: $spacing-semi-large;
 }
 
 @mixin flex-group-col {

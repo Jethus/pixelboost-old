@@ -4,7 +4,7 @@ backend:
 
 local_backend: true
 # change url to a link to the image you want to use, no file paths, must be a URL
-logo_url: https://d33wubrfki0l68.cloudfront.net/25b8e38d6eaab304d17b02b36552d3d439b7995f/aae7d/assets/svgs/logo-black-rgb.svg
+logo_url: src\assets\svgs\logo-rgb.svg
 
 media_folder: "public/assets/images/blog"
 public_folder: "/assets/images/blog"
@@ -13,6 +13,20 @@ collections:
   - name: "blog"
     label: "Blog"
     folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "case-studies"
+    label: "Case Study"
+    folder: "src/content/case-studies"
     create: true
     slug: "{{slug}}"
     fields:

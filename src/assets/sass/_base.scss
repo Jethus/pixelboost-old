@@ -52,10 +52,12 @@ a:not([class*="btn"]) {
 
 .fade-in {
   @include v.fade-in;
+  will-change: transform, opacity;
 }
 
 .slide-out {
-  transform: translateY(-110vh);
+  transform: translateY(-200vh);
+  will-change: transform;
 }
 
 .topper {
@@ -176,12 +178,7 @@ html {
   margin: 0;
   padding: 0;
   color: v.$dark;
-  overflow-x: hidden;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
+  overflow-x: clip;
 }
 
 main {
@@ -252,8 +249,6 @@ picture {
     width: 100%;
     height: auto;
     object-fit: cover;
-    top: 0;
-    left: 0;
     border-radius: v.$border-radius-medium;
   }
 }

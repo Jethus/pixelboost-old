@@ -27,10 +27,17 @@
 
     #contact-form {
       @include v.flex-group-col;
-      align-items: flex-start;
+      @include v.border-style(v.$dark);
+      @include v.drop-shadow;
+      background-color: v.$light;
       width: 100%;
-      margin-bottom: 2rem;
+      align-items: flex-start;
+      border-radius: v.$spacing-medium;
+      padding: v.$spacing-large;
       .grid-group {
+        .flex-group-col {
+          gap: v.$spacing-small;
+        }
         width: 100%;
         grid-template-columns: 1fr;
         @include v.container-query(small) {
@@ -41,7 +48,7 @@
         }
         label {
           span {
-            color: #ee0000;
+            color: #e00;
             margin-bottom: 0.5rem;
           }
         }
@@ -49,7 +56,7 @@
         textarea {
           width: 100%;
           @include v.border-style(v.$dark);
-          padding: 0.5rem 0.5rem;
+          padding: 0.5rem;
           border-radius: v.$border-radius-small;
           &[type="text"] {
             font-size: 1rem;

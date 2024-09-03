@@ -15,11 +15,11 @@ permalink: "contact/"
 <section id="contact">
   <div class="container">
     <div class="flex-group-col">
-      <div class="flex-text">
+      <div class="flex-text fade-in">
         <p class="topper">Contact Us</p>
         <h1 class="title">Let's work together</h1>
       </div>
-      <p>
+      <p class="fade-in">
         Whether you're an established brand or are just starting out, we'd love
         to hear from you and learn about your business.
       </p>
@@ -34,41 +34,34 @@ permalink: "contact/"
 <section id="get-in-touch">
   <div class="container">
     <div class="flex-group-col">
-      <div class="flex-text">
+      <div class="flex-text fade-in">
         <p class="topper">Tell us about your project</p>
         <h2 class="title">Get in Touch</h2>
       </div>
       <form
         id="contact-form"
+        class="fade-in"
         name="Contact Form"
         method="post"
         data-netlify="true"
       >
         <div class="grid-group">
           <div class="flex-group-col">
-            <label for="name"> Full Name <span>*</span> </label>
-            <input
-              required
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Peter Parker"
-            />
+            <label for="name">Name <span>*</span> </label>
+            <input required type="text" id="name" name="name" placeholder="" />
           </div>
           <div class="flex-group-col">
-            <label for="email"> Email <span>*</span> </label>
+            <label for="email">Email <span>*</span> </label>
             <input
               required
               type="text"
               id="email"
               name="email"
-              placeholder="pparker@gmail.com"
+              placeholder=""
             />
           </div>
           <div class="flex-group-col">
-            <label for="description">
-              Project Description <span>*</span>
-            </label>
+            <label for="description">Project Description <span>*</span> </label>
             <textarea
               required
               type="text"
@@ -81,8 +74,8 @@ permalink: "contact/"
 
         <button class="btn-solid" type="submit">Send your inquiry</button>
       </form>
-      <p>or, if you prefer to contact me directly:</p>
-      <p>
+      <p class="fade-in">
+        or, if you prefer to contact me directly:<br /><br />
         <b>email: </b>
         <a href="mailto:{{client.personalEmail}}">{{client.personalEmail}}</a
         ><br />
