@@ -1,22 +1,22 @@
 /*-- -------------------------- -->
 <---          Services          -->
 <--- -------------------------- -*/
-@use "vars";
+@use "vars" as v;
 
 #services {
-  background-color: vars.$acc-lightblue;
+  background-color: v.$acc-lightblue;
   .flex-text {
     align-items: flex-start;
   }
 }
 
 #web-design {
-  background-color: vars.$acc-pink;
+  background-color: v.$acc-pink;
 }
 
 #web-dev {
-  background-color: vars.$acc-purple;
-  @include vars.container-query(medium) {
+  background-color: v.$acc-purple;
+  @include v.container-query(medium) {
     .flex-group-row {
       flex-direction: row-reverse;
     }
@@ -24,7 +24,7 @@
 }
 
 #branding {
-  background-color: vars.$acc-yellow;
+  background-color: v.$acc-yellow;
 }
 
 #services,
@@ -33,17 +33,20 @@
 #branding {
   .flex-group-row {
     align-items: flex-start;
-  }
-  .flex-group-col {
-    gap: 0.5rem;
-    align-items: flex-start;
-    flex: 2;
+    .flex-group-col {
+      gap: v.$spacing-small;
+      align-items: flex-start;
+      flex: 2;
+      .flex-text {
+        align-items: flex-start;
+      }
+    }
   }
   img {
-    @include vars.border-style(vars.$dark);
+    @include v.border-style(v.$dark);
     flex: 1;
   }
-  @include vars.container-query(medium) {
+  @include v.container-query(medium) {
     flex-direction: row;
     align-items: flex-start;
   }

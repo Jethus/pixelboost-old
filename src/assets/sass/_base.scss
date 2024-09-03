@@ -178,12 +178,7 @@ html {
   margin: 0;
   padding: 0;
   color: v.$dark;
-  overflow-x: hidden;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
+  overflow-x: clip;
 }
 
 main {

@@ -2,16 +2,7 @@ const accordionContainer = document.querySelector(".accordion");
 const accordionButtons = document.querySelectorAll(".accordion button");
 const tabContainer = document.querySelector(".tab-container");
 const tabContents = document.querySelectorAll(".tab-content");
-const preloader = document.getElementById("preloader");
-let preloaderFinished = false;
 const terminalContent = document.querySelector(".terminal .content");
-
-const triggerFadeIn = () => {
-  setTimeout(() => {
-    preloaderFinished = true;
-    document.dispatchEvent(new CustomEvent("preloaderDone"));
-  }, 250);
-};
 
 // sliding accordion
 accordionContainer.addEventListener("click", (e) => {
@@ -57,19 +48,6 @@ tabContainer.addEventListener("click", (e) => {
     });
   }
 });
-
-if (sessionStorage.getItem("preloaderSeen")) {
-  preloader.style.display = "none";
-  triggerFadeIn();
-} else {
-  preloader.querySelector("p").addEventListener("animationend", () => {
-    setTimeout(() => {
-      preloader.classList.add("slide-out");
-      // sessionStorage.setItem("preloaderSeen", "true");
-      triggerFadeIn();
-    }, 3000);
-  });
-}
 
 const scrollToBottom = (element) => {
   element.scrollTop = element.scrollHeight;

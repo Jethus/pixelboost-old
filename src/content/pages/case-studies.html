@@ -1,8 +1,11 @@
 ---
-title: "Our Work"
+title: "Case Studies"
 description: "Meta description for the page"
 preloadImg: "/assets/images/cabinets2.jpg"
-permalink: "our-work/"
+permalink: "case-studies/"
+eleventyNavigation:
+  key: Case Studies
+  order: 5
 ---
 
 {% extends "layouts/base.html" %} {% block head %} {% endblock %} {% block body
@@ -12,24 +15,30 @@ permalink: "our-work/"
 <!--                    LANDING                   -->
 <!-- ============================================ -->
 
-<section id="int-hero">
-  <h1 id="home-h">Our Projects</h1>
-  <picture>
-    <source
-      media="(max-width: 600px)"
-      srcset="/assets/images/cabinets2-m.jpg"
-    />
-    <source media="(min-width: 601px)" srcset="/assets/images/cabinets2.jpg" />
-    <img
-      aria-hidden="true"
-      decoding="async"
-      src="/assets/images/cabinets2.jpg"
-      alt="kitchen cabinets"
-      loading="eager"
-      width="2500"
-      height="1667"
-    />
-  </picture>
+<section id="intro">
+  <div class="container">
+    <div class="flex-group-col">
+      <div class="flex-text fade-in">
+        <p class="topper">About Pixelboost</p>
+        <h1 class="title">Reimagining Web Design for Small Businesses</h1>
+      </div>
+      <p class="fade-in">
+        Hello there! My name is Josh, and I started Pixelboost with a clear
+        mission: to change the game for small businesses seeking high-quality
+        web design.
+      </p>
+      <p class="fade-in">
+        I’m not only committed to making services affordable, but also to
+        building lasting partnerships where quality is assured. You deserve a
+        website that’s swift, seamless, and a true extension of your brand,
+        without the strain on your resources.
+      </p>
+      <p class="fade-in">
+        Let’s navigate the web design journey together, with transparent pricing
+        and a commitment to excellence that puts your business first.
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================ -->

@@ -27,10 +27,17 @@
 
     #contact-form {
       @include v.flex-group-col;
-      align-items: flex-start;
+      @include v.border-style(v.$dark);
+      @include v.drop-shadow;
+      background-color: v.$light;
       width: 100%;
-      margin-bottom: 2rem;
+      align-items: flex-start;
+      border-radius: v.$spacing-medium;
+      padding: v.$spacing-large;
       .grid-group {
+        .flex-group-col {
+          gap: v.$spacing-small;
+        }
         width: 100%;
         grid-template-columns: 1fr;
         @include v.container-query(small) {

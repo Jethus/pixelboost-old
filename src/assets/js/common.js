@@ -1,25 +1,7 @@
 const header = document.getElementById("header");
 const fadeInElements = document.querySelectorAll(".fade-in");
 const mobileNav = document.getElementById("nav-menu");
-
-// Utility function to initialize or wait for animations
-const initializeFadeIn = () => {
-  if (sessionStorage.getItem("preloaderSeen")) {
-    fadeInElements.forEach((element) => observer.observe(element));
-  } else {
-    document.addEventListener("preloaderDone", () => {
-      fadeInElements.forEach((element) => observer.observe(element));
-    });
-  }
-};
-// triggers "scroll" class on #header
-document.body.addEventListener("scroll", () => {
-  if (document.body.scrollTop > 0) {
-    header.classList.toggle("scrolled");
-  } else {
-    header.classList.toggle("scrolled");
-  }
-});
+let lastScrollY = 0;
 
 const observerOptions = {
   root: null, // Observe changes in the viewport
@@ -36,4 +18,36 @@ const observer = new IntersectionObserver((entries, observer) => {
   });
 }, observerOptions);
 
+// Utility function to initialize or wait for animations
+const initializeFadeIn = () => {
+  fadeInElements.forEach((element) => observer.observe(element));
+};
+
+// Throttle function to limit the rate of execution
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+};
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+  if (currentScrollY > lastScrollY) {
+    header.classList.add("scrolledDown");
+    console.log("added scrolledDown");
+  } else if (currentScrollY < lastScrollY) {
+    header.classList.remove("scrolledDown");
+    console.log("removed scrolledDown");
+  }
+  lastScrollY = currentScrollY;
+};
+
 initializeFadeIn();
+window.addEventListener("scroll", throttle(handleScroll, 50));
